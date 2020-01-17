@@ -7,10 +7,10 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.Climber;
 
-public class Climb extends CommandBase {
+public class Climb extends Command {
   /**
    * Creates a new Climb.
    */
@@ -33,7 +33,7 @@ public class Climb extends CommandBase {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
+  public void end() {
     Climber.spin(0);
   }
 
@@ -41,5 +41,10 @@ public class Climb extends CommandBase {
   @Override
   public boolean isFinished() {
     return false;
+  }
+
+  @Override
+  protected void interrupted() {
+    Climber.spin(0);
   }
 }
