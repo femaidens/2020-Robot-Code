@@ -11,4 +11,5 @@ package frc.robot;
  * Add your docs here.
  */
 public class RobotMap {
+    public static int climberPort = 0;
 }
