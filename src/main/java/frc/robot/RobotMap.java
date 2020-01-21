@@ -11,6 +11,13 @@ package frc.robot;
  * Add your docs here.
  */
 public class RobotMap {
-    public static int joyPort = 0;
-    public static int climberPort = 0;
+    public static int joyPort1 = 0;
+    public static int joyPort2 = 1;
+
+    public static int climbMotorPort = 5;
+
+    public static int servoPort = 6;
+
+    public static int limitPortB = 2;
+    public static int limitPortT = 3;
 }

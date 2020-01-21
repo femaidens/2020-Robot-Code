@@ -10,19 +10,14 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.Climb;
 
 /**
  * Add your docs here.
  */
 public class OI {
-    public static Joystick joy = new Joystick(RobotMap.joyPort);
+    public static Joystick atkJoy1 = new Joystick(RobotMap.joyPort1);
+    public static Joystick atkJoy2 = new Joystick(RobotMap.joyPort2);
 
-    public static Button climbUp = new JoystickButton(joy, 4);
-    public static Button climbDown = new JoystickButton(joy, 1);
-
-    public static void bindButtons() {
-        climbUp.whileHeld(new Climb(0.5));
-        climbDown.whileHeld(new Climb(-0.5));
+    public static void bindButtons(){    
     }
 }
