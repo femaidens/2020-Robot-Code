@@ -8,6 +8,7 @@
 package frc.robot;
 
 /**
+<<<<<<< HEAD
 * Add your docs here.
 */
 public class RobotMap {
@@ -22,4 +23,11 @@ public class RobotMap {
 
     public static int intake = 8;
     public static int lift = 9; 
+=======
+ * Add your docs here.
+ */
+public class RobotMap {
+    public static int joyPort = 0;
+    public static int climberPort = 0;
+>>>>>>> 507af922ab33ce81fe348082e50c2c3bfc315837
 }
