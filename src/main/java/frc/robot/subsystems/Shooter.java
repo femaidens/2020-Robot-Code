@@ -7,7 +7,9 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.OI;
 import frc.robot.RobotMap;
 
 import com.revrobotics.CANSparkMax;
@@ -23,16 +25,19 @@ public class Shooter extends Subsystem {
   public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
   public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
   public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
+  public static Joystick joy = new Joystick(0);
   
   public Shooter() {
   }
   
   public static void spinTurret(double speed) {
-    turret.set(speed);
+    double s = joy.getRawAxis(1);
+    turret.set(s);
   }
   
   public static void spinHood(double speed){
-    hood.set(speed);
+    double s = joy.getRawAxis(5);
+    hood.set(s);
   }
   public static void spinShooter(double speed){
     shooterNEO.set(speed);

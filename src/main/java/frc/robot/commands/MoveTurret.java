@@ -35,7 +35,6 @@ public class MoveTurret extends Command{
   @Override 
   protected void interrupted(){
     Shooter.spinTurret(0);
-    
   }
 }
 
