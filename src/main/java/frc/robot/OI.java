@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class OI {
-public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
+	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 	public void bindButtons(){
 	}
 }
