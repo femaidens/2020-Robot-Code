@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.OI;
 import frc.robot.RobotMap;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -24,7 +26,7 @@ public class Shooter extends Subsystem {
   // motors
   public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
   public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
-  public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
+  public static TalonSRX shooterNEO = new TalonSRX(RobotMap.shooterPort);
   public static Joystick joy = new Joystick(0);
   
   public Shooter() {
@@ -40,7 +42,7 @@ public class Shooter extends Subsystem {
     hood.set(s);
   }
   public static void spinShooter(double speed){
-    shooterNEO.set(speed);
+    shooterNEO.set(ControlMode.PercentOutput, speed);
   }
   
   
