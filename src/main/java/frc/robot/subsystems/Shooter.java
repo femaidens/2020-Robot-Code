@@ -45,7 +45,9 @@ public class Shooter extends Subsystem {
     shooterNEO.set(ControlMode.PercentOutput, speed);
   }
   
-  
+  public static void moveHoodToPosition(int position) {
+    
+  }
   
   @Override
   public void initDefaultCommand() {
