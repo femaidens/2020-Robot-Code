@@ -30,16 +30,16 @@ public class ColorPanelStage3 extends CommandBase {
   @Override
   public void execute() {
     currentColor = ColorPanel.gregory.getColor();
-    if(t == "R"){
+    if(t.equals("R")){
       target = ColorMatch.makeColor(0.143, 0.427, 0.439);
     }
-    else if(t == "B"){
+    else if(t.equals("B")){
       target = ColorMatch.makeColor(0.561, 0.232, 0.114);
     }
-    else if(t == "Y"){
+    else if(t.equals("Y")){
       target = ColorMatch.makeColor(0.197, 0.561, 0.240);
     }
-    else if(t == "G"){
+    else if(t.equals("G")){
       target = ColorMatch.makeColor(0.361, 0.524, 0.113);
     }
     ColorPanel.spin.set(0.5);
