@@ -32,15 +32,7 @@ public class DriveStraight extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() { //double currentLeftTicks = Drivetrain.leftEncoder.getPosition() - initialLeftTicks;
-    if (Drivetrain.leftEncoder.getPosition() > Drivetrain.rightEncoder.getPosition()) {
-      Drivetrain.frontLeft.set(0.5);
-      Drivetrain.middleLeft.set(0.5);
-      Drivetrain.rearLeft.set(0.5);
-		} else if (Drivetrain.rightEncoder.getPosition() > Drivetrain.leftEncoder.getPosition()) {
-      Drivetrain.frontRight.set(0.5);
-      Drivetrain.middleRight.set(0.5);
-      Drivetrain.rearRight.set(0.5);
-    }
+    Robot.drivetrain.driveStraight();
     double currentLeftTicks = Drivetrain.leftEncoder.getPosition() - initialLeftTicks;
     double currentRightTicks = Drivetrain.rightEncoder.getPosition() - initialRightTicks;
   }

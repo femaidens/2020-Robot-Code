@@ -7,6 +7,8 @@
 
 package frc.robot.commands;
 
+import frc.robot.Robot;
+import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class DriveTeleop extends CommandBase {
@@ -14,7 +16,7 @@ public class DriveTeleop extends CommandBase {
    * Creates a new DriveTeleop.
    */
   public DriveTeleop() {
-    requires(Robot.drivetrain);
+    addRequirements(Robot.drivetrain);
   }
 
   // Called when the command is initially scheduled.
@@ -25,13 +27,13 @@ public class DriveTeleop extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    DriveTrain.driveTeleop();
+    Robot.drivetrain.driveTeleop();
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    DriveTrain.driveAuton(0.0, 0.0);
+    Robot.drivetrain.driveAuton(0.0, 0.0);
   }
 
   // Returns true when the command should end.

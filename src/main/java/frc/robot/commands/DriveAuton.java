@@ -6,6 +6,8 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands;
+
+import frc.robot.Robot;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
@@ -18,7 +20,7 @@ public class DriveAuton extends CommandBase {
    * Creates a new DriveAuton.
    */
   public DriveAuton(double l, double r) {
-    requires(Robot.drivetrain);
+    addRequirements(Robot.drivetrain);
     leftSpeed = l;
     rightSpeed = r;
   }
