@@ -24,12 +24,6 @@ public class ColorPanelStage3 extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-  }
-
-  // Called every time the scheduler runs while the command is scheduled.
-  @Override
-  public void execute() {
-    currentColor = ColorPanel.gregory.getColor();
     if(t.equals("R")){
       target = ColorMatch.makeColor(0.143, 0.427, 0.439);
     }
@@ -42,6 +36,12 @@ public class ColorPanelStage3 extends CommandBase {
     else if(t.equals("G")){
       target = ColorMatch.makeColor(0.361, 0.524, 0.113);
     }
+  }
+
+  // Called every time the scheduler runs while the command is scheduled.
+  @Override
+  public void execute() {
+    currentColor = ColorPanel.gregory.getColor();
     ColorPanel.spin.set(0.5);
   }
 
