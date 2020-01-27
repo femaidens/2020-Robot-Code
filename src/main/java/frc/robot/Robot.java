@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -26,10 +27,11 @@ public class Robot extends TimedRobot {
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
+ // private final I2C.Port i2cPort = I2C.Port.kOnboard;
 
   public OI oi;
-  public Hopper hopper;
-  public Intake intake;
+  //public Hopper hopper;
+ // public Intake intake;
   public Shooter shooter;
 
   /**
@@ -40,8 +42,8 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     oi = new OI();
     oi.bindButtons();
-    hopper = new Hopper(0);
-    intake = new Intake();
+    //hopper = new Hopper(0);
+    //intake = new Intake();
     shooter = new Shooter();
 
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
@@ -59,7 +61,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-    
   }
 
   /**
