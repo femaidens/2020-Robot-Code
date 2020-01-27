@@ -22,14 +22,20 @@ public class Intake extends Subsystem {
 	public static CANSparkMax lift = new CANSparkMax(RobotMap.lift, MotorType.kBrushless);
 
 
-//methods
+  //methods
+  // motor for lift
+  // servo? for lift *
 
-public static void spinOut() {
-		intake.set(-1.0);
-	}
+  public static void spinIn() {
+    intake.set(1.0);
+  }
 
-public static void liftIntake(){
-}
+  public static void spinOut() {
+    intake.set(-1.0);
+  }
+
+  public static void liftIntake(){
+  }
 
 
 

@@ -5,6 +5,11 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+// accelerometer
+// abs endc for turret
+// abs enc for hood
+// limelight on turret, not hood
+
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -44,8 +49,6 @@ public class Shooter extends Subsystem {
   public static void spinShooter(double speed){
     shooterNEO.set(ControlMode.PercentOutput, speed);
   }
-  
-  
   
   @Override
   public void initDefaultCommand() {

@@ -21,8 +21,6 @@ public class Hopper extends Subsystem {
 	// belt talons
 public static CANSparkMax belt1 = new CANSparkMax(RobotMap.beltPort1, MotorType.kBrushless);
 public static CANSparkMax belt2 = new CANSparkMax(RobotMap.beltPort2, MotorType.kBrushless);
-public static CANSparkMax belt3 = new CANSparkMax(RobotMap.beltPort3, MotorType.kBrushless);
-public static CANSparkMax belt4 = new CANSparkMax(RobotMap.beltPort4, MotorType.kBrushless);
 	
 // time of flight sensors--DO LATER
 
