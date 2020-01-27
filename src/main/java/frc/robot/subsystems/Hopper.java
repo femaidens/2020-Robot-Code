@@ -34,16 +34,12 @@ public static CANSparkMax belt2 = new CANSparkMax(RobotMap.beltPort2, MotorType.
 public static void spinIn() {
 		belt1.set(1.0);
 		belt2.set(1.0);
-		belt3.set(1.0);
-		belt4.set(1.0);
 	}
 	
 	
 	public static void spinStop() {
 		belt1.set(0);
 		belt2.set(0);
-		belt3.set(0);
-		belt4.set(0);
 	}
 
 	public static void increaseCellCount() {

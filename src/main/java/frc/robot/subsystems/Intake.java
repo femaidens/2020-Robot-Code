@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -19,26 +20,55 @@ import frc.robot.RobotMap;
 //Intake Subsystem -- DO LATER WHEN WE KNOW WHAT’S HAPPENING
 public class Intake extends Subsystem {
 	public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
-	public static CANSparkMax lift = new CANSparkMax(RobotMap.lift, MotorType.kBrushless);
-
-
-  //methods
-  // motor for lift
-  // servo? for lift *
+  public static CANSparkMax lift = new CANSparkMax(RobotMap.lift, MotorType.kBrushless);
+  public static CANEncoder liftEncoder = lift.getEncoder();
 
   public static void spinIn() {
     intake.set(1.0);
+    double currentTicks = liftEncoder.getPosition();
+    // change 5 with testing
+    while (liftEncoder.getPosition() - currentTicks < 5) {
+      lift.set(0.5);
+    }
+    while (liftEncoder.getPosition() - currentTicks > 0) {
+      lift.set(-0.5);
+    }
+  }
+
+  public static void spinStop() {
+    intake.set(0);
+    lift.set(0);
   }
 
   public static void spinOut() {
     intake.set(-1.0);
+    double currentTicks = liftEncoder.getPosition();
+    // change 5 with testing
+    while (liftEncoder.getPosition() - currentTicks < 5) {
+      lift.set(0.5);
+    }
+    while (liftEncoder.getPosition() - currentTicks > 0) {
+      lift.set(-0.5);
+    }
   }
 
   public static void liftIntake(){
+    double currentTicks = liftEncoder.getPosition();
+    // change 30 with testing
+    while (liftEncoder.getPosition() - currentTicks < 30) {
+      lift.set(0.5);
+    }
+    lift.set(0);
   }
 
-
-
+  public static void lowerIntake(){
+    double currentTicks = liftEncoder.getPosition();
+    // change 30 with testing
+    while (liftEncoder.getPosition() - currentTicks < -30) {
+      lift.set(-0.5);
+    }
+    lift.set(0);
+  }
 
   @Override
   public void initDefaultCommand() {
