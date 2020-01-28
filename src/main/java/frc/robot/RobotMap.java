@@ -7,19 +7,14 @@
 
 package frc.robot;
 
-/* docs */
+public class RobotMap {
+    public static int joyPort1 = 0;
+    public static int joyPort2 = 1;
 
-public class RobotMap{
-	/* joysticks */
-	public static int driveJoyPort = 0;
-	public static int joyPort2 = 1;
-	/*gyro*/
-	public static int gyroPort = 2;
-	/*talons*/
-	public static int rearRightPort = 3;
-	public static int rearLeftPort = 4;
-	public static int frontRightPort = 5;
-	public static int frontLeftPort = 6;
-	public static int middleLeftPort = 7;
-	public static int middleRightPort = 8;
+    public static int climbMotorPort = 5;
+
+    public static int servoPort = 6;
+
+    public static int limitPortB = 2;
+    public static int limitPortT = 3;
 }

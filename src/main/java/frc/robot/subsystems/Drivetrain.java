@@ -4,7 +4,7 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
+/*
 package frc.robot.subsystems;
 
 import com.revrobotics.CANEncoder;
@@ -21,9 +21,9 @@ import frc.robot.RobotMap;
 public class Drivetrain extends SubsystemBase {
   /**
    * Creates a new Drivetrain.
-   */
+   
   // instantiation 
-	public static CANSparkMax frontLeft = new CANSparkMax(RobotMap.frontLeftPort, MotorType.kBrushless);
+  	public static CANSparkMax frontLeft = new CANSparkMax(RobotMap.frontLeftPort, MotorType.kBrushless);
 	public static CANSparkMax frontRight = new CANSparkMax(RobotMap.frontRightPort, MotorType.kBrushless);
 	public static CANSparkMax rearLeft = new CANSparkMax(RobotMap.rearLeftPort, MotorType.kBrushless);
 	public static CANSparkMax rearRight = new CANSparkMax(RobotMap.rearRightPort, MotorType.kBrushless);
@@ -97,3 +97,4 @@ public class Drivetrain extends SubsystemBase {
 	  }
   }
 }
+*/
