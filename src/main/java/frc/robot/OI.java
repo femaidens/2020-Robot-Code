@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.CellIn;
 import frc.robot.commands.SpinShooterNEO;
+import frc.robot.subsystems.Shooter;
 
 /**
  * Add your docs here.
@@ -23,7 +24,6 @@ public class OI {
 
     public void bindButtons() {
         //intakeCell.whileHeld(new CellIn(.5));
-        shoot.whileHeld(new SpinShooterNEO(1
-        ));
+        shoot.toggleWhenPressed(new SpinShooterNEO(Shooter.getSpeed()));
     }
 }

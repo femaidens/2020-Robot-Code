@@ -37,6 +37,8 @@ public class Shooter extends Subsystem {
   public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
   public static Joystick joy = new Joystick(0);
   
+  public static double speed;
+  
   public Shooter() {
     shooterPIDController.setP(0.1);
     shooterPIDController.setI(0);
@@ -44,6 +46,7 @@ public class Shooter extends Subsystem {
     shooterPIDController.setIZone(0);
     shooterPIDController.setFF(0);
     shooterPIDController.setOutputRange(-1, 1);
+    speed = 0.5;
   }
   
   public static void spinTurret(double speed) {
@@ -52,12 +55,21 @@ public class Shooter extends Subsystem {
   }
   
   public static void spinHood(double speed){
-    // double s = joy.getRawAxis(5);
-    hood.set(speed);
+    double s = joy.getRawAxis(1);
+    hood.set(s);
   }
-  public static void spinShooter(double speed){
+  public static void spinShooter(double speed) {
     // on the off chance speed is in RPM, this code mightttttt not work
-    shooterPIDController.setReference(speed, ControlType.kVelocity);
+    // shooterPIDController.setReference(speed, ControlType.kVelocity);
+    shooterNEO.set(speed);
+  }
+
+  public static void setSpeed(double s) {
+    speed = s;
+  }
+
+  public static double getSpeed() {
+    return speed;
   }
   
   @Override
