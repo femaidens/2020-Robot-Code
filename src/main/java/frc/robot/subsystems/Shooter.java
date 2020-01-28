@@ -12,6 +12,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.OI;
@@ -37,6 +38,10 @@ public class Shooter extends Subsystem {
   public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
   public static Joystick joy = new Joystick(0);
   
+  public static DigitalInput limitSwitchLeft = new DigitalInput(RobotMap.limitSwitchPort2);
+  public static DigitalInput limitSwitchRight = new DigitalInput(RobotMap.limitSwitchPort3);
+  
+  
   public static double speed;
   
   public Shooter() {
@@ -48,6 +53,17 @@ public class Shooter extends Subsystem {
     shooterPIDController.setOutputRange(-1, 1);
     speed = 0.5;
   }
+  
+  public static void shooterLimitSwitch(){
+    while(limitSwitchLeft.get() == true){
+      turret.set(-0.5);
+    }
+    while(limitSwitchRight.get() == true){
+      turret.set(0.5);
+    }
+    turret.set(0.0);
+  }
+  
   
   public static void spinTurret(double speed) {
     // double s = joy.getRawAxis(1);
@@ -63,11 +79,11 @@ public class Shooter extends Subsystem {
     // shooterPIDController.setReference(speed, ControlType.kVelocity);
     shooterNEO.set(speed);
   }
-
+  
   public static void setSpeed(double s) {
     speed = s;
   }
-
+  
   public static double getSpeed() {
     return speed;
   }

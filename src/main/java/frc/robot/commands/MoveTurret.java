@@ -22,7 +22,7 @@ public class MoveTurret extends Command{
   @Override
   protected void execute(){
     Shooter.spinTurret(speed);
-    
+    Shooter.shooterLimitSwitch();
   }
   @Override
   protected boolean isFinished(){

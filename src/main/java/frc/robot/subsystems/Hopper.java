@@ -14,16 +14,16 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
 /**
- * Add your docs here.
- */
+* Add your docs here.
+*/
 //Hopper Subsystem
 public class Hopper extends Subsystem {
 	// belt talons
-public static CANSparkMax belt1 = new CANSparkMax(RobotMap.beltPort1, MotorType.kBrushless);
-public static CANSparkMax belt2 = new CANSparkMax(RobotMap.beltPort2, MotorType.kBrushless);
+	public static CANSparkMax belt1 = new CANSparkMax(RobotMap.beltPort1, MotorType.kBrushless);
+	public static CANSparkMax belt2 = new CANSparkMax(RobotMap.beltPort2, MotorType.kBrushless);
 	
-// time of flight sensors--DO LATER
-
+	// time of flight sensors--DO LATER
+	
 	public static int numCells;
 	
 	public Hopper(int initialCellCount) {
@@ -31,7 +31,7 @@ public static CANSparkMax belt2 = new CANSparkMax(RobotMap.beltPort2, MotorType.
 	}
 	
 	// methods
-public static void spinIn() {
+	public static void spinIn() {
 		belt1.set(1.0);
 		belt2.set(1.0);
 	}
@@ -41,7 +41,7 @@ public static void spinIn() {
 		belt1.set(0);
 		belt2.set(0);
 	}
-
+	
 	public static void increaseCellCount() {
 		numCells++;
 	}
@@ -49,16 +49,16 @@ public static void spinIn() {
 	public static void decreaseCellCount() {
 		numCells--;
 	}
-
+	
 	public static int currentCellCount() {
 		return numCells;
 	}
-
-
-
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-  }
+	
+	
+	
+	@Override
+	public void initDefaultCommand() {
+		// Set the default command for a subsystem here.
+		// setDefaultCommand(new MySpecialCommand());
+	}
 }

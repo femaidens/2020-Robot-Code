@@ -11,18 +11,32 @@ import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
 /**
- * Add your docs here.
- */
+* Add your docs here.
+*/
 //Intake Subsystem -- DO LATER WHEN WE KNOW WHAT’S HAPPENING
 public class Intake extends Subsystem {
-	public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
+  public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
   public static CANSparkMax lift = new CANSparkMax(RobotMap.lift, MotorType.kBrushless);
   public static CANEncoder liftEncoder = lift.getEncoder();
-
+  
+  public static DigitalInput limitSwitchIntake = new DigitalInput(RobotMap.limitSwitchPort1);
+  
+  public Intake(){
+  }
+  
+  
+  public static void intakeLimitSwitch (){
+    while(limitSwitchIntake.get() == true){
+      lift.set(0.5);
+    }
+    lift.set(0.0);
+  }
+  
   public static void spinIn() {
     intake.set(1.0);
     double currentTicks = liftEncoder.getPosition();
@@ -34,12 +48,13 @@ public class Intake extends Subsystem {
       lift.set(-0.5);
     }
   }
-
+  
   public static void spinStop() {
     intake.set(0);
     lift.set(0);
   }
-
+  
+  
   public static void spinOut() {
     intake.set(-1.0);
     double currentTicks = liftEncoder.getPosition();
@@ -51,7 +66,7 @@ public class Intake extends Subsystem {
       lift.set(-0.5);
     }
   }
-
+  
   public static void liftIntake(){
     double currentTicks = liftEncoder.getPosition();
     // change 30 with testing
@@ -60,7 +75,7 @@ public class Intake extends Subsystem {
     }
     lift.set(0);
   }
-
+  
   public static void lowerIntake(){
     double currentTicks = liftEncoder.getPosition();
     // change 30 with testing
@@ -69,10 +84,10 @@ public class Intake extends Subsystem {
     }
     lift.set(0);
   }
-
+  
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
-}
+}  

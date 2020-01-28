@@ -19,7 +19,10 @@ public class RobotMap {
     public static int beltPort2 = 4;
     public static int beltPort3 = 5;
     public static int beltPort4 = 6; 
-
+    
     public static int intake = 8;
-    public static int lift = 9; 
+    public static int lift = 9;
+    public static int limitSwitchPort1 = 1;
+    public static int limitSwitchPort2 = 2; 
+    public static int limitSwitchPort3 = 3; 
 }
