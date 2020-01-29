@@ -20,6 +20,7 @@ import frc.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.revrobotics.CANEncoder;
 import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
@@ -32,9 +33,10 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 // Shooter subsystem
 public class Shooter extends Subsystem {
   // motors
-  public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
-  public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
+  //public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
+  //public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
   public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
+  public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
   public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
   public static Joystick joy = new Joystick(0);
   
@@ -53,7 +55,7 @@ public class Shooter extends Subsystem {
     shooterPIDController.setOutputRange(-1, 1);
     speed = 0.5;
   }
-  
+  /*
   public static void shooterLimitSwitch(){
     while(limitSwitchLeft.get() == true){
       turret.set(-0.5);
@@ -69,11 +71,11 @@ public class Shooter extends Subsystem {
     // double s = joy.getRawAxis(1);
     turret.set(speed);
   }
-  
-  public static void spinHood(double speed){
+  */
+  /*public static void spinHood(double speed){
     double s = joy.getRawAxis(1);
     hood.set(s);
-  }
+  }*/
   public static void spinShooter(double speed) {
     // on the off chance speed is in RPM, this code mightttttt not work
     // shooterPIDController.setReference(speed, ControlType.kVelocity);

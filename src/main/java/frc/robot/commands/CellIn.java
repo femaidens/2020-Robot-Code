@@ -30,8 +30,8 @@ public class CellIn extends Command{
   
   @Override
   protected void execute(){
-    Intake.spinIn();
-    Hopper.spinIn();
+    /*Intake.spinIn();
+    Hopper.spinIn();*/
   }
   
   
@@ -49,20 +49,20 @@ public class CellIn extends Command{
       
   @Override 
   protected void end(){
-    double currentTime = timer.get();
+    /*double currentTime = timer.get();
     Hopper.spinStop();
     while (timer.get() - currentTime < 0.5) {
       Intake.spinOut();
     }
     Intake.spinStop();
-    timer.stop();
+    timer.stop();*/
   }
         
   @Override 
   protected void interrupted(){
-    Intake.spinStop();
+    /*Intake.spinStop();
     Hopper.spinStop();
-    timer.stop();
+    timer.stop();*/
   }
 }
       

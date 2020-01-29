@@ -21,8 +21,8 @@ public class MoveTurret extends Command{
   }
   @Override
   protected void execute(){
-    Shooter.spinTurret(speed);
-    Shooter.shooterLimitSwitch();
+    //Shooter.spinTurret(speed);
+    //Shooter.shooterLimitSwitch();
   }
   @Override
   protected boolean isFinished(){
@@ -30,11 +30,11 @@ public class MoveTurret extends Command{
   }
   @Override 
   protected void end(){
-    Shooter.spinTurret(0);
+    //Shooter.spinTurret(0);
   }
   @Override 
   protected void interrupted(){
-    Shooter.spinTurret(0);
+    //Shooter.spinTurret(0);
   }
 }
 

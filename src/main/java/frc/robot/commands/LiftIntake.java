@@ -24,8 +24,8 @@ public class LiftIntake extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Intake.liftIntake();
-    Intake.intakeLimitSwitch();
+    /*Intake.liftIntake();
+    Intake.intakeLimitSwitch();*/
   }
   
   // Make this return true when this Command no longer needs to run execute()
@@ -43,6 +43,6 @@ public class LiftIntake extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Intake.lowerIntake();
+    //Intake.lowerIntake();
   }
 }

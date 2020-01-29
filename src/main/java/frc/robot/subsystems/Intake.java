@@ -20,7 +20,7 @@ import frc.robot.RobotMap;
 */
 //Intake Subsystem -- DO LATER WHEN WE KNOW WHAT’S HAPPENING
 public class Intake extends Subsystem {
-  public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
+  /*public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
   public static CANSparkMax lift = new CANSparkMax(RobotMap.lift, MotorType.kBrushless);
   public static CANEncoder liftEncoder = lift.getEncoder();
   
@@ -83,7 +83,7 @@ public class Intake extends Subsystem {
     }
     lift.set(0);
   }
-  
+  */
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

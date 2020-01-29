@@ -24,6 +24,6 @@ public class OI {
 
     public void bindButtons() {
         //intakeCell.whileHeld(new CellIn(.5));
-        shoot.toggleWhenPressed(new SpinShooterNEO(Shooter.getSpeed()));
+        shoot.whenPressed(new SpinShooterNEO(Shooter.getSpeed()));
     }
 }
