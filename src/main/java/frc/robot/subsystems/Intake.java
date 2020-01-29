@@ -29,7 +29,6 @@ public class Intake extends Subsystem {
   public Intake(){
   }
   
-  
   public static void intakeLimitSwitch (){
     while(limitSwitchIntake.get() == true){
       lift.set(0.5);
