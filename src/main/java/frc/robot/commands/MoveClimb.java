@@ -16,8 +16,8 @@ import frc.robot.subsystems.Test;
 public class MoveClimb extends Command{
 
   public MoveClimb(){
-    //requires(Robot.climb);
-    requires(Robot.test);
+    //requires(Robot.climb)//;
+    //requires(Robot.test);
 	}
 
 	protected void initialize(){

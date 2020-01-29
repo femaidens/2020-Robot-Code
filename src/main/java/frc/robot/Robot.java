@@ -50,6 +50,7 @@ public class Robot extends TimedRobot {
     test = new Test();
     oi = new OI();
     OI.bindButtons();
+    System.out.println("Please");
   }
 
   /**
