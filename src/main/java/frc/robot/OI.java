@@ -18,11 +18,11 @@ import frc.robot.subsystems.Shooter;
  * Add your docs here.
  */
 public class OI {
-    Joystick joy = new Joystick(0);
+    public static Joystick joy = new Joystick(0);
    // Button intakeCell = new JoystickButton(joy, 1);
-    Button shoot = new JoystickButton(joy, 2);
+   public static Button shoot = new JoystickButton(joy, 2);
 
-    public void bindButtons() {
+    public static void bindButtons() {
         //intakeCell.whileHeld(new CellIn(.5));
         shoot.whenPressed(new SpinShooterNEO(Shooter.getSpeed()));
     }
