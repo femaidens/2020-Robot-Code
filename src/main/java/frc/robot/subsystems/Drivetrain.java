@@ -12,7 +12,9 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Robot;
@@ -29,6 +31,8 @@ public class Drivetrain extends SubsystemBase {
 	public static CANSparkMax rearRight = new CANSparkMax(RobotMap.rearRightPort, MotorType.kBrushless);
 	public static CANSparkMax middleLeft = new CANSparkMax(RobotMap.middleLeftPort, MotorType.kBrushless);
 	public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
+
+	public static DoubleSolenoid gearShift = new DoubleSolenoid(RobotMap.solChannel1, RobotMap.solChannel2);
 
 	public static Joystick joy = new Joystick(RobotMap.driveJoyPort);
 
@@ -96,4 +100,13 @@ public class Drivetrain extends SubsystemBase {
 		}
 	  }
   }
+public static void shiftToSpeed(){
+	gearShift.set(DoubleSolenoid.Value.kForward);
+}
+public static void shiftToPower(){
+	gearShift.set(DoubleSolenoid.Value.kReverse);
+}
+public Value get() {
+	return gearShift.get(); 
+}
 }
