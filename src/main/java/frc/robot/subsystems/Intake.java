@@ -7,6 +7,8 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -14,6 +16,8 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+
+
 
 /**
 * Add your docs here.
@@ -84,6 +88,24 @@ public class Intake extends Subsystem {
     lift.set(0);
   }
   */
+
+public static TalonSRX intake = new TalonSRX(RobotMap.intake);
+
+public static void spinIn() {
+  intake.set(ControlMode.PercentOutput, 1.0);
+  
+}
+
+public static void spinStop() {
+  intake.set(ControlMode.PercentOutput, 0.0);
+}
+
+
+public static void spinOut() {
+  intake.set(ControlMode.PercentOutput, -1.0);
+  
+}
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

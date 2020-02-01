@@ -32,8 +32,8 @@ public class Robot extends TimedRobot {
 
   public OI oi;
   //public Hopper hopper;
- // public Intake intake;
-  public static Shooter shooter;
+  public Intake intake;
+  //public static Shooter shooter;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -44,14 +44,14 @@ public class Robot extends TimedRobot {
     oi = new OI();
     OI.bindButtons();
     //hopper = new Hopper(0);
-    //intake = new Intake();
-    shooter = new Shooter();
+    intake = new Intake();
+    //shooter = new Shooter();
 
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
-    SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
-    SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
+    //SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
+    //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
   }
 
   /**
@@ -64,8 +64,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-    SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
-    SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
+    //SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
+    //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
   }
 
   /**
