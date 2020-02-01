@@ -10,14 +10,23 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
+<<<<<<< HEAD
 //import frc.robot.subsystems.Climb;
+=======
+import frc.robot.subsystems.Climb;
+>>>>>>> f1bf8631ec753c1b952d1fe4703204f8b90d2fb1
 import frc.robot.subsystems.Test;
 
 public class MoveClimb extends Command{
 
   public MoveClimb(){
+<<<<<<< HEAD
     //requires(Robot.climb);
     requires(Robot.test);
+=======
+    //requires(Robot.climb)//;
+    //requires(Robot.test);
+>>>>>>> f1bf8631ec753c1b952d1fe4703204f8b90d2fb1
 	}
 
 	protected void initialize(){
