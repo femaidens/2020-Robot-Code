@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
+/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
@@ -7,39 +7,41 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.subsystems.*;
-import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class DriveTeleop extends CommandBase {
-  /**
-   * Creates a new DriveTeleop.
-   */
+public class DriveTeleop extends Command {
   public DriveTeleop() {
-    addRequirements(Robot.drivetrain);
+    // Use requires() here to declare subsystem dependencies
+    requires(Robot.drivetrain);
   }
 
-  // Called when the command is initially scheduled.
+  // Called just before this Command runs the first time
   @Override
-  public void initialize() {
-    System.out.println("Drive Teleop Com");
+  protected void initialize() {
   }
 
-  // Called every time the scheduler runs while the command is scheduled.
+  // Called repeatedly when this Command is scheduled to run
   @Override
-  public void execute() {
+  protected void execute() {
     Robot.drivetrain.driveTeleop();
   }
 
-  // Called once the command ends or is interrupted.
+  // Make this return true when this Command no longer needs to run execute()
   @Override
-  public void end(boolean interrupted) {
+  protected boolean isFinished() {
+    return false;
+  }
+
+  // Called once after isFinished returns true
+  @Override
+  protected void end() {
     Robot.drivetrain.driveAuton(0.0, 0.0);
   }
 
-  // Returns true when the command should end.
+  // Called when another command which requires one or more of the same
+  // subsystems is scheduled to run
   @Override
-  public boolean isFinished() {
-    return false;
+  protected void interrupted() {
   }
 }

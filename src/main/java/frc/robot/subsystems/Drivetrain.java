@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
+/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
@@ -15,19 +15,17 @@ import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveTeleop;
 
-public class Drivetrain extends SubsystemBase {
-  /**
-   * Creates a new Drivetrain.
-   */
-  // instantiation 
-	public static CANSparkMax frontLeft = new CANSparkMax(RobotMap.frontLeftPort, MotorType.kBrushless);
+/**
+ * Add your docs here.
+ */
+public class Drivetrain extends Subsystem {
+  public static CANSparkMax frontLeft = new CANSparkMax(RobotMap.frontLeftPort, MotorType.kBrushless);
 	public static CANSparkMax frontRight = new CANSparkMax(RobotMap.frontRightPort, MotorType.kBrushless);
 	public static CANSparkMax rearLeft = new CANSparkMax(RobotMap.rearLeftPort, MotorType.kBrushless);
 	public static CANSparkMax rearRight = new CANSparkMax(RobotMap.rearRightPort, MotorType.kBrushless);
@@ -41,15 +39,15 @@ public class Drivetrain extends SubsystemBase {
 	public static CANEncoder rightEncoder = frontRight.getEncoder();
 	public static CANEncoder leftEncoder = frontLeft.getEncoder();
 
+  public Drivetrain(){
+  }
 	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
-
-	public Drivetrain() {
-	}
-
-	
-	public static void driveTeleop() {
-		System.out.println("Drive Method");
-		double leftJoy = joy.getRawAxis(1);
+  @Override
+  public void initDefaultCommand() {
+    //setDefaultCommand(new DriveTeleop());
+  }
+  public static void driveTeleop() {
+		double leftJoy = -joy.getRawAxis(1);
 		double rightJoy = joy.getRawAxis(5);
 		frontRight.set(rightJoy);
 		rearRight.set(rightJoy);
@@ -66,8 +64,8 @@ public class Drivetrain extends SubsystemBase {
 		rearLeft.set(leftSpeed);
 		middleLeft.set(leftSpeed);
 		middleRight.set(rightSpeed);
-		SmartDashboard.putNumber("Left motor speed", Robot.drivetrain.leftEncoder.getPosition());
-		SmartDashboard.putNumber("Right motor speed", Robot.drivetrain.rightEncoder.getPosition());
+		SmartDashboard.putNumber("Left motor speed", leftEncoder.getPosition());
+		SmartDashboard.putNumber("Right motor speed", rightEncoder.getPosition());
 	}
 
 	public static void driveStraight() {
