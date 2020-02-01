@@ -10,10 +10,12 @@ package frc.robot;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.I2C.Port;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import frc.robot.subsystems.Drivetrain;
-import frc.robot.subsystems.Climb;
+//import frc.robot.subsystems.Climb;
+import frc.robot.subsystems.Test;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -31,7 +33,8 @@ public class Robot extends TimedRobot {
   public static int deviceAddress = 0; 
   public static I2C i2c = new I2C(Port.kOnboard, deviceAddress);
 
-  public static Climb climb;
+  //public static Climb climb;
+  public static Test test;
   public OI oi;
 
   /**
@@ -44,9 +47,11 @@ public class Robot extends TimedRobot {
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
     //drivetrain = new Drivetrain();
-    climb = new Climb();
+    //climb = new Climb();
+    test = new Test();
     oi = new OI();
     OI.bindButtons();
+    System.out.println("Robot init");
   }
 
   /**
@@ -100,6 +105,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    Scheduler.getInstance().run();
   }
 
   /**
