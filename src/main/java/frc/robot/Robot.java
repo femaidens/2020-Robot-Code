@@ -64,7 +64,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-    Shooter.setSpeed(SmartDashboard.getNumber("Shooter Speed", Shooter.getSpeed()));
+    SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
     SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
   }
 
