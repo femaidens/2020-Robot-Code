@@ -19,6 +19,8 @@ import frc.robot.OI;
 import frc.robot.RobotMap;
 import frc.robot.commands.MoveHood;
 
+import java.lang.module.ModuleDescriptor.Requires;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANEncoder;
@@ -35,7 +37,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 public class Shooter extends Subsystem {
   // motors
   //public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
-  //public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
+  public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
   public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
   public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
   public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
@@ -73,10 +75,10 @@ public class Shooter extends Subsystem {
     turret.set(speed);
   }
   */
-  /*public static void spinHood(double speed){
+  public static void spinHood(double speed){
     double s = joy.getRawAxis(1);
-    hood.set(s);
-  }*/
+    hood.set(s * 0.01);
+  }
   public static void spinShooter(double speed) {
     // on the off chance speed is in RPM, this code mightttttt not work
     // shooterPIDController.setReference(speed, ControlType.kVelocity);

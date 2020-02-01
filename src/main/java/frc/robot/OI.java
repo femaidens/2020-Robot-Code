@@ -23,6 +23,7 @@ public class OI {
    public static Button shoot = new JoystickButton(joy, 2);
 
     public static void bindButtons() {
+        System.out.println("binding");
         //intakeCell.whileHeld(new CellIn(.5));
         shoot.whenPressed(new SpinShooterNEO(Shooter.getSpeed()));
     }

@@ -33,7 +33,7 @@ public class Robot extends TimedRobot {
   public OI oi;
   //public Hopper hopper;
  // public Intake intake;
-  public Shooter shooter;
+  public static Shooter shooter;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -42,7 +42,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     oi = new OI();
-    oi.bindButtons();
+    OI.bindButtons();
     //hopper = new Hopper(0);
     //intake = new Intake();
     shooter = new Shooter();
