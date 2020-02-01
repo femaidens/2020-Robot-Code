@@ -35,7 +35,7 @@ public class Drivetrain extends SubsystemBase {
 	public static CANEncoder rightEncoder = frontRight.getEncoder();
 	public static CANEncoder leftEncoder = frontLeft.getEncoder();
 
-	public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
+	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
 
 	public Drivetrain() {
 	
@@ -77,7 +77,7 @@ public class Drivetrain extends SubsystemBase {
 	 }
   }
 
-  public static void turnDegrees(double angle){
+  /*public static void turnDegrees(double angle){
 	if (angle > 180) {
 		angle = -(360 - angle);
 	  }
@@ -96,4 +96,5 @@ public class Drivetrain extends SubsystemBase {
 		}
 	  }
   }
+  */
 }
