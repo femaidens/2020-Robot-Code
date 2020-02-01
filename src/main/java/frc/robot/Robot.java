@@ -30,6 +30,7 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static Drivetrain drivetrain;
+  public static OI m_oi;
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
@@ -40,6 +41,8 @@ public class Robot extends TimedRobot {
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
     drivetrain = new Drivetrain();
+    m_oi = new OI();
+    m_oi.bindButtons();
     //drivetrain.setDefaultCommand(new DriveTeleop());
   }
 
@@ -53,7 +56,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-    CommandScheduler.getInstance().run();
   }
 
   /**
@@ -95,6 +97,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    Scheduler.getInstance().run();
   }
 
   /**

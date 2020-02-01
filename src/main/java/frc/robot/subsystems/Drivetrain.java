@@ -44,7 +44,7 @@ public class Drivetrain extends Subsystem {
 	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
   @Override
   public void initDefaultCommand() {
-    //setDefaultCommand(new DriveTeleop());
+   // setDefaultCommand(new DriveTeleop());
   }
   public static void driveTeleop() {
 		double leftJoy = -joy.getRawAxis(1);
@@ -69,14 +69,14 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public static void driveStraight() {
-		if (Drivetrain.leftEncoder.getPosition() > Drivetrain.rightEncoder.getPosition()) {
-			Drivetrain.frontLeft.set(0.5);
-			Drivetrain.middleLeft.set(0.5);
-			Drivetrain.rearLeft.set(0.5);
-		} else if (Drivetrain.rightEncoder.getPosition() > Drivetrain.leftEncoder.getPosition()) {
-			Drivetrain.frontRight.set(0.5);
-			Drivetrain.middleRight.set(0.5);
-			Drivetrain.rearRight.set(0.5);
+		if (Math.abs(Drivetrain.leftEncoder.getPosition()) > Math.abs(Drivetrain.rightEncoder.getPosition())) {
+			Drivetrain.frontLeft.set(0.1);
+			Drivetrain.middleLeft.set(0.1);
+			Drivetrain.rearLeft.set(0.1);
+		} else if (Math.abs(Drivetrain.rightEncoder.getPosition()) > Math.abs(Drivetrain.leftEncoder.getPosition())) {
+			Drivetrain.frontRight.set(-0.1);
+			Drivetrain.middleRight.set(-0.1);
+			Drivetrain.rearRight.set(-0.1);
 		}
 	}
 

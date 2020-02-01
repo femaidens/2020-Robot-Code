@@ -43,5 +43,6 @@ public class DriveTeleop extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Robot.drivetrain.driveAuton(0.0, 0.0);
   }
 }

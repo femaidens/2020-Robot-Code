@@ -14,6 +14,9 @@ import frc.robot.commands.DriveStraight;
 
 public class OI {
 	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
+	public static Button driveStr = new JoystickButton(driveJoystick, 1);
+
 	public void bindButtons(){
+		driveStr.whenPressed(new DriveStraight());
 	}
 }
