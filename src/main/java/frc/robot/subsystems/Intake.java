@@ -24,15 +24,16 @@ import frc.robot.RobotMap;
 */
 //Intake Subsystem -- DO LATER WHEN WE KNOW WHAT’S HAPPENING
 public class Intake extends Subsystem {
-  /*public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
-  public static CANSparkMax lift = new CANSparkMax(RobotMap.lift, MotorType.kBrushless);
-  public static CANEncoder liftEncoder = lift.getEncoder();
+  //public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
+  //public static CANSparkMax lift = new CANSparkMax(RobotMap.lift, MotorType.kBrushless);
+  public static TalonSRX lift = new TalonSRX(RobotMap.lift);
+ /* public static CANEncoder liftEncoder = lift.getEncoder();
   
   public static DigitalInput limitSwitchIntake = new DigitalInput(RobotMap.limitSwitchPort1);
-  
+  */
   public Intake(){
   }
-  
+  /*
   public static void intakeLimitSwitch (){
     while(limitSwitchIntake.get() == true){
       lift.set(0.5);
@@ -89,7 +90,19 @@ public class Intake extends Subsystem {
   }
   */
 
-public static TalonSRX intake = new TalonSRX(RobotMap.intake);
+  public static void liftIntake(){
+    lift.set(ControlMode.PercentOutput, 0.1);
+  }
+
+  public static void lowerIntake(){
+    lift.set(ControlMode.PercentOutput, -0.5);
+  }
+
+  public static void stopIntake(){
+    lift.set(ControlMode.PercentOutput, 0.0);
+  }
+
+/*public static TalonSRX intake = new TalonSRX(RobotMap.intake);
 
 public static void spinIn() {
   intake.set(ControlMode.PercentOutput, 1.0);
@@ -105,6 +118,7 @@ public static void spinOut() {
   intake.set(ControlMode.PercentOutput, -1.0);
   
 }
+*/
 
   @Override
   public void initDefaultCommand() {
