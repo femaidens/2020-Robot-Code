@@ -91,11 +91,11 @@ public class Intake extends Subsystem {
   */
 
   public static void liftIntake(){
-    lift.set(ControlMode.PercentOutput, 0.1);
+    lift.set(ControlMode.PercentOutput, 0.15);
   }
 
   public static void lowerIntake(){
-    lift.set(ControlMode.PercentOutput, -0.5);
+    lift.set(ControlMode.PercentOutput, -0.15);
   }
 
   public static void stopIntake(){

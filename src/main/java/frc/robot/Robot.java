@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -46,6 +48,7 @@ public class Robot extends TimedRobot {
     //hopper = new Hopper(0);
     intake = new Intake();
     //shooter = new Shooter();
+    Intake.lift.setNeutralMode(NeutralMode.Brake);
 
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
