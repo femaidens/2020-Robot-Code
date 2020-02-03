@@ -32,6 +32,7 @@ public class Drivetrain extends Subsystem {
 	public static CANSparkMax middleLeft = new CANSparkMax(RobotMap.middleLeftPort, MotorType.kBrushless);
 	public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
 
+	public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
 	//public static DoubleSolenoid gearShift = new DoubleSolenoid(RobotMap.solChannel1, RobotMap.solChannel2);
 
 	public static Joystick joy = new Joystick(RobotMap.driveJoyPort);
@@ -44,7 +45,7 @@ public class Drivetrain extends Subsystem {
 	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
   @Override
   public void initDefaultCommand() {
-   // setDefaultCommand(new DriveTeleop());
+   		//setDefaultCommand(new DriveTeleop());
   }
   public static void driveTeleop() {
 		double leftJoy = -joy.getRawAxis(1);
@@ -68,16 +69,52 @@ public class Drivetrain extends Subsystem {
 		SmartDashboard.putNumber("Right motor speed", rightEncoder.getPosition());
 	}
 
-	public static void driveStraight() {
-		if (Math.abs(Drivetrain.leftEncoder.getPosition()) > Math.abs(Drivetrain.rightEncoder.getPosition())) {
-			Drivetrain.frontLeft.set(0.1);
-			Drivetrain.middleLeft.set(0.1);
-			Drivetrain.rearLeft.set(0.1);
-		} else if (Math.abs(Drivetrain.rightEncoder.getPosition()) > Math.abs(Drivetrain.leftEncoder.getPosition())) {
-			Drivetrain.frontRight.set(-0.1);
-			Drivetrain.middleRight.set(-0.1);
-			Drivetrain.rearRight.set(-0.1);
+	public static void driveStraight(double speed) {
+		if(gyro.getAngle() == 0){
+			Drivetrain.frontLeft.set(speed);
+			Drivetrain.middleLeft.set(speed);
+			Drivetrain.rearLeft.set(speed);
+			Drivetrain.frontRight.set(speed);
+			Drivetrain.middleRight.set(speed);
+			Drivetrain.rearRight.set(speed);
+		}else if(gyro.getAngle() > 180){
+			Drivetrain.frontRight.set(speed);
+			Drivetrain.middleRight.set(speed);
+			Drivetrain.rearRight.set(speed);
+			Drivetrain.frontLeft.set(speed+0.05);
+			Drivetrain.middleLeft.set(speed+0.05);
+			Drivetrain.rearLeft.set(speed+0.05);
+		}else {
+			Drivetrain.frontLeft.set(speed);
+			Drivetrain.middleLeft.set(speed);
+			Drivetrain.rearLeft.set(speed);
+			Drivetrain.frontRight.set(speed+0.05);
+			Drivetrain.middleRight.set(speed+0.05);
+			Drivetrain.rearRight.set(speed+0.05);
 		}
+		/*if (Math.abs(Drivetrain.leftEncoder.getPosition()) > Math.abs(Drivetrain.rightEncoder.getPosition())) {
+			Drivetrain.frontLeft.set(speed);
+			Drivetrain.middleLeft.set(speed);
+			Drivetrain.rearLeft.set(speed);
+			Drivetrain.frontRight.set(-(speed+0.05));
+			Drivetrain.middleRight.set(-(speed+0.05));
+			Drivetrain.rearRight.set(-(speed+0.05));
+		} else if (Math.abs(Drivetrain.rightEncoder.getPosition()) > Math.abs(Drivetrain.leftEncoder.getPosition())) {
+			Drivetrain.frontRight.set(-speed);
+			Drivetrain.middleRight.set(-speed);
+			Drivetrain.rearRight.set(-speed);
+			Drivetrain.frontLeft.set(speed+0.05);
+			Drivetrain.middleLeft.set(speed+0.05);
+			Drivetrain.rearLeft.set(speed+0.05);
+		} 
+		else{
+			Drivetrain.frontLeft.set(speed + 0.01);
+			Drivetrain.middleLeft.set(speed + 0.01);
+			Drivetrain.rearLeft.set(speed + 0.01);
+			Drivetrain.frontRight.set(-(speed));
+			Drivetrain.middleRight.set(-(speed));
+			Drivetrain.rearRight.set(-(speed));
+		}*/
 	}
 
 	public static void turnDegrees(final double angle) {

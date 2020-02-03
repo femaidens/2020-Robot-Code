@@ -34,7 +34,7 @@ public class DriveStraight extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.drivetrain.driveStraight();
+    Robot.drivetrain.driveStraight(0.4);
     System.out.println("Right: " + Math.abs(Drivetrain.rightEncoder.getPosition()));
     System.out.println("Left: " + Math.abs(Drivetrain.leftEncoder.getPosition()));
 
@@ -45,7 +45,7 @@ public class DriveStraight extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Math.abs(Drivetrain.leftEncoder.getPosition()) == 50 && Math.abs(Drivetrain.rightEncoder.getPosition()) == 50;
+    return Math.abs(Drivetrain.leftEncoder.getPosition()) > 350 && Math.abs(Drivetrain.rightEncoder.getPosition()) > 350;
   }
 
   // Called once after isFinished returns true
