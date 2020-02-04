@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
+/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
@@ -7,28 +7,24 @@
 
 package frc.robot.commands;
 import frc.robot.subsystems.*;
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj.command.Command;
 
-public class ColorPanelStage2 extends CommandBase {
-    edu.wpi.first.wpilibj.util.Color startColor = ColorPanel.gregory.getColor();
+public class ColorPanelStage2 extends Command {
+  edu.wpi.first.wpilibj.util.Color startColor = ColorPanel.gregory.getColor();
     edu.wpi.first.wpilibj.util.Color currentColor = ColorPanel.gregory.getColor();
     int count = 0;
-  /**
-   * Creates a new ColorPanelStage2.
-   */
+  
   public ColorPanelStage2() {
-    // Use addRequirements() here to declare subsystem dependencies.
   }
 
-  // Called when the command is initially scheduled.
+  // Called just before this Command runs the first time
   @Override
-  public void initialize() {
-    
+  protected void initialize() {
   }
 
-  // Called every time the scheduler runs while the command is scheduled.
+  // Called repeatedly when this Command is scheduled to run
   @Override
-  public void execute() {
+  protected void execute() {
     currentColor = ColorPanel.gregory.getColor();
     if(currentColor == startColor){
       count++;
@@ -36,20 +32,25 @@ public class ColorPanelStage2 extends CommandBase {
     ColorPanel.spin.set(0.5);
   }
 
-  // Called once the command ends or is interrupted.
+  // Make this return true when this Command no longer needs to run execute()
   @Override
-  public void end(boolean interrupted) {
-    ColorPanel.spin.set(0.0);
-  }
-
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
+  protected boolean isFinished() {
     if(ColorPanel.gregory.getColor() == startColor && count == 7){
       return true;
     }
     else{
       return false;
     }
+  }
+
+  // Called once after isFinished returns true
+  @Override
+  protected void end() {
+  }
+
+  // Called when another command which requires one or more of the same
+  // subsystems is scheduled to run
+  @Override
+  protected void interrupted() {
   }
 }

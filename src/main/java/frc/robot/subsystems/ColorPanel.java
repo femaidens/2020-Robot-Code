@@ -33,7 +33,7 @@ public class ColorPanel extends SubsystemBase {
      SmartDashboard.putString("Print statements", "default command");
  }
 */
-
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

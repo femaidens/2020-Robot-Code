@@ -1,29 +1,27 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
+/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands;
-
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj2.command.CommandBase;
 import com.revrobotics.ColorMatch;
+import edu.wpi.first.wpilibj.command.Command;
 
-public class ColorPanelStage3 extends CommandBase {
+public class ColorPanelStage3 extends Command {
   String t = DriverStation.getInstance().getGameSpecificMessage();
   edu.wpi.first.wpilibj.util.Color currentColor = ColorPanel.gregory.getColor();
   edu.wpi.first.wpilibj.util.Color target;
 
   public ColorPanelStage3() {
-    // Use addRequirements() here to declare subsystem dependencies.
   }
 
-  // Called when the command is initially scheduled.
+  // Called just before this Command runs the first time
   @Override
-  public void initialize() {
+  protected void initialize() {
     if(t.equals("R")){
       target = ColorMatch.makeColor(0.143, 0.427, 0.439);
     }
@@ -38,27 +36,33 @@ public class ColorPanelStage3 extends CommandBase {
     }
   }
 
-  // Called every time the scheduler runs while the command is scheduled.
+  // Called repeatedly when this Command is scheduled to run
   @Override
-  public void execute() {
+  protected void execute() {
     currentColor = ColorPanel.gregory.getColor();
     ColorPanel.spin.set(0.5);
   }
 
-  // Called once the command ends or is interrupted.
+  // Make this return true when this Command no longer needs to run execute()
   @Override
-  public void end(final boolean interrupted) {
-    ColorPanel.spin.set(0.0);
-  }
-
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
+  protected boolean isFinished() {
     if(ColorPanel.gregory.getColor() == target){
 			return true;
 		}
 		else{
 			return false;
 		}
+  }
+
+  // Called once after isFinished returns true
+  @Override
+  protected void end() {
+    ColorPanel.spin.set(0.0);
+  }
+
+  // Called when another command which requires one or more of the same
+  // subsystems is scheduled to run
+  @Override
+  protected void interrupted() {
   }
 }
