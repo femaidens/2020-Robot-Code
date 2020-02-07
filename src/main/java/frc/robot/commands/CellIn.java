@@ -32,18 +32,21 @@ public class CellIn extends Command{
   protected void execute(){
     /*Intake.spinIn();
     Hopper.spinIn();*/
+
+    //Intake.spinIn();
   }
   
   
   @Override 
   protected boolean isFinished(){
-    if (numTimesCalled > 1) {
+   /* if (numTimesCalled > 1) {
       // teleop
       return false;
     } else {
       // auton
       return (time >= timer.get());
-    }
+    } */
+    return false;
   }
       
       
@@ -56,6 +59,8 @@ public class CellIn extends Command{
     }
     Intake.spinStop();
     timer.stop();*/
+
+    //Intake.spinStop();
   }
         
   @Override 
@@ -63,6 +68,8 @@ public class CellIn extends Command{
     /*Intake.spinStop();
     Hopper.spinStop();
     timer.stop();*/
+
+    //Intake.spinStop();
   }
 }
       

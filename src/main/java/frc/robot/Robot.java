@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -34,8 +36,8 @@ public class Robot extends TimedRobot {
 
   public OI oi;
   //public Hopper hopper;
- // public Intake intake;
-  public Shooter shooter;
+  //public Intake intake;
+  public static Shooter shooter;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -44,7 +46,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     oi = new OI();
-    oi.bindButtons();
+    OI.bindButtons();
     //hopper = new Hopper(0);
     //intake = new Intake();
     shooter = new Shooter();

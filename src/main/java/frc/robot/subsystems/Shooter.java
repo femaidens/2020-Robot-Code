@@ -19,6 +19,8 @@ import frc.robot.OI;
 import frc.robot.RobotMap;
 import frc.robot.commands.MoveHood;
 
+import java.lang.module.ModuleDescriptor.Requires;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANEncoder;
@@ -56,27 +58,28 @@ public class Shooter extends Subsystem {
     shooterPIDController.setOutputRange(-1, 1);*/
     speed = 0.5;
   }
-  /*
+  
   public static void shooterLimitSwitch(){
-    while(limitSwitchLeft.get() == true){
+    /*while(limitSwitchLeft.get() == true){
       turret.set(-0.5);
     }
     while(limitSwitchRight.get() == true){
       turret.set(0.5);
     }
-    turret.set(0.0);
+    turret.set(0.0);*/
   }
   
-  */
+  
   public static void spinTurret(double speed) {
     // double s = joy.getRawAxis(1);
     turret.set(speed);
   }
   
-  /*public static void spinHood(double speed){
+  public static void spinHood(double speed){
     double s = joy.getRawAxis(1);
-    hood.set(s);
-  }*/
+    //hood.set(s);
+  }
+
   public static void spinShooter(double s) {
     // on the off chance speed is in RPM, this code mightttttt not work
     // shooterPIDController.setReference(speed, ControlType.kVelocity);
@@ -93,6 +96,6 @@ public class Shooter extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new MoveHood(0.5));
+    //setDefaultCommand(new MoveHood(0.5));
   }
 }

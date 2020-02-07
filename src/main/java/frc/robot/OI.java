@@ -11,6 +11,9 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.CellIn;
+import frc.robot.commands.CellOut;
+import frc.robot.commands.LiftIntake;
+import frc.robot.commands.LowerIntake;
 import frc.robot.commands.SpinShooterNEO;
 import frc.robot.subsystems.Shooter;
 
@@ -19,12 +22,17 @@ import frc.robot.subsystems.Shooter;
  */
 public class OI {
     public static Joystick joy = new Joystick(0);
-   // Button intakeCell = new JoystickButton(joy, 1);
-   public static Button shoot = new JoystickButton(joy, 2);
+    //public static Button liftLift = new JoystickButton(joy, 1);
+  // public static Button lowerLift = new JoystickButton(joy, 3);
+   	public static Button shoot = new JoystickButton(joy, 2);
 
     public static void bindButtons() {
-        //intakeCell.whileHeld(new CellIn(.5));
+        System.out.println("binding");
+        //liftLift.whileHeld(new LiftIntake());
+        //lowerLift.whileHeld(new LowerIntake());
+
         System.out.println("Binded");
-        shoot.whenPressed(new SpinShooterNEO(0.5));
+	   shoot.whileHeld(new SpinShooterNEO(-1));
+
     }
 }
