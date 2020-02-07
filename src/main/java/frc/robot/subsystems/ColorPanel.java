@@ -23,7 +23,7 @@ public class ColorPanel extends SubsystemBase {
    */
   public ColorPanel() {
   }
-  public static CANSparkMax spin = new CANSparkMax(RobotMap.colorPanelPort, MotorType.kBrushless);
+  //public static CANSparkMax spin = new CANSparkMax(RobotMap.colorPanelPort, MotorType.kBrushless);
   public static I2C.Port i2cPort = I2C.Port.kOnboard;
   public static ColorSensorV3 gregory = new ColorSensorV3(i2cPort);
   

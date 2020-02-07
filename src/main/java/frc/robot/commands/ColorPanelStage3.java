@@ -40,7 +40,7 @@ public class ColorPanelStage3 extends Command {
   @Override
   protected void execute() {
     currentColor = ColorPanel.gregory.getColor();
-    ColorPanel.spin.set(0.5);
+    //ColorPanel.spin.set(0.5);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -57,7 +57,7 @@ public class ColorPanelStage3 extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    ColorPanel.spin.set(0.0);
+    //ColorPanel.spin.set(0.0);
   }
 
   // Called when another command which requires one or more of the same

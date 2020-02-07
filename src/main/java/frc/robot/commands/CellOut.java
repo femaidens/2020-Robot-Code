@@ -6,15 +6,14 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands;
-import frc.robot.subsystems.*;
-import edu.wpi.first.wpilibj.command.Command;
 
-public class ColorPanelStage2 extends Command {
-  edu.wpi.first.wpilibj.util.Color startColor = ColorPanel.gregory.getColor();
-    edu.wpi.first.wpilibj.util.Color currentColor = ColorPanel.gregory.getColor();
-    int count = 0;
-  
-  public ColorPanelStage2() {
+import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.subsystems.Intake;
+
+public class CellOut extends Command {
+  public CellOut() {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
   }
 
   // Called just before this Command runs the first time
@@ -25,32 +24,25 @@ public class ColorPanelStage2 extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    currentColor = ColorPanel.gregory.getColor();
-    if(currentColor == startColor){
-      count++;
-    }
-    //ColorPanel.spin.set(0.5);
+   // Intake.spinOut();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if(ColorPanel.gregory.getColor() == startColor && count == 7){
-      return true;
-    }
-    else{
-      return false;
-    }
+    return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
+   // Intake.spinStop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+   // Intake.spinStop();
   }
 }
