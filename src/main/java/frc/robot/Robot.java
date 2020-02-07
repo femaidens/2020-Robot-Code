@@ -34,8 +34,8 @@ public class Robot extends TimedRobot {
 
   public OI oi;
   //public Hopper hopper;
-  public Intake intake;
-  //public static Shooter shooter;
+  //public Intake intake;
+  public static Shooter shooter;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -46,9 +46,9 @@ public class Robot extends TimedRobot {
     oi = new OI();
     OI.bindButtons();
     //hopper = new Hopper(0);
-    intake = new Intake();
-    //shooter = new Shooter();
-    Intake.lift.setNeutralMode(NeutralMode.Brake);
+    //intake = new Intake();
+    shooter = new Shooter();
+    //Intake.lift.setNeutralMode(NeutralMode.Brake);
 
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);

@@ -14,7 +14,7 @@ import frc.robot.subsystems.Shooter;
 public class MoveHood extends Command {
 	double speed;
 public MoveHood (double s) {
-	//requires(Robot.shooter);
+	requires(Robot.shooter);
 	speed = s;
 }
 @Override
@@ -36,14 +36,14 @@ return false;
 // Called once after isFinished returns true
 @Override
 protected void end() {
-	//Shooter.spinHood(0);
+	Shooter.spinHood(0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 @Override
 protected void interrupted() {
-	//Shooter.spinHood(0);
+	Shooter.spinHood(0);
 }
 }
 
