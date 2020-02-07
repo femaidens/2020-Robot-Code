@@ -22,4 +22,6 @@ public class RobotMap{
 	public static int frontLeftPort = 6;
 	public static int middleLeftPort = 7;
 	public static int middleRightPort = 8;
+	public static int solChannel1 = 9;
+	public static int solChannel2 = 10;
 }
