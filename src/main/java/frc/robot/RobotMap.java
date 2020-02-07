@@ -23,4 +23,6 @@ public class RobotMap {
     public static int limitSwitchPort1 = 1;
     public static int limitSwitchPort2 = 2; 
     public static int limitSwitchPort3 = 5; 
+
+    public static int absoluteEncoder = 9;
 }

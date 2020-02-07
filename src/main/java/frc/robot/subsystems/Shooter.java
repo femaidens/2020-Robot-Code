@@ -28,6 +28,7 @@ import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import edu.wpi.first.wpilibj.DutyCycleEncoder;
 
 /**
 * Add your docs here.
@@ -42,6 +43,7 @@ public class Shooter extends Subsystem {
   //public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
   //public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
   public static Joystick joy = new Joystick(0);
+  public static DutyCycleEncoder absoluteEncoder = new DutyCycleEncoder(9);
   
   //public static DigitalInput limitSwitchLeft = new DigitalInput(RobotMap.limitSwitchPort2);
   //public static DigitalInput limitSwitchRight = new DigitalInput(RobotMap.limitSwitchPort3);
@@ -75,10 +77,22 @@ public class Shooter extends Subsystem {
     turret.set(speed);
   }
   */
+
   public static void spinHood(double speed){
     double s = joy.getRawAxis(1);
     hood.set(s);
   }
+
+
+  public static void adjustHood(int desiredTicks) {
+		while (absoluteEncoder.getDistance() != desiredTicks){
+			if(absoluteEncoder.getDistance() < desiredTicks){
+				hood.set(0.1);
+			} else {
+				hood.set(-0.1);
+			}
+		}
+}
 
   public static void spinShooter(double s) {
     // on the off chance speed is in RPM, this code mightttttt not work
