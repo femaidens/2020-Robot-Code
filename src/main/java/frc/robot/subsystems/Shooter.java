@@ -40,13 +40,13 @@ public class Shooter extends Subsystem {
   //public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
   public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
   public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
-  //public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
+  public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
   //public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
   public static Joystick joy = new Joystick(0);
   public static DutyCycleEncoder absoluteEncoder = new DutyCycleEncoder(9);
   
   //public static DigitalInput limitSwitchLeft = new DigitalInput(RobotMap.limitSwitchPort2);
-  //public static DigitalInput limitSwitchRight = new DigitalInput(RobotMap.limitSwitchPort3);
+ // public static DigitalInput limitSwitchRight = new DigitalInput(RobotMap.limitSwitchPort3);
   
   
   public static double speed;
@@ -58,29 +58,30 @@ public class Shooter extends Subsystem {
     shooterPIDController.setIZone(0);
     shooterPIDController.setFF(0);
     shooterPIDController.setOutputRange(-1, 1);*/
-    speed = 0.5;
+    speed = 1;
   }
-  /*
+  
   public static void shooterLimitSwitch(){
-    while(limitSwitchLeft.get() == true){
+    /*while(limitSwitchLeft.get() == true){
       turret.set(-0.5);
     }
     while(limitSwitchRight.get() == true){
       turret.set(0.5);
     }
-    turret.set(0.0);
+    turret.set(0.0);*/
   }
   
   
-  public static void spinTurret(double speed) {
+  /*public static void spinTurret(double speed) {
     // double s = joy.getRawAxis(1);
     turret.set(speed);
+<<<<<<< HEAD
   }
   */
 
   public static void spinHood(double speed){
     double s = joy.getRawAxis(1);
-    hood.set(s);
+    //hood.set(s);
   }
 
 
@@ -98,7 +99,7 @@ public class Shooter extends Subsystem {
     // on the off chance speed is in RPM, this code mightttttt not work
     // shooterPIDController.setReference(speed, ControlType.kVelocity);
     speed = s;
-    shooterNEO.set(speed);
+    //shooterNEO.set(speed);
     System.out.println("speed set");
   }
   
@@ -110,6 +111,6 @@ public class Shooter extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new MoveHood(0.5));
+    //setDefaultCommand(new MoveHood(0.5));
   }
 }
