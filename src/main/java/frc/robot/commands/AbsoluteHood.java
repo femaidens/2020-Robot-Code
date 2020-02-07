@@ -3,8 +3,12 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.Shooter;
 
+
 public class AbsoluteHood extends Command {
-  public AbsoluteHood() {
+
+  public int ticks;
+  public AbsoluteHood(int desiredTicks) {
+    ticks = desiredTicks;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -17,7 +21,9 @@ public class AbsoluteHood extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Shooter.adjustHood();
+    Shooter.adjustHood(ticks);
+    
+
     
   }
   

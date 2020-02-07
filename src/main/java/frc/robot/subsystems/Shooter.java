@@ -85,7 +85,7 @@ public class Shooter extends Subsystem {
   }
 
 
-  public static void adjustHood(int desiredTicks) {
+  public static void adjustHood(int desiredTicks) { 
 		while (absoluteEncoder.getDistance() != desiredTicks){
 			if(absoluteEncoder.getDistance() < desiredTicks){
 				hood.set(0.1);
