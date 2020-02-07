@@ -1,53 +1,67 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
+/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands;
-
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.subsystems.Drivetrain;
 
-public class DriveStraight extends CommandBase {
-  /**
-   * Creates a new DriveStraight.
-   */
-  double initialRightTicks;
-  double initialLeftTicks;
+public class DriveStraight extends Command {
+  public double initialRightTicks;
+  public double initialLeftTicks;
+  public double currentLeftTicks, currentRightTicks;
   public DriveStraight() {
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.drivetrain);
+    requires(Robot.drivetrain);
   }
 
-  // Called when the command is initially scheduled.
+  // Called just before this Command runs the first time
   @Override
-  public void initialize() {
-    initialRightTicks = Drivetrain.rightEncoder.getPosition();
-		initialLeftTicks = Drivetrain.leftEncoder.getPosition();
+  protected void initialize() {
+    /*initialRightTicks = Drivetrain.rightEncoder.getPosition();
+    initialLeftTicks = Drivetrain.leftEncoder.getPosition();
+    System.out.println("Initialized");
+    System.out.println(currentLeftTicks);
+    System.out.println(currentRightTicks);
+    */
+    Drivetrain.rightEncoder.setPosition(0.0);
+    Drivetrain.leftEncoder.setPosition(0.0);
   }
 
-  // Called every time the scheduler runs while the command is scheduled.
+  // Called repeatedly when this Command is scheduled to run
   @Override
-  public void execute() { //double currentLeftTicks = Drivetrain.leftEncoder.getPosition() - initialLeftTicks;
-    Robot.drivetrain.driveStraight();
-    double currentLeftTicks = Drivetrain.leftEncoder.getPosition() - initialLeftTicks;
-    double currentRightTicks = Drivetrain.rightEncoder.getPosition() - initialRightTicks;
+  protected void execute() {
+    Robot.drivetrain.driveStraight(0.4);
+    System.out.println("Right: " + Math.abs(Drivetrain.rightEncoder.getPosition()));
+    System.out.println("Left: " + Math.abs(Drivetrain.leftEncoder.getPosition()));
+
+    //currentLeftTicks = Drivetrain.leftEncoder.getPosition() - initialLeftTicks;
+    //currentRightTicks = Drivetrain.rightEncoder.getPosition() - initialRightTicks;
   }
 
-  // Called once the command ends or is interrupted.
+  // Make this return true when this Command no longer needs to run execute()
   @Override
-  public void end(boolean interrupted) {
+  protected boolean isFinished() {
+    return Math.abs(Drivetrain.leftEncoder.getPosition()) > 350 && Math.abs(Drivetrain.rightEncoder.getPosition()) > 350;
+  }
+
+  // Called once after isFinished returns true
+  @Override
+  protected void end() {
     Drivetrain.driveAuton(0, 0);
-    initialRightTicks = Drivetrain.rightEncoder.getPosition();
-		initialLeftTicks = Drivetrain.leftEncoder.getPosition();
+    /*initialRightTicks = Drivetrain.rightEncoder.getPosition();
+		initialLeftTicks = Drivetrain.leftEncoder.getPosition();*/
   }
 
-  // Returns true when the command should end.
+  // Called when another command which requires one or more of the same
+  // subsystems is scheduled to run
   @Override
-  public boolean isFinished() {
-    return false;
+  protected void interrupted() {
+    Drivetrain.driveAuton(0, 0);
+    /*initialRightTicks = Drivetrain.rightEncoder.getPosition();
+		initialLeftTicks = Drivetrain.leftEncoder.getPosition();*/
   }
 }
