@@ -27,7 +27,7 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static Shooter shooter;
-  public static Limelight limelight;
+  //public static Limelight limelight;
   
 
   /**
@@ -42,7 +42,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
     SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
     shooter = new Shooter();
-    limelight = new Limelight();
+    //limelight = new Limelight();
   }
 
   /**
