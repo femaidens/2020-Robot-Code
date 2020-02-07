@@ -39,7 +39,7 @@ public class Shooter extends Subsystem {
   //public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
   public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
   public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
-  //public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
+  public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
   //public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
   public static Joystick joy = new Joystick(0);
   
@@ -56,7 +56,7 @@ public class Shooter extends Subsystem {
     shooterPIDController.setIZone(0);
     shooterPIDController.setFF(0);
     shooterPIDController.setOutputRange(-1, 1);*/
-    speed = 0.5;
+    speed = 1;
   }
   /*
   public static void shooterLimitSwitch(){
