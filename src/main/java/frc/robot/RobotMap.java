@@ -7,20 +7,23 @@
 
 package frc.robot;
 
-/**
-* Add your docs here.
-*/
-public class RobotMap {
-    public static int turretPort = 7;
-    public static int hoodPort = 13;
-    public static int shooterPort = 15; 
-    
-    public static int beltPort1 = 3;
-    public static int beltPort2 = 4;
-    
-    public static int intake = 8;
-    public static int lift = 7;
-    public static int limitSwitchPort1 = 1;
-    public static int limitSwitchPort2 = 2; 
-    public static int limitSwitchPort3 = 5; 
+import edu.wpi.first.wpilibj.AnalogInput;
+
+/* docs */
+
+public class RobotMap{
+	/* joysticks */
+	public static int driveJoyPort = 0;
+	//public static int joyPort2 = 1;
+	/*gyro*/
+	//public static int gyroPort = 2;
+	/*talons*/
+	public static int turretPort = 7;
+	public static int rearRightPort = 11;
+	public static int rearLeftPort = 1;
+	public static int frontRightPort = 12;
+	public static int frontLeftPort = 4;
+	public static int middleLeftPort = 2;
+	public static int middleRightPort = 14;
+	public static int gyroPort = 6;
 }
