@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class ColorPanelStage3 extends Command {
   String t = DriverStation.getInstance().getGameSpecificMessage();
-  edu.wpi.first.wpilibj.util.Color currentColor = ColorPanel.gregory.getColor();
+  //edu.wpi.first.wpilibj.util.Color currentColor = ColorPanel.gregory.getColor();
   edu.wpi.first.wpilibj.util.Color target;
 
   public ColorPanelStage3() {
@@ -39,19 +39,20 @@ public class ColorPanelStage3 extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    currentColor = ColorPanel.gregory.getColor();
+    //currentColor = ColorPanel.gregory.getColor();
     //ColorPanel.spin.set(0.5);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if(ColorPanel.gregory.getColor() == target){
+    /*if(ColorPanel.gregory.getColor() == target){
 			return true;
 		}
 		else{
 			return false;
-		}
+    }*/
+    return false;
   }
 
   // Called once after isFinished returns true

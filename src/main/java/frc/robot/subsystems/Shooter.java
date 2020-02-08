@@ -75,7 +75,6 @@ public class Shooter extends Subsystem {
   /*public static void spinTurret(double speed) {
     // double s = joy.getRawAxis(1);
     turret.set(speed);
-<<<<<<< HEAD
   }
   */
 
