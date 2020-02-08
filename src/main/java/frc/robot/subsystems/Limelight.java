@@ -20,12 +20,16 @@ public class Limelight extends Subsystem {
   }
   
   public static boolean objectSighted(){
-    if (tv.getDouble(0.0) == 1) return true;
+    if (tv.getDouble(0.0) == 1){
+      return true;
+    }
     return false;
    }  
   
   public static double getTx(){
-    if(objectSighted()) return tx.getDouble(0.0);
+    if(objectSighted()){
+      return tx.getDouble(0.0);
+    }
     return 0;
   }
 

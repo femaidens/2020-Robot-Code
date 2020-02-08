@@ -16,20 +16,20 @@ public class AlignTurret_PID extends Command {
 	private static final double KI = 0.0;
 	private static final double KD = 0.0;
 
-public static double speed;
+  public static double speed;
 
-private static double min_error = 0.1;
-private static double min_command = 0.0;
-static double current_error = 0.0; 
-static double previous_error = 0.0;
-static double integral = 0.0;
-static double derivative = 0.0;
-static double adjust = 0.0;
-static double time = 0.1;
+  private static double min_error = 0.1;
+  private static double min_command = 0.0;
+  static double current_error = 0.0; 
+  static double previous_error = 0.0; 
+  static double integral = 0.0;
+  static double derivative = 0.0;
+  static double adjust = 0.0;
+  static double time = 0.1;
 
-public AlignTurret_PID(double s){
-  speed = s;
-}
+  public AlignTurret_PID(double s){
+    speed = s;
+  }
 
 
   // Called just before this Command runs the first time
@@ -42,7 +42,7 @@ public AlignTurret_PID(double s){
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(!Robot.limelight.objectSighted()){
+    /*if(!Robot.limelight.objectSighted()){
       return;
     }
     previous_error = current_error;
@@ -64,7 +64,8 @@ public AlignTurret_PID(double s){
       Thread.sleep((long)(time*1000));
     }
     catch(InterruptedException e){
-    }	
+    }	*/
+    Shooter.spinTurret(0.01);
   }
 
   // Make this return true when this Command no longer needs to run execute()

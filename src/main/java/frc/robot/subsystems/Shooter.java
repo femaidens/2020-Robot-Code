@@ -41,7 +41,6 @@ public class Shooter extends Subsystem {
   //public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
  // public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
   //public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
-  public static Joystick joy = new Joystick(0);
   
   //public static DigitalInput limitSwitchLeft = new DigitalInput(RobotMap.limitSwitchPort2);
  // public static DigitalInput limitSwitchRight = new DigitalInput(RobotMap.limitSwitchPort3);
@@ -76,7 +75,7 @@ public class Shooter extends Subsystem {
   }
   
   public static void spinHood(double speed){
-    double s = joy.getRawAxis(1);
+    double s = OI.joy.getRawAxis(1);
     //hood.set(s);
   }
 
