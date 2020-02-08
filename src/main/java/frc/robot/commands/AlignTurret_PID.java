@@ -44,26 +44,27 @@ public AlignTurret_PID(double s){
   protected void execute() {
     if(!Robot.limelight.objectSighted()){
       return;
-     }
-       previous_error = current_error;
-       current_error = Robot.limelight.getTx();
-       integral = (current_error+previous_error)/2*(time);
-           derivative = (current_error-previous_error)/time;
-           adjust = KP*current_error + KI*integral + KD*derivative;
+    }
+    previous_error = current_error;
+    current_error = Robot.limelight.getTx();
+    integral = (current_error+previous_error)/2*(time);
+    derivative = (current_error-previous_error)/time;
+    adjust = KP*current_error + KI*integral + KD*derivative;
      
-           if (current_error > min_error){
-     adjust += min_command;
-     }
-           else if (current_error < -min_error){
-     adjust -= min_command;
-       }
-           Shooter.spinTurret(speed + adjust);
+    if (current_error > min_error){
+      adjust += min_command;
+    }
+    else if (current_error < -min_error){
+      adjust -= min_command;
+    }
+    
+    Shooter.spinTurret(speed + adjust);
      
-           try {
-             Thread.sleep((long)(time*1000));
-           }
-     catch(InterruptedException e){
-           }	
+    try {
+      Thread.sleep((long)(time*1000));
+    }
+    catch(InterruptedException e){
+    }	
   }
 
   // Make this return true when this Command no longer needs to run execute()
