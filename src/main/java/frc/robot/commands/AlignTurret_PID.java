@@ -65,7 +65,7 @@ public class AlignTurret_PID extends Command {
     }
     catch(InterruptedException e){
     }	*/
-    Shooter.spinTurret(0.01);
+    Shooter.spinTurret(speed);
   }
 
   // Make this return true when this Command no longer needs to run execute()
