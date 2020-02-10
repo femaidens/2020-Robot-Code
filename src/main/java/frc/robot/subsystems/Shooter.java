@@ -58,7 +58,6 @@ public class Shooter extends Subsystem {
     shooterPIDController.setIZone(0);
     shooterPIDController.setFF(0.000015);
     shooterPIDController.setOutputRange(-1, 1);
-    speed = 1;
   }
   
   public static void shooterLimitSwitch(){
@@ -96,8 +95,8 @@ public class Shooter extends Subsystem {
 
   public static void spinShooter(double s) {
     // on the off chance speed is in RPM, this code mightttttt not work
-    shooterPIDController.setReference(s, ControlType.kVelocity);
     speed = s;
+    shooterPIDController.setReference(s, ControlType.kVelocity);
     //shooterNEO.set(speed);
     System.out.println("speed set");
   }
