@@ -14,7 +14,7 @@ import frc.robot.subsystems.Shooter;
 public class MoveHood extends Command {
 	public double speed;
 public MoveHood (double s) {
-	requires(Robot.shooter);
+	//requires(Robot.shooter);
 	speed = s;
 }
 @Override

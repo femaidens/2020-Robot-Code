@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.Shooter;
 
@@ -26,7 +27,9 @@ public class Robot extends TimedRobot {
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
-  public static Shooter shooter;
+  public static Intake intake;
+  public static OI oi;
+  //public static Shooter shooter;
   //public static Limelight limelight;
   
 
@@ -38,10 +41,13 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
-    SmartDashboard.putData("Auto choices", m_chooser);
-    SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
-    SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
-    shooter = new Shooter();
+    //SmartDashboard.putData("Auto choices", m_chooser);
+    //SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
+    //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
+    intake = new Intake();
+    oi = new OI();
+    OI.bindButtons();;
+    //shooter = new Shooter();
     //limelight = new Limelight();
   }
 
@@ -55,8 +61,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-    SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
-    SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
+    //SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
+    //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
   }
 
   /**
