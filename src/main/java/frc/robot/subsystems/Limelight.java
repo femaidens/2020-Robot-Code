@@ -8,7 +8,7 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 
 public class Limelight extends Subsystem {
 
-  /*public static NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+  public static NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
 
   public static NetworkTableEntry tv = table.getEntry("tv"); // any valid targets? (0 for no target, 1 for target) 
   public static NetworkTableEntry tx = table.getEntry("tx"); // horizontal offset from crosshair to target (-27 to 27 degrees)
@@ -20,12 +20,16 @@ public class Limelight extends Subsystem {
   }
   
   public static boolean objectSighted(){
-    //if (tv.getDouble(0.0) == 1) return true;
+    if (tv.getDouble(0.0) == 1){
+      return true;
+    }
     return false;
    }  
   
   public static double getTx(){
-    //if(objectSighted()) return tx.getDouble(0.0);
+    if(objectSighted()){
+      return tx.getDouble(0.0);
+    }
     return 0;
   }
 

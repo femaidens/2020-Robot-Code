@@ -23,17 +23,11 @@ import frc.robot.subsystems.Shooter;
  */
 public class OI {
     public static Joystick joy = new Joystick(0);
-    public static Button liftLift = new JoystickButton(joy, 1);
-    public static Button lowerLift = new JoystickButton(joy, 3);
-   	//public static Button shoot = new JoystickButton(joy, 2);
-    //public static Button turret = new JoystickButton(joy, 1);
-    public static void bindButtons() {
-        //System.out.println("binding");
-        liftLift.whileHeld(new LiftIntake());
-        lowerLift.whileHeld(new LowerIntake());
+   	public static Button align = new JoystickButton(joy, 1);
 
-        System.out.println("Binded");
-        //shoot.whileHeld(new SpinShooterNEO(-5600));
-        //turret.whenPressed(new AlignTurret_PID(0.02));
+    public static void bindButtons() {
+        System.out.println("bind");
+        align.whenPressed(new AlignTurret_PID(0.02));
+
     }
 }
