@@ -14,6 +14,7 @@ import frc.robot.commands.AlignTurret_PID;
 import frc.robot.commands.CellIn;
 import frc.robot.commands.CellOut;
 import frc.robot.commands.LiftIntake;
+import frc.robot.commands.LowerIntake;
 import frc.robot.commands.SpinShooterNEO;
 import frc.robot.subsystems.Shooter;
 
@@ -29,6 +30,7 @@ public class OI {
     public static void bindButtons() {
         //System.out.println("binding");
         liftLift.toggleWhenPressed(new LiftIntake());
+        //lowerLift.whileHeld(new LowerIntake());
 
         System.out.println("Binded");
         //shoot.whileHeld(new SpinShooterNEO(-5600));

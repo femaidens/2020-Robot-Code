@@ -46,7 +46,7 @@ public class Robot extends TimedRobot {
     //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
     intake = new Intake();
     oi = new OI();
-    OI.bindButtons();;
+    OI.bindButtons();
     //shooter = new Shooter();
     //limelight = new Limelight();
   }
