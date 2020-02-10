@@ -29,8 +29,8 @@ public class OI {
     //public static Button turret = new JoystickButton(joy, 1);
     public static void bindButtons() {
         //System.out.println("binding");
-        liftLift.toggleWhenPressed(new LiftIntake());
-        //lowerLift.whileHeld(new LowerIntake());
+        liftLift.whileHeld(new LiftIntake());
+        lowerLift.whileHeld(new LowerIntake());
 
         System.out.println("Binded");
         //shoot.whileHeld(new SpinShooterNEO(-5600));

@@ -39,7 +39,7 @@ public class Intake extends Subsystem {
     liftPID.setI(0);
     liftPID.setD(0);
     liftPID.setIZone(0);
-    liftPID.setFF(0.000015);
+    liftPID.setFF(0);
     liftPID.setOutputRange(-1, 1);
   }
   /*
@@ -84,14 +84,14 @@ public class Intake extends Subsystem {
   
   public static void liftIntake(){
     // change 9 to 20 after testing
-    liftPID.setReference(9/4, ControlType.kPosition);
-    //lift.set(.2);
+    //liftPID.setReference(1000, ControlType.kPosition);
+    lift.set(.2);
   }
   
   public static void lowerIntake(){
     // change 9 to 20 after testing
-    liftPID.setReference(9/4, ControlType.kPosition);
-    //lift.set(-.2);
+    //liftPID.setReference(0, ControlType.kPosition);
+    lift.set(-.2);
   }
 
   public static void stopIntake() {
