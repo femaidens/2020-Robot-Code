@@ -5,8 +5,8 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.Commands;
-import frc.robot.Subsystems.*;
+package frc.robot.commands;
+import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj.DriverStation;
 import com.revrobotics.ColorMatch;
 import edu.wpi.first.wpilibj.command.Command;
