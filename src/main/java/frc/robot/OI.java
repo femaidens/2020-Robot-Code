@@ -11,10 +11,6 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.AlignTurret_PID;
-import frc.robot.commands.CellIn;
-import frc.robot.commands.CellOut;
-import frc.robot.commands.LiftIntake;
-import frc.robot.commands.LowerIntake;
 import frc.robot.commands.SpinShooterNEO;
 import frc.robot.subsystems.Shooter;
 
