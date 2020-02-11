@@ -1,13 +1,13 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
 public class Limelight extends Subsystem {
-
+  
   public static NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
 
   public static NetworkTableEntry tv = table.getEntry("tv"); // any valid targets? (0 for no target, 1 for target) 
@@ -16,15 +16,15 @@ public class Limelight extends Subsystem {
   public static NetworkTableEntry ts = table.getEntry("ts"); // skew or rotation (-90 to 0 degrees)*/
 
   public Limelight(){
-    setLiveStream(1);
+    setLiveStream(0);
   }
   
   public static boolean objectSighted(){
-    if (tv.getDouble(0.0) == 1){
+    if (tv.getDouble(0.0) == 1.0){
       return true;
     }
-    return false;
-   }  
+      return false;
+  }  
   
   public static double getTx(){
     if(objectSighted()){

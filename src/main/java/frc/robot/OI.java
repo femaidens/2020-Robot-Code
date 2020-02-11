@@ -23,7 +23,7 @@ public class OI {
 
     public static void bindButtons() {
         System.out.println("bind");
-        align.whenPressed(new AlignTurret_PID(0.02));
+        align.whenPressed(new AlignTurret_PID(-0.05));
 
     }
 }

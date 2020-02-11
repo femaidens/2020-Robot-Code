@@ -41,10 +41,13 @@ public class AlignTurret_PID extends Command {
 
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() {
-    /*if(!Robot.limelight.objectSighted()){
+  protected void execute() {     
+    if(Robot.limelight.objectSighted() == false){
+      System.out.println("No object");
       return;
     }
+    System.out.println("Object Sighted");
+    /*
     previous_error = current_error;
     current_error = Robot.limelight.getTx();
     integral = (current_error+previous_error)/2*(time);
@@ -57,15 +60,17 @@ public class AlignTurret_PID extends Command {
     else if (current_error < -min_error){
       adjust -= min_command;
     }
-    
-    Shooter.spinTurret(speed + adjust);
      
     try {
       Thread.sleep((long)(time*1000));
     }
     catch(InterruptedException e){
-    }	*/
-    Shooter.spinTurret(speed);
+    }	
+
+    Shooter.spinTurret(speed+adjust);
+    */
+    //Shooter.spinTurret(speed);
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()
