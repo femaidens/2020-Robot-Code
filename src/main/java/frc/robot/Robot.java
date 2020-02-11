@@ -29,6 +29,8 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static Intake intake;
   public static OI oi;
+  public static Shooter shooter;
+  public static Limelight limelight;
   //public static Shooter shooter;
   //public static Limelight limelight;
   
@@ -39,16 +41,16 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+    System.out.println("Robot init");
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     //SmartDashboard.putData("Auto choices", m_chooser);
     //SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
     //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
-    intake = new Intake();
     oi = new OI();
-    OI.bindButtons();
-    //shooter = new Shooter();
-    //limelight = new Limelight();
+    oi.bindButtons();
+    shooter = new Shooter();
+    limelight = new Limelight();
   }
 
   /**
