@@ -42,7 +42,7 @@ public class Shooter extends Subsystem {
   //public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
   //public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
   //public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
-  
+  public static CANEncoder turretHall = turret.getEncoder();
   //public static DigitalInput limitSwitchLeft = new DigitalInput(RobotMap.limitSwitchPort2);
  // public static DigitalInput limitSwitchRight = new DigitalInput(RobotMap.limitSwitchPort3);
   
@@ -102,12 +102,25 @@ public class Shooter extends Subsystem {
   public static double getSpeed() {
     return speed;
   }
-  
+  public static boolean outLimit(){
+    if((int)turretHall.getPosition() == 45){
+       turretHall.setPosition(44.0);
+      return true;
+     }
+     else if((int)turretHall.getPosition() == -45){
+      turretHall.setPosition(-44.0);
+      return true;
+    }
+    return false;
+  }
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     //setDefaultCommand(new MoveHood(0.5));
   }
+  /*public static boolean getLimit() {
 
+  }
+  */
 }

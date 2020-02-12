@@ -39,38 +39,50 @@ public class AlignTurret_PID extends Command {
     //Robot.limelight.setLEDMode(3);
   }
 
-  // Called repeatedly when this Command is scheduled to run
+  // cCalled repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {     
     if(Robot.limelight.objectSighted() == false){
       System.out.println("No object");
-      return;
     }
-    System.out.println("Object Sighted");
-    /*
-    previous_error = current_error;
-    current_error = Robot.limelight.getTx();
-    integral = (current_error+previous_error)/2*(time);
-    derivative = (current_error-previous_error)/time;
-    adjust = KP*current_error + KI*integral + KD*derivative;
-     
-    if (current_error > min_error){
-      adjust += min_command;
+    System.out.println(Robot.shooter.turretHall.getPosition());
+    if(Robot.shooter.outLimit()){
+      speed *= -1;
     }
-    else if (current_error < -min_error){
-      adjust -= min_command;
-    }
-     
-    try {
-      Thread.sleep((long)(time*1000));
-    }
-    catch(InterruptedException e){
-    }	
+    else{
+      System.out.println("Object Sighted");
 
-    Shooter.spinTurret(speed+adjust);
-    */
-    //Shooter.spinTurret(speed);
+      previous_error = current_error;
+      current_error = Robot.limelight.getTx();
+      integral = (current_error+previous_error)/2*(time);
+      derivative = (current_error-previous_error)/time;
+      adjust = (KP*current_error + KI*integral + KD*derivative) * -0.1;
+      
+      /*if (current_error > min_error){
+        adjust += min_command;
+      }
+      else if (current_error < -min_error){
+        adjust -= min_command;
+      }*/
+      
+      try {
+        Thread.sleep((long)(time*1000));
+      }
+      catch(InterruptedException e){
+      }
+      
+      System.out.println("Adjust: " + adjust);
+      Shooter.spinTurret(speed+adjust);
+  }
+
+    //System.out.println("Adjust: " + adjust);
+    //Shooter.spinTurret(speed+adjust);
     
+   //System.out.println(Robot.shooter.turretHall.getPosition());
+   /* if(Robot.shooter.outLimit()){
+      speed *= -1;
+    }
+    Shooter.spinTurret(speed+adjust);*/
   }
 
   // Make this return true when this Command no longer needs to run execute()
