@@ -44,6 +44,8 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
     shooter = new Shooter();
     limelight = new Limelight();
+    oi = new OI();
+    OI.bindButtons();
   }
 
   /**
