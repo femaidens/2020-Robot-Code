@@ -41,9 +41,11 @@ public class Shooter extends Subsystem {
   public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
   public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
   public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
-  //public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
+  public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
+  public static CANEncoder hoodEncoder = hood.getEncoder();
+  public static CANPIDController hoodPIDController = hood.getPIDController();
   public static Joystick joy = new Joystick(0);
-  public static DutyCycleEncoder absoluteEncoder = new DutyCycleEncoder(9);
+  //public static DutyCycleEncoder absoluteEncoder = new DutyCycleEncoder(9);
   
   //public static DigitalInput limitSwitchLeft = new DigitalInput(RobotMap.limitSwitchPort2);
  // public static DigitalInput limitSwitchRight = new DigitalInput(RobotMap.limitSwitchPort3);
@@ -52,13 +54,18 @@ public class Shooter extends Subsystem {
   public static double speed;
   
   public Shooter() {
-    /*shooterPIDController.setP(0.1);
+    shooterPIDController.setP(0.1);
     shooterPIDController.setI(0);
     shooterPIDController.setD(0);
     shooterPIDController.setIZone(0);
     shooterPIDController.setFF(0);
-    shooterPIDController.setOutputRange(-1, 1);*/
-    speed = 1;
+    shooterPIDController.setOutputRange(-1, -0.5);
+    hoodPIDController.setP(0.1);
+    hoodPIDController.setI(0);
+    hoodPIDController.setD(0);
+    hoodPIDController.setIZone(0);
+    hoodPIDController.setFF(0);
+    hoodPIDController.setOutputRange(-0.2, 0.2);
   }
   
   public static void shooterLimitSwitch(){
@@ -79,27 +86,19 @@ public class Shooter extends Subsystem {
   }
   */
 
-  public static void spinHood(double speed){
+  /*public static void spinHood(double speed){
     double s = joy.getRawAxis(1);
     //hood.set(s);
+  }*/
+
+
+  public static void adjustHood(int desiredTicks) {
+		hoodPIDController.setReference(desiredTicks, ControlType.kPosition);
   }
-
-
-  public static void adjustHood(int desiredTicks) { 
-		while (absoluteEncoder.getDistance() != desiredTicks){
-			if(absoluteEncoder.getDistance() < desiredTicks){
-				hood.set(0.1);
-			} else {
-				hood.set(-0.1);
-			}
-		}
-}
 
   public static void spinShooter(double s) {
     // on the off chance speed is in RPM, this code mightttttt not work
-    // shooterPIDController.setReference(speed, ControlType.kVelocity);
-    speed = s;
-    //shooterNEO.set(speed);
+    shooterPIDController.setReference(s, ControlType.kVelocity);
     System.out.println("speed set");
   }
   

@@ -22,9 +22,6 @@ public class AbsoluteHood extends Command {
   @Override
   protected void execute() {
     Shooter.adjustHood(ticks);
-    
-
-    
   }
   
   // Make this return true when this Command no longer needs to run execute()
