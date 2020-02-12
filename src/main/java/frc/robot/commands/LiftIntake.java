@@ -37,7 +37,7 @@ public class LiftIntake extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Intake.stopIntake();
+    Intake.lowerIntake();
   }
   
   // Called when another command which requires one or more of the same
@@ -45,6 +45,6 @@ public class LiftIntake extends Command {
   @Override
   protected void interrupted() {
     //Intake.lowerIntake();
-    Intake.stopIntake();
+    Intake.lowerIntake();
   }
 }
