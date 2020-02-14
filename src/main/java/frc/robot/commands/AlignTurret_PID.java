@@ -42,38 +42,37 @@ public class AlignTurret_PID extends Command {
   // cCalled repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {     
-    if(Robot.limelight.objectSighted() == false){
+    if(!Robot.limelight.objectSighted()){
       System.out.println("No object");
+      if(Robot.shooter.outLimit()){
+        speed *= -1;
+      }
+    }else{
+      System.out.println("Object Sighted");
     }
     System.out.println(Robot.shooter.turretHall.getPosition());
-    if(Robot.shooter.outLimit()){
-      speed *= -1;
-    }
-    else{
-      System.out.println("Object Sighted");
 
-      previous_error = current_error;
-      current_error = Robot.limelight.getTx();
-      integral = (current_error+previous_error)/2*(time);
-      derivative = (current_error-previous_error)/time;
-      adjust = (KP*current_error + KI*integral + KD*derivative) * -0.1;
+    previous_error = current_error;
+    current_error = Robot.limelight.getTx();
+    integral = (current_error+previous_error)/2*(time);
+    derivative = (current_error-previous_error)/time;
+    adjust = (KP*current_error + KI*integral + KD*derivative) * -0.1;
       
-      /*if (current_error > min_error){
-        adjust += min_command;
-      }
-      else if (current_error < -min_error){
-        adjust -= min_command;
-      }*/
+    /*if (current_error > min_error){
+      adjust += min_command;
+    }
+    else if (current_error < -min_error){
+      adjust -= min_command;
+    }*/
       
-      try {
-        Thread.sleep((long)(time*1000));
-      }
-      catch(InterruptedException e){
-      }
+    try {
+      Thread.sleep((long)(time*1000));
+    }
+    catch(InterruptedException e){
+    }
       
-      System.out.println("Adjust: " + adjust);
-      Shooter.spinTurret(speed+adjust);
-  }
+    System.out.println("Adjust: " + adjust);
+    Shooter.spinTurret(speed+adjust);
 
     //System.out.println("Adjust: " + adjust);
     //Shooter.spinTurret(speed+adjust);
