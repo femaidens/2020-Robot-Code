@@ -16,21 +16,11 @@ public class RobotMap{
 	/*gyro*/
 	//public static int gyroPort = 2;
 	/*talons*/
-<<<<<<< HEAD
-	public static int rearRightPort = 3;
+	public static int rearRightPort = 6;
 	public static int rearLeftPort = 4;
-	public static int frontRightPort = 5;
-	public static int frontLeftPort = 6;
-	public static int middleLeftPort = 7;
-	public static int middleRightPort = 8;
-	public static int solChannel1 = 9;
-	public static int solChannel2 = 10;
-=======
-	public static int rearRightPort = 11;
-	public static int rearLeftPort = 1;
-	public static int frontRightPort = 12;
-	public static int frontLeftPort = 4;
+	public static int frontRightPort = 3;
+	public static int frontLeftPort = 7;
 	public static int middleLeftPort = 2;
 	public static int middleRightPort = 14;
->>>>>>> f18dbe344d4aadb6d4b279d02a50bb7ecb1c148b
+	public static int gyroPort = 15;
 }

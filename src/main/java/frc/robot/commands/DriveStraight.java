@@ -27,16 +27,16 @@ public class DriveStraight extends Command {
     System.out.println(currentLeftTicks);
     System.out.println(currentRightTicks);
     */
-    Drivetrain.rightEncoder.setPosition(0.0);
-    Drivetrain.leftEncoder.setPosition(0.0);
+   // Drivetrain.rightEncoder.setPosition(0.0);
+   /// Drivetrain.leftEncoder.setPosition(0.0);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
     Robot.drivetrain.driveStraight(0.4);
-    System.out.println("Right: " + Math.abs(Drivetrain.rightEncoder.getPosition()));
-    System.out.println("Left: " + Math.abs(Drivetrain.leftEncoder.getPosition()));
+   // System.out.println("Right: " + Math.abs(Drivetrain.rightEncoder.getPosition()));
+    //System.out.println("Left: " + Math.abs(Drivetrain.leftEncoder.getPosition()));
 
     //currentLeftTicks = Drivetrain.leftEncoder.getPosition() - initialLeftTicks;
     //currentRightTicks = Drivetrain.rightEncoder.getPosition() - initialRightTicks;
@@ -45,8 +45,9 @@ public class DriveStraight extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Math.abs(Drivetrain.leftEncoder.getPosition()) > 350 && Math.abs(Drivetrain.rightEncoder.getPosition()) > 350;
-  }
+  //  return Math.abs(Drivetrain.leftEncoder.getPosition()) > 350 && Math.abs(Drivetrain.rightEncoder.getPosition()) > 350;
+ return true;
+}
 
   // Called once after isFinished returns true
   @Override
