@@ -11,7 +11,9 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.RobotMap;
+import frc.robot.RobotMap; 
+import edu.wpi.first.wpilibj.Ultrasonic;
+import frc.robot.subsystems.Intake;
 
 /**
 * Add your docs here.
@@ -19,8 +21,10 @@ import frc.robot.RobotMap;
 //Hopper Subsystem
 public class Hopper extends Subsystem {
 	// belt talons
-	/*public static CANSparkMax belt1 = new CANSparkMax(RobotMap.beltPort1, MotorType.kBrushless);
+	public static CANSparkMax belt1 = new CANSparkMax(RobotMap.beltPort1, MotorType.kBrushless);
 	public static CANSparkMax belt2 = new CANSparkMax(RobotMap.beltPort2, MotorType.kBrushless);
+	public static Ultrasonic ultra1 = new UltraSonic(RobotMap.ultraPort1);
+	public static Ultrasonic ultra2 = new Ultrasonic(RobotMap.ultraPort2);
 	
 	// time of flight sensors--DO LATER
 	
@@ -53,9 +57,23 @@ public class Hopper extends Subsystem {
 	public static int currentCellCount() {
 		return numCells;
 	}
+	public static boolean ballPassed(){
+		if(numCells == 5){
+			liftIntake();
+		}
+		if(ultra1.getRangeMM() < 5 && numCells<5){
+			increaseCellCount();
+		}
+		if(ultra2.getRangeMM() < 5){
+			decreaseCellCount();
+		}
+		
+	}
+
+
 	
 	
-	*/
+	
 	@Override
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.

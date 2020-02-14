@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.Shooter;
+import edu.wpi.first.wpilibj.I2C;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,6 +29,8 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static Shooter shooter;
   public static Limelight limelight;
+  public static I2C i2c;
+
   
 
   /**
@@ -44,6 +47,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
     shooter = new Shooter();
     limelight = new Limelight();
+    i2c = new I2C();
     oi = new OI();
     OI.bindButtons();
   }
