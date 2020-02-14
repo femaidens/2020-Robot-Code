@@ -34,12 +34,12 @@ public class Intake extends Subsystem {
   public static DigitalInput limitSwitchIntake = new DigitalInput(RobotMap.limitSwitchPort1);
   */
   public Intake(){
-    liftPID.setP(0.1);
+    /*liftPID.setP(0.1);
     liftPID.setI(0);
     liftPID.setD(0);
     liftPID.setIZone(0);
     liftPID.setFF(0);
-    liftPID.setOutputRange(-0.2, 0.2);
+    liftPID.setOutputRange(-0.2, 0.2);*/
   }
   /*
   public static void intakeLimitSwitch (){
@@ -102,7 +102,7 @@ public class Intake extends Subsystem {
   }
 
   public static void stopIntake() {
-    lift.set(0);
+    //lift.set(0);
   }
 
   /*

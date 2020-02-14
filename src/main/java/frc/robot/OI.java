@@ -32,7 +32,7 @@ public class OI {
         //liftLift.toggleWhenPressed(new LiftIntake());s
 
         System.out.println("Binded");
-        shoot.whileHeld(new SpinShooterNEO(-5600));
+        shoot.whileHeld(new SpinShooterNEO(-500));
         //turret.whenPressed(new AlignTurret_PID(0.02));
 
     }

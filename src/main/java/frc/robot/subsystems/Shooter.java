@@ -54,15 +54,15 @@ public class Shooter extends Subsystem {
   public static double speed;
   
   public Shooter() {
-    shooterPIDController.setP(0.1);
+    shooterPIDController.setP(1e-3);
     shooterPIDController.setI(0);
     shooterPIDController.setD(0);
     shooterPIDController.setIZone(0);
     shooterPIDController.setFF(0);
-    shooterPIDController.setOutputRange(-1, -0.5);
-    hoodPIDController.setP(0.1);
-    hoodPIDController.setI(0);
-    hoodPIDController.setD(0);
+    shooterPIDController.setOutputRange(-1, 0);
+    hoodPIDController.setP(0.05);
+    hoodPIDController.setI(1e-5);
+    hoodPIDController.setD(1e-3);
     hoodPIDController.setIZone(0);
     hoodPIDController.setFF(0);
     hoodPIDController.setOutputRange(-0.2, 0.2);
