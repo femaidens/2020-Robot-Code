@@ -25,20 +25,18 @@ import frc.robot.commands.DriveTeleop;
  * Add your docs here.
  */
 public class Drivetrain extends Subsystem {
-  public static CANSparkMax frontLeft = new CANSparkMax(RobotMap.frontLeftPort, MotorType.kBrushless);
+  //public static CANSparkMax frontLeft = new CANSparkMax(RobotMap.frontLeftPort, MotorType.kBrushless);
 	public static CANSparkMax frontRight = new CANSparkMax(RobotMap.frontRightPort, MotorType.kBrushless);
 	public static CANSparkMax rearLeft = new CANSparkMax(RobotMap.rearLeftPort, MotorType.kBrushless);
 	public static CANSparkMax rearRight = new CANSparkMax(RobotMap.rearRightPort, MotorType.kBrushless);
-	public static CANSparkMax middleLeft = new CANSparkMax(RobotMap.middleLeftPort, MotorType.kBrushless);
-	public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
+	//public static CANSparkMax middleLeft = new CANSparkMax(RobotMap.middleLeftPort, MotorType.kBrushless);
+	//public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
 
-	public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
+	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
 	//public static DoubleSolenoid gearShift = new DoubleSolenoid(RobotMap.solChannel1, RobotMap.solChannel2);
 
-	public static Joystick joy = new Joystick(RobotMap.driveJoyPort);
-
-	public static CANEncoder rightEncoder = frontRight.getEncoder();
-	public static CANEncoder leftEncoder = frontLeft.getEncoder();
+	//public static CANEncoder rightEncoder = frontRight.getEncoder();
+	//public static CANEncoder leftEncoder = frontLeft.getEncoder();
 
 	public int currentLimit = 18;
 
@@ -57,29 +55,29 @@ public class Drivetrain extends Subsystem {
    		//setDefaultCommand(new DriveTeleop());
   }
   public static void driveTeleop() {
-		double leftJoy = -joy.getRawAxis(1);
-		double rightJoy = joy.getRawAxis(5);
+		/*double leftJoy = -OI.driveStr.getRawAxis(1);
+		double rightJoy = OI.driveStr.getRawAxis(5);
 		frontRight.set(rightJoy);
 		rearRight.set(rightJoy);
-		middleRight.set(rightJoy);
-		frontLeft.set(leftJoy);
+		//middleRight.set(rightJoy);
+		//frontLeft.set(leftJoy);
 		rearLeft.set(leftJoy);
-		middleLeft.set(leftJoy);
+		//middleLeft.set(leftJoy);*/
 	}
 
 	public static void driveAuton(final double rightSpeed, final double leftSpeed) {
 		frontRight.set(rightSpeed);
 		rearRight.set(rightSpeed);
-		frontLeft.set(leftSpeed);
+		//frontLeft.set(leftSpeed);
 		rearLeft.set(leftSpeed);
-		middleLeft.set(leftSpeed);
-		middleRight.set(rightSpeed);
-		SmartDashboard.putNumber("Left motor speed", leftEncoder.getPosition());
-		SmartDashboard.putNumber("Right motor speed", rightEncoder.getPosition());
+		//middleLeft.set(leftSpeed);
+		//middleRight.set(rightSpeed);
+		//SmartDashboard.putNumber("Left motor speed", leftEncoder.getPosition());
+		//SmartDashboard.putNumber("Right motor speed", rightEncoder.getPosition());
 	}
 
 	public static void driveStraight(double speed) {
-		if(gyro.getAngle() == 0){
+		/*if(gyro.getAngle() == 0){
 			Drivetrain.frontLeft.set(speed);
 			Drivetrain.middleLeft.set(speed);
 			Drivetrain.rearLeft.set(speed);
@@ -101,7 +99,7 @@ public class Drivetrain extends Subsystem {
 			Drivetrain.middleRight.set(speed+0.05);
 			Drivetrain.rearRight.set(speed+0.05);
 		}
-		/*if (Math.abs(Drivetrain.leftEncoder.getPosition()) > Math.abs(Drivetrain.rightEncoder.getPosition())) {
+		if (Math.abs(Drivetrain.leftEncoder.getPosition()) > Math.abs(Drivetrain.rightEncoder.getPosition())) {
 			Drivetrain.frontLeft.set(speed);
 			Drivetrain.middleLeft.set(speed);
 			Drivetrain.rearLeft.set(speed);

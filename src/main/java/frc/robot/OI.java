@@ -10,13 +10,16 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.DriveAuton;
 import frc.robot.commands.DriveStraight;
 
 public class OI {
 	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
-	public static Button driveStr = new JoystickButton(driveJoystick, 1);
+	public static Button driveStr = new JoystickButton(driveJoystick, 2);
+	public static Button motorTest = new JoystickButton(driveJoystick, 1);
 
 	public void bindButtons(){
-		driveStr.whenPressed(new DriveStraight());
+		//driveStr.whenPressed(new DriveStraight());
+		motorTest.whenPressed(new DriveAuton(0.25, 0.25));
 	}
 }
