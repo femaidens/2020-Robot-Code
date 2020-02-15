@@ -29,6 +29,7 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static Shooter shooter;
   public static Limelight limelight;
+  public static OI oi;
   public static I2C i2c;
 
   
@@ -47,7 +48,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
     shooter = new Shooter();
     limelight = new Limelight();
-    i2c = new I2C();
+    //i2c = new I2C();
     oi = new OI();
     OI.bindButtons();
   }
@@ -101,13 +102,18 @@ public class Robot extends TimedRobot {
     }
   }
 
+@Override
+public void teleopInit() {
+  shooter.shooterNEO.set(0);
+}
+
   /**
    * This function is called periodically during operator control.
    */
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    Shooter.adjustHood(0);
+    Shooter.adjustHood(12);
   }
 
   /**
