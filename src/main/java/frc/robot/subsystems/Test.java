@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 //import frc.robot.OI;
 //import frc.robot.Robot;
 import frc.robot.RobotMap;
-import frc.robot.commands.MoveClimb;
+//import frc.robot.commands.MoveClimb;
 
 public class Test extends Subsystem {
 
@@ -56,6 +56,6 @@ public class Test extends Subsystem {
 
   @Override
   protected void initDefaultCommand() {
-    setDefaultCommand(new MoveClimb());
+//    setDefaultCommand(new MoveClimb());
   }
 }

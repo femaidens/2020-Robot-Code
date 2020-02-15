@@ -56,7 +56,7 @@ public class Climb extends Subsystem {
 		byte[] message = new byte[1];;
     Robot.i2c.readOnly(message, 1);
     try{
-      double answer = message[0];
+      //double answer = message[0];
 	    return "Yes";
     }
     catch(NullPointerException ex){

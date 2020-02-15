@@ -12,9 +12,8 @@ public class OI {
     public static Joystick atkJoy1 = new Joystick(RobotMap.joyPort1);
     public static Joystick atkJoy2 = new Joystick(RobotMap.joyPort2);
     public static Button test = new JoystickButton(atkJoy1, 1);
-
+    
     public static void bindButtons(){    
-        System.out.println("Button");
-        test.whileHeld(new MoveClimb());
+        test.whenPressed(new MoveClimb());
     }
 }
