@@ -49,7 +49,6 @@ public class AlignTurret_PID extends Command {
       }
     }else{
       System.out.println("Object Sighted");
-    }
     System.out.println(Robot.shooter.turretHall.getPosition());
 
     previous_error = current_error;
