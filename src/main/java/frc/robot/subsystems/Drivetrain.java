@@ -25,12 +25,12 @@ import frc.robot.commands.DriveTeleop;
  * Add your docs here.
  */
 public class Drivetrain extends Subsystem {
-  //public static CANSparkMax frontLeft = new CANSparkMax(RobotMap.frontLeftPort, MotorType.kBrushless);
+  	public static CANSparkMax frontLeft = new CANSparkMax(RobotMap.frontLeftPort, MotorType.kBrushless);
 	public static CANSparkMax frontRight = new CANSparkMax(RobotMap.frontRightPort, MotorType.kBrushless);
 	public static CANSparkMax rearLeft = new CANSparkMax(RobotMap.rearLeftPort, MotorType.kBrushless);
 	public static CANSparkMax rearRight = new CANSparkMax(RobotMap.rearRightPort, MotorType.kBrushless);
-	//public static CANSparkMax middleLeft = new CANSparkMax(RobotMap.middleLeftPort, MotorType.kBrushless);
-	//public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
+	public static CANSparkMax middleLeft = new CANSparkMax(RobotMap.middleLeftPort, MotorType.kBrushless);
+	public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
 
 	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
 	//public static DoubleSolenoid gearShift = new DoubleSolenoid(RobotMap.solChannel1, RobotMap.solChannel2);
@@ -38,7 +38,7 @@ public class Drivetrain extends Subsystem {
 	//public static CANEncoder rightEncoder = frontRight.getEncoder();
 	//public static CANEncoder leftEncoder = frontLeft.getEncoder();
 
-	public int currentLimit = 17;
+	public static int currentLimit = 17;
 
   public Drivetrain(){
 	  frontLeft.setSmartCurrentLimit(currentLimit);
@@ -69,6 +69,13 @@ public class Drivetrain extends Subsystem {
 		if(currentLimit <= 15){
 			shifttoSpeed();
 		}
+		frontLeft.setClosedLoopRampRate(5);
+		frontRIght.setCLosedLoopRampRate(5);
+		middleLeft.setClosedLoopRampRate(5);
+		middleRight.setCLosedLoopRampRate(5);
+		frontRight.setCLosedLoopRampRate(5);
+		rearRight.setClosedLoopRampRate(5);
+		
 	}
 
 	public static void driveAuton(final double rightSpeed, final double leftSpeed) {
