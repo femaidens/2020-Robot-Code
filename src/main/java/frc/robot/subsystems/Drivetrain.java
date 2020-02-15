@@ -38,7 +38,7 @@ public class Drivetrain extends Subsystem {
 	//public static CANEncoder rightEncoder = frontRight.getEncoder();
 	//public static CANEncoder leftEncoder = frontLeft.getEncoder();
 
-	public int currentLimit = 18;
+	public int currentLimit = 17;
 
   public Drivetrain(){
 	  frontLeft.setSmartCurrentLimit(currentLimit);
@@ -63,6 +63,12 @@ public class Drivetrain extends Subsystem {
 		//frontLeft.set(leftJoy);
 		rearLeft.set(leftJoy);
 		//middleLeft.set(leftJoy);*/
+		if(currentLimit >= 19){
+			shifttoPower();
+		}
+		if(currentLimit <= 15){
+			shifttoSpeed();
+		}
 	}
 
 	public static void driveAuton(final double rightSpeed, final double leftSpeed) {
@@ -144,10 +150,12 @@ public class Drivetrain extends Subsystem {
 	  }*/
   }
 public static void shiftToSpeed(){
-	//gearShift.set(DoubleSolenoid.Value.kForward);
+	//High Gear
+	gearShift.set(DoubleSolenoid.Value.kForward);
 }
 public static void shiftToPower(){
-	//gearShift.set(DoubleSolenoid.Value.kReverse);
+	//Low Gear
+	gearShift.set(DoubleSolenoid.Value.kReverse);
 }
 public static void get() {
 	//return gearShift.get(); 
