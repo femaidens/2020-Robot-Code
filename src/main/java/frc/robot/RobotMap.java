@@ -17,4 +17,7 @@ public class RobotMap {
 
     public static int limitPortB = 8;
     public static int limitPortT = 3;
+
+    public static int solPortF = 0;
+    public static int solPortR = 1;
 }

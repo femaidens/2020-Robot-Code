@@ -27,11 +27,11 @@ public class Climb extends Subsystem {
   //private static final double UP_VALUE = 0.0;
 	//private static final double DOWN_VALUE = 5.0;
 
-  public static CANSparkMax climbMotor = new CANSparkMax(RobotMap.climbMotorPort, MotorType.kBrushless);
+  //public static CANSparkMax climbMotor = new CANSparkMax(RobotMap.climbMotorPort, MotorType.kBrushless);
   
   //true means not hit and false means hit
-	public static DigitalInput limitSwitchB = new DigitalInput(RobotMap.limitPortB); //bottom
-	public static DigitalInput limitSwitchT = new DigitalInput(RobotMap.limitPortT); //top
+	//public static DigitalInput limitSwitchB = new DigitalInput(RobotMap.limitPortB); //bottom
+	//public static DigitalInput limitSwitchT = new DigitalInput(RobotMap.limitPortT); //top
 	
   //public static Servo servo = new Servo(RobotMap.servoPort);
   public static DoubleSolenoid climbSol = new DoubleSolenoid(RobotMap.solPortF, RobotMap.solPortR);
@@ -41,15 +41,17 @@ public class Climb extends Subsystem {
 	
 	public static void move(){
 		double value = OI.atkJoy2.getRawAxis(1);
-		if(value>0 && limitSwitchT.get()){
+		/*if(value>0 && limitSwitchT.get()){
       //servo.setPosition(UP_VALUE);
       climbSol.set(Value.kReverse);
 			climbMotor.set(value);
 		}else if(value<0 && limitSwitchB.get()){
       //servo.setPosition(DOWN_VALUE);
-      climbSol.set(Value.kForward);
+      climbSol.set(Value.KForward);
       climbMotor.set(value);
-		}
+		}else{
+      climbMotor.set(0.0);
+    }*/
 	}
 
 	public static String ready(){ //checks if the robot is under the switch
