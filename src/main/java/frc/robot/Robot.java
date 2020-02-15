@@ -7,6 +7,9 @@
 
 package frc.robot;
 
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -20,7 +23,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * project.
  */
 public class Robot extends TimedRobot {
-
+  // THIS IS TERRIBLE PRACTICE
+  CANSparkMax motor1 = new CANSparkMax(RobotMap.port1, MotorType.kBrushless);
+  CANSparkMax motor2 = new CANSparkMax(RobotMap.port2, MotorType.kBrushless);
+  CANSparkMax motor3 = new CANSparkMax(RobotMap.port3, MotorType.kBrushless);
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
@@ -72,6 +78,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    motor1.set(0.5);
+    motor2.set(0.5);
+    motor3.set(0.5);
     Scheduler.getInstance().run();
   }
 
