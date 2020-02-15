@@ -55,7 +55,7 @@ public class Climb extends Subsystem {
 	}
 
 	public static String ready(){ //checks if the robot is under the switch
-		byte[] message = new byte[1];;
+		/*byte[] message = new byte[1];;
     Robot.i2c.readOnly(message, 1);
     try{
       //double answer = message[0];
@@ -63,11 +63,12 @@ public class Climb extends Subsystem {
     }
     catch(NullPointerException ex){
       return "No";
-    }
+    }*/
+    return "Hi";
   }
 
   @Override
   protected void initDefaultCommand() {
-    setDefaultCommand(new MoveClimb());
+  //  setDefaultCommand(new MoveClimb());
   }
 }

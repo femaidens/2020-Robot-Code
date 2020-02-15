@@ -31,6 +31,7 @@ public class MoveClimb extends Command{
 			SmartDashboard.putString("Ready?", Climb.ready());
 		} 
     Climb.move();*/
+    System.out.println("Forward");
     Climb.climbSol.set(Value.kForward);
 
   }
@@ -43,6 +44,7 @@ public class MoveClimb extends Command{
   }
 	
   protected void interrupted(){
+    System.out.println("reverse");
     Climb.climbSol.set(Value.kReverse);
   }
 }
