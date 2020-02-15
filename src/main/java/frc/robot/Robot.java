@@ -113,7 +113,7 @@ public void teleopInit() {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    Shooter.adjustHood(12);
+    Shooter.adjustHood(-10);
   }
 
   /**
