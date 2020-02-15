@@ -33,22 +33,22 @@ public class Drivetrain extends Subsystem {
 	public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
 
 	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
-	//public static DoubleSolenoid gearShift = new DoubleSolenoid(RobotMap.solChannel1, RobotMap.solChannel2);
+	public static DoubleSolenoid gearShift = new DoubleSolenoid(RobotMap.solChannel1, RobotMap.solChannel2);
 
 	//public static CANEncoder rightEncoder = frontRight.getEncoder();
 	//public static CANEncoder leftEncoder = frontLeft.getEncoder();
 
 	public static int currentLimit = 17;
 
-  public Drivetrain(){
+  	public Drivetrain(){
 	  frontLeft.setSmartCurrentLimit(currentLimit);
 	  frontRight.setSmartCurrentLimit(currentLimit);
-	  rearLeft.setCurrentLimit(currentLimit);
-	  rearRight.setCurrentLimit(currentLimit);
-	  middleLeft.setCurrentLimit(currentLimit);
-	  middleRight.setCurrentLimit(currentLimit);
+	  rearLeft.setSmartCurrentLimit(currentLimit);
+	  rearRight.setSmartCurrentLimit(currentLimit);
+	  middleLeft.setSmartCurrentLimit(currentLimit);
+	  middleRight.setSmartCurrentLimit(currentLimit);
 	  
-  }
+  	}
 	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
   @Override
   public void initDefaultCommand() {
@@ -69,12 +69,12 @@ public class Drivetrain extends Subsystem {
 		if(currentLimit <= 15){
 			shifttoSpeed();
 		}
-		frontLeft.setClosedLoopRampRate(5);
-		frontRIght.setCLosedLoopRampRate(5);
-		middleLeft.setClosedLoopRampRate(5);
-		middleRight.setCLosedLoopRampRate(5);
-		frontRight.setCLosedLoopRampRate(5);
-		rearRight.setClosedLoopRampRate(5);
+		frontLeft.setClosedLoopRampRate(5.0);
+		frontRight.setClosedLoopRampRate(5.0);
+		middleLeft.setClosedLoopRampRate(5.0);
+		middleRight.setClosedLoopRampRate(5.0);
+		frontRight.setClosedLoopRampRate(5.0);
+		rearRight.setClosedLoopRampRate(5.0);
 		
 	}
 
