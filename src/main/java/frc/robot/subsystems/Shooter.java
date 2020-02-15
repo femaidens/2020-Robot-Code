@@ -45,6 +45,7 @@ public class Shooter extends Subsystem {
   public static CANEncoder hoodEncoder = hood.getEncoder();
   public static CANPIDController hoodPIDController = hood.getPIDController();
   public static Joystick joy = new Joystick(0);
+  public int currentLimit = 28;
   //public static DutyCycleEncoder absoluteEncoder = new DutyCycleEncoder(9);
   
   //public static DigitalInput limitSwitchLeft = new DigitalInput(RobotMap.limitSwitchPort2);
@@ -66,6 +67,10 @@ public class Shooter extends Subsystem {
     hoodPIDController.setIZone(0);
     hoodPIDController.setFF(0);
     hoodPIDController.setOutputRange(-0.2, 0.2);
+
+
+    shooterNeo.setSmartCurrentLimit(currentLimit);
+    hood.setSmartCurrentLimit(currentLimit);
   }
   
   public static void shooterLimitSwitch(){
