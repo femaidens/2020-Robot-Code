@@ -38,14 +38,14 @@ import edu.wpi.first.wpilibj.DutyCycleEncoder;
 public class Shooter extends Subsystem {
   // motors
   //public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
-  public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
+  /*public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
   public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
   public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
   public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
   public static CANEncoder hoodEncoder = hood.getEncoder();
-  public static CANPIDController hoodPIDController = hood.getPIDController();
+  public static CANPIDController hoodPIDController = hood.getPIDController();*/
   public static Joystick joy = new Joystick(0);
-  public int currentLimit = 28;
+  //public int currentLimit = 28;
   //public static DutyCycleEncoder absoluteEncoder = new DutyCycleEncoder(9);
   
   //public static DigitalInput limitSwitchLeft = new DigitalInput(RobotMap.limitSwitchPort2);
@@ -55,7 +55,7 @@ public class Shooter extends Subsystem {
   public static double speed;
   
   public Shooter() {
-    shooterPIDController.setP(1e-3);
+    /*shooterPIDController.setP(1e-3);
     shooterPIDController.setI(0);
     shooterPIDController.setD(0);
     shooterPIDController.setIZone(0);
@@ -70,7 +70,7 @@ public class Shooter extends Subsystem {
 
 
     shooterNEO.setSmartCurrentLimit(currentLimit);
-    hood.setSmartCurrentLimit(currentLimit);
+    hood.setSmartCurrentLimit(currentLimit);*/
   }
   
   public static void shooterLimitSwitch(){
@@ -98,12 +98,12 @@ public class Shooter extends Subsystem {
 
 
   public static void adjustHood(int desiredTicks) {
-		hoodPIDController.setReference(desiredTicks, ControlType.kPosition);
+		//hoodPIDController.setReference(desiredTicks, ControlType.kPosition);
   }
 
   public static void spinShooter(double s) {
     // on the off chance speed is in RPM, this code mightttttt not work
-    shooterPIDController.setReference(s, ControlType.kVelocity);
+    //shooterPIDController.setReference(s, ControlType.kVelocity);
     System.out.println("speed set");
   }
   

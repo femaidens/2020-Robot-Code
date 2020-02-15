@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.subsystems.Hopper;
 import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj.I2C;
@@ -29,11 +30,11 @@ public class Robot extends TimedRobot {
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
-  public static Shooter shooter;
-  public static Limelight limelight;
+  //public static Shooter shooter;
+  //public static Limelight limelight;
   public static OI oi;
-  public static I2C i2c;
-
+  //public static I2C i2c;
+  public static Hopper hopper;
   
 
   /**
@@ -46,13 +47,15 @@ public class Robot extends TimedRobot {
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
     SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
-    SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
-    SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
-    shooter = new Shooter();
-    limelight = new Limelight();
+    //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
+    //SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
+    //shooter = new Shooter();
+    //limelight = new Limelight();
     //i2c = new I2C();
+    hopper = new Hopper(3);
     oi = new OI();
     OI.bindButtons();
+    
   }
 
   /**
@@ -65,9 +68,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-    SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
+    /*SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
     SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
-    SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
+    SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());*/
   }
 
   /**
@@ -106,7 +109,7 @@ public class Robot extends TimedRobot {
 
 @Override
 public void teleopInit() {
-  shooter.shooterNEO.set(0);
+  //shooter.shooterNEO.set(0);
 }
 
   /**
@@ -115,7 +118,7 @@ public void teleopInit() {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    Shooter.adjustHood(-10);
+    //Shooter.adjustHood(-10);
   }
 
   /**

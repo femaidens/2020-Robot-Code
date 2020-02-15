@@ -27,9 +27,9 @@ import frc.robot.RobotMap;
 //Intake Subsystem -- DO LATER WHEN WE KNOW WHAT’S HAPPENING
 public class Intake extends Subsystem {
   //public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
-  //public static CANSparkMax lift = new CANSparkMax(RobotMap.lift, MotorType.kBrushless);
-  //public static CANEncoder liftEncoder = lift.getEncoder();
-  //public static CANPIDController liftPID = lift.getPIDController();
+  /*public static CANSparkMax lift = new CANSparkMax(RobotMap.lift, MotorType.kBrushless);
+  public static CANEncoder liftEncoder = lift.getEncoder();
+  public static CANPIDController liftPID = lift.getPIDController();*/
   /*
   public static DigitalInput limitSwitchIntake = new DigitalInput(RobotMap.limitSwitchPort1);
   */
@@ -87,8 +87,8 @@ public class Intake extends Subsystem {
       lift.set(-.15);
     }
     lift.set(0);
-    liftPID.setReference(-81/4, ControlType.kPosition);
-    */
+    liftPID.setReference(-81/4, ControlType.kPosition);*/
+    
   }
   
   public static void lowerIntake(){
