@@ -42,7 +42,7 @@ public AlignTurret_PID(double s){
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(!Robot.limelight.objectSighted()){
+    /*if(!Robot.limelight.objectSighted()){
       return;
      }
        previous_error = current_error;
@@ -63,7 +63,7 @@ public AlignTurret_PID(double s){
              Thread.sleep((long)(time*1000));
            }
      catch(InterruptedException e){
-           }	
+           }	*/
   }
 
   // Make this return true when this Command no longer needs to run execute()

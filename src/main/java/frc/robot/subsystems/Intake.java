@@ -10,7 +10,9 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANEncoder;
+import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -26,12 +28,18 @@ import frc.robot.RobotMap;
 public class Intake extends Subsystem {
   //public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
   //public static CANSparkMax lift = new CANSparkMax(RobotMap.lift, MotorType.kBrushless);
-  //public static TalonSRX lift = new TalonSRX(RobotMap.liftPort);
- /* public static CANEncoder liftEncoder = lift.getEncoder();
-  
+  //public static CANEncoder liftEncoder = lift.getEncoder();
+  //public static CANPIDController liftPID = lift.getPIDController();
+  /*
   public static DigitalInput limitSwitchIntake = new DigitalInput(RobotMap.limitSwitchPort1);
   */
   public Intake(){
+    /*liftPID.setP(0.1);
+    liftPID.setI(0);
+    liftPID.setD(0);
+    liftPID.setIZone(0);
+    liftPID.setFF(0);
+    liftPID.setOutputRange(-0.2, 0.2);*/
   }
   /*
   public static void intakeLimitSwitch (){
@@ -40,6 +48,7 @@ public class Intake extends Subsystem {
     }
     lift.set(0.0);
   }
+  
   
   public static void spinIn() {
     intake.set(1.0);
@@ -70,26 +79,33 @@ public class Intake extends Subsystem {
       lift.set(-0.5);
     }
   }
+  */
   
   public static void liftIntake(){
-    double currentTicks = liftEncoder.getPosition();
-    // change 30 with testing
-    while (liftEncoder.getPosition() - currentTicks < 30) {
-      lift.set(0.5);
+    // change 81 to 20 after testing
+    /*while (liftEncoder.getPosition() > -81/4) {
+      lift.set(-.15);
     }
     lift.set(0);
+    liftPID.setReference(-81/4, ControlType.kPosition);
+    */
   }
   
   public static void lowerIntake(){
-    double currentTicks = liftEncoder.getPosition();
-    // change 30 with testing
-    while (liftEncoder.getPosition() - currentTicks < -30) {
-      lift.set(-0.5);
+    // change 81 to 20 after testing
+    /*if (liftEncoder.getPosition() < 0) {
+      lift.set(0.2);
     }
     lift.set(0);
+    liftPID.setReference(0, ControlType.kPosition);
+    */
   }
-  */
 
+  public static void stopIntake() {
+    //lift.set(0);
+  }
+
+  /*
   public static void liftIntake(){
     //lift.set(ControlMode.PercentOutput, 0.15);
   }
@@ -101,7 +117,7 @@ public class Intake extends Subsystem {
   public static void stopIntake(){
     //lift.set(ControlMode.PercentOutput, 0.0);
   }
-
+  */
 /*public static TalonSRX intake = new TalonSRX(RobotMap.intake);
 
 public static void spinIn() {
