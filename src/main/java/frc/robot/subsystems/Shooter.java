@@ -45,6 +45,8 @@ public class Shooter extends Subsystem {
   public static CANEncoder turretHall = turret.getEncoder();
   //public static DigitalInput limitSwitchLeft = new DigitalInput(RobotMap.limitSwitchPort2);
  // public static DigitalInput limitSwitchRight = new DigitalInput(RobotMap.limitSwitchPort3);
+  //public static DigitalInput limitTurret = new DigitalInput(RobotMap.limitSwitchPort4);
+  
   
   
   public static double speed;
@@ -103,14 +105,14 @@ public class Shooter extends Subsystem {
     return speed;
   }
   public static boolean outLimit(){
-    if((int)turretHall.getPosition() == 45){
+    /*if((int)turretHall.getPosition() == 45){
        turretHall.setPosition(44.0);
       return true;
      }
      else if((int)turretHall.getPosition() == -45){
       turretHall.setPosition(-44.0);
       return true;
-    }
+    }*/
     return false;
   }
   @Override

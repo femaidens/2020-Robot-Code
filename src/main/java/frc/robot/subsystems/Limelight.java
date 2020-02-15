@@ -43,7 +43,7 @@ public class Limelight extends Subsystem {
   }
 
   public static void setLEDMode(int mode){
-    //table.getEntry("ledMode").setNumber(mode);
+    table.getEntry("ledMode").setNumber(mode);
     // mode = 0	use the LED Mode set in the current pipeline
     //mode = 1	force off
     // mode = 2	force blink

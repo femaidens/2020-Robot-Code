@@ -15,7 +15,7 @@ public class RobotMap {
     public static int hoodPort = 13;
     public static int shooterPort = 15; 
     
-    public static int beltPort1 = 3;
+    public static int beltPort1 = 78;
     public static int beltPort2 = 99;
     
     public static int intake = 8;
@@ -23,4 +23,6 @@ public class RobotMap {
     public static int limitSwitchPort1 = 1;
     public static int limitSwitchPort2 = 2; 
     public static int limitSwitchPort3 = 99; 
+    public static int limitSwitchPort4 = 75; 
+    public static int limitSwitchPort5 = 76; 
 }

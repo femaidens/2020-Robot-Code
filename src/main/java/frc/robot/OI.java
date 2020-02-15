@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.AlignTurret_PID;
 import frc.robot.commands.SpinShooterNEO;
+import frc.robot.commands.StopAlign;
 import frc.robot.subsystems.Shooter;
 
 /**
@@ -19,11 +20,12 @@ import frc.robot.subsystems.Shooter;
  */
 public class OI {
     public static Joystick joy = new Joystick(0);
-   	public static Button align = new JoystickButton(joy, 1);
+    public static Button align = new JoystickButton(joy, 1);
+    public static Button stopAlign = new JoystickButton(joy, 1);
 
     public static void bindButtons() {
         System.out.println("bind");
-        align.whenPressed(new AlignTurret_PID(0.05));
-
+        align.whileHeld(new AlignTurret_PID(0.05));
+        stopAlign.whenReleased(new StopAlign());
     }
 }
