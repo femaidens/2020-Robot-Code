@@ -40,7 +40,16 @@ public class Drivetrain extends Subsystem {
 	public static CANEncoder rightEncoder = frontRight.getEncoder();
 	public static CANEncoder leftEncoder = frontLeft.getEncoder();
 
+	public int currentLimit = 18;
+
   public Drivetrain(){
+	  frontLeft.setSmartCurrentLimit(currentLimit);
+	  frontRight.setSmartCurrentLimit(currentLimit);
+	  rearLeft.setCurrentLimit(currentLimit);
+	  rearRight.setCurrentLimit(currentLimit);
+	  middleLeft.setCurrentLimit(currentLimit);
+	  middleRight.setCurrentLimit(currentLimit);
+	  
   }
 	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
   @Override
