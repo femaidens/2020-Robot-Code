@@ -22,9 +22,9 @@ import frc.robot.subsystems.Intake;
 public class Hopper extends Subsystem {
 	// belt talons
 	/*public static CANSparkMax belt1 = new CANSparkMax(RobotMap.beltPort1, MotorType.kBrushless);
-	public static CANSparkMax belt2 = new CANSparkMax(RobotMap.beltPort2, MotorType.kBrushless);
-	public static Ultrasonic ultra1 = new UltraSonic(RobotMap.ultraPort1);
-	// public static Ultrasonic ultra2 = new Ultrasonic(RobotMap.ultraPort2);*/
+	public static CANSparkMax belt2 = new CANSparkMax(RobotMap.beltPort2, MotorType.kBrushless);*/
+	public static Ultrasonic ultra1 = new Ultrasonic(RobotMap.ultraPing1,RobotMap.ultraEcho1);
+	// public static Ultrasonic ultra2 = new Ultrasonic(RobotMap.ultraPort2);
 	
 	// time of flight sensors--DO LATER
 	
@@ -57,7 +57,7 @@ public class Hopper extends Subsystem {
 	public static int currentCellCount() {
 		return numCells;
 	}
-	public static boolean ballPassed(){
+	public static boolean ballPassedIn(){
 		/*if(numCells == 5){
 			liftIntake();
 		}
@@ -67,6 +67,17 @@ public class Hopper extends Subsystem {
 		if(ultra2.getRangeMM() < 5){
 			decreaseCellCount();
 		}*/
+
+		if(ultra1.getRangeMM() < 5 && numCells < 5){
+			while(ultra1.getRangeMM() < 5){
+				System.out.println("Ball");
+			}
+			increaseCellCount();
+			System.out.println(numCells);
+
+
+		}
+		
 		return true;
 	}
 

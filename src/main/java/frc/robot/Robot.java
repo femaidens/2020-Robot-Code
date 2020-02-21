@@ -46,7 +46,7 @@ public class Robot extends TimedRobot {
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
     SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
-    SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
+    //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
     SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
     shooter = new Shooter();
     limelight = new Limelight();
@@ -66,7 +66,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
-    SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
+    //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
     SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
   }
 
@@ -106,7 +106,7 @@ public class Robot extends TimedRobot {
 
 @Override
 public void teleopInit() {
-  shooter.shooterNEO.set(0);
+  //shooter.shooterNEO.set(0);
 }
 
   /**

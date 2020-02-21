@@ -39,9 +39,9 @@ public class Shooter extends Subsystem {
   // motors
   //public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
   public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
-  public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
-  public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
-  public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
+  //public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
+  //public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
+  //public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
   public static CANEncoder hoodEncoder = hood.getEncoder();
   public static CANPIDController hoodPIDController = hood.getPIDController();
   public static Joystick joy = new Joystick(0);
@@ -55,12 +55,12 @@ public class Shooter extends Subsystem {
   public static double speed;
   
   public Shooter() {
-    shooterPIDController.setP(1e-3);
+    /*shooterPIDController.setP(1e-3);
     shooterPIDController.setI(0);
     shooterPIDController.setD(0);
     shooterPIDController.setIZone(0);
     shooterPIDController.setFF(0);
-    shooterPIDController.setOutputRange(-1, 0);
+    shooterPIDController.setOutputRange(-1, 0);*/
     hoodPIDController.setP(0.05);
     hoodPIDController.setI(1e-5);
     hoodPIDController.setD(1e-3);
@@ -69,7 +69,7 @@ public class Shooter extends Subsystem {
     hoodPIDController.setOutputRange(-0.2, 0.2);
 
 
-    shooterNEO.setSmartCurrentLimit(currentLimit);
+    //shooterNEO.setSmartCurrentLimit(currentLimit);
     hood.setSmartCurrentLimit(currentLimit);
   }
   
@@ -103,7 +103,7 @@ public class Shooter extends Subsystem {
 
   public static void spinShooter(double s) {
     // on the off chance speed is in RPM, this code mightttttt not work
-    shooterPIDController.setReference(s, ControlType.kVelocity);
+    //shooterPIDController.setReference(s, ControlType.kVelocity);
     System.out.println("speed set");
   }
   
