@@ -50,7 +50,7 @@ public class Shooter extends Subsystem {
   
   //public static DigitalInput limitSwitchLeft = new DigitalInput(RobotMap.limitSwitchPort2);
  // public static DigitalInput limitSwitchRight = new DigitalInput(RobotMap.limitSwitchPort3);
-  
+
   
   public static double speed;
   
@@ -60,7 +60,7 @@ public class Shooter extends Subsystem {
     shooterPIDController.setD(0);
     shooterPIDController.setIZone(0);
     shooterPIDController.setFF(0);
-    shooterPIDController.setOutputRange(-1, 0);*/
+    shooterPIDController.setOutputRange(-1, 0);
     hoodPIDController.setP(0.05);
     hoodPIDController.setI(1e-5);
     hoodPIDController.setD(1e-3);
@@ -70,7 +70,7 @@ public class Shooter extends Subsystem {
 
 
     //shooterNEO.setSmartCurrentLimit(currentLimit);
-    hood.setSmartCurrentLimit(currentLimit);
+    hood.setSmartCurrentLimit(currentLimit);*/
   }
   
   public static void shooterLimitSwitch(){
@@ -98,7 +98,7 @@ public class Shooter extends Subsystem {
 
 
   public static void adjustHood(int desiredTicks) {
-		hoodPIDController.setReference(desiredTicks, ControlType.kPosition);
+		//hoodPIDController.setReference(desiredTicks, ControlType.kPosition);
   }
 
   public static void spinShooter(double s) {

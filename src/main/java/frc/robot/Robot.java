@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.subsystems.Hopper;
 import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj.I2C;
@@ -32,8 +33,8 @@ public class Robot extends TimedRobot {
   public static Shooter shooter;
   public static Limelight limelight;
   public static OI oi;
-  public static I2C i2c;
-
+  //public static I2C i2c;
+  public static Hopper hopper;
   
 
   /**
@@ -51,8 +52,10 @@ public class Robot extends TimedRobot {
     shooter = new Shooter();
     limelight = new Limelight();
     //i2c = new I2C();
+    hopper = new Hopper(3);
     oi = new OI();
     OI.bindButtons();
+    
   }
 
   /**
@@ -65,9 +68,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-    SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
+    //SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
     //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
-    SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
+    //SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
   }
 
   /**
@@ -115,7 +118,7 @@ public void teleopInit() {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    Shooter.adjustHood(-10);
+    //Shooter.adjustHood(-10);
   }
 
   /**

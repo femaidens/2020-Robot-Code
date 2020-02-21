@@ -11,16 +11,13 @@ package frc.robot;
 * Add your docs here.
 */
 public class RobotMap {
-
-    //shooter ports
-    public static int turretPort = 0;
-    public static int hoodPort = 16;
-    public static int shooterPort = 8; 
+    //public static int turretPort = 0;
+    public static int hoodPort = 8;
+    public static int shooterPort = 16; 
     
-    // intake/hopper ports
-    public static int beltPort1 = 1;
+    //public static int beltPort1 = 1;
     public static int beltPort2 = 4;
-    public static int ultraPing1;
+    public static int ultraPing1 = 0;
     public static int ultraEcho1 = 1;
     public static int intake = 18;
 
@@ -32,5 +29,8 @@ public class RobotMap {
     public static int limitSwitchPort3 = 12; 
 
     public static int absoluteEncoder = 9;
-
+    public static int trig1 = 0;
+   // public static int ultraPort2a = 1;
+    //public static int echo1 = 1;
+  //  public static int ultraPort2b = 3;
 }
