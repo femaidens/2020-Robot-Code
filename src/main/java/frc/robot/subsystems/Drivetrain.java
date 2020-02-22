@@ -58,15 +58,7 @@ public class Drivetrain extends Subsystem {
    		setDefaultCommand(new DriveTeleop());
   }
   public static void driveTeleop() {
-		//frontLeft.setClosedLoopRampRate(5.0);
-		//frontRight.setClosedLoopRampRate(5.0);
-		//middleLeft.setClosedLoopRampRate(5.0);
-		//middleRight.setClosedLoopRampRate(5.0);
-		//frontRight.setClosedLoopRampRate(5.0);455 
-		//rearRight.setOpenLoopRampRate(100.0);
-		//System.out.println(rearRight.getOpenLoopRampRate());
 		//System.out.println("we out here driving");
-
 
 		//double leftJoy = -OI.driveJoystick.getRawAxis(1);
 		double targetRightJoy = -OI.driveJoystick.getRawAxis(5);
@@ -89,14 +81,13 @@ public class Drivetrain extends Subsystem {
 
 		//frontRight.set(rightJoy);
 		rearRight.set(actualInput);
-		//System.out.println(targetRightJoy);
 		//middleRight.set(rightJoy);
 		//frontLeft.set(leftJoy);
 		//rearLeft.set(leftJoy);
 		//middleLeft.set(leftJoy);*/
 
 		//Prints out voltage
-		//System.out.println(rearRight.getBusVoltage() * rearRight.getAppliedOutput());
+		System.out.println(rearRight.getBusVoltage() * rearRight.getAppliedOutput());
 
 		if(currentLimit >= 19){
 			shiftToPower();
