@@ -58,7 +58,6 @@ public class Drivetrain extends Subsystem {
    		setDefaultCommand(new DriveTeleop());
   }
   public static void driveTeleop() {
-		//System.out.println("driving fuckkkk");
 		//frontLeft.setClosedLoopRampRate(5.0);
 		//frontRight.setClosedLoopRampRate(5.0);
 		//middleLeft.setClosedLoopRampRate(5.0);
@@ -71,21 +70,15 @@ public class Drivetrain extends Subsystem {
 
 		//double leftJoy = -OI.driveJoystick.getRawAxis(1);
 		double targetRightJoy = -OI.driveJoystick.getRawAxis(5);
-		
-		//double oldRightJoy = currentRightJoy;
-		//System.out.println("current" + currentRightJoy);
-		//System.out.println("old" + oldRightJoy);
-		//int speedChange = (int)(currentRightJoy - oldRightJoy);
 		double upRate = 0.01;
-		// This is how you can do ramping down at a different rate
+		//Only use downRate if you need to ramp down at a different rate
 		//double downRate = 0.1;
-		
 		
 		if((targetRightJoy - rearRight.get()) > upRate){
 			actualInput += upRate;
 		}
 
-		// This is only if you need to ramp down
+		//Only use this if you need to ramp down
 		/*else if(rearRight.get() - targetRightJoy > downRate){
 			actualInput -= downRate;
 		}*/
@@ -97,14 +90,14 @@ public class Drivetrain extends Subsystem {
 		//frontRight.set(rightJoy);
 		rearRight.set(actualInput);
 		//System.out.println(targetRightJoy);
-		//System.out.println("ACTUAL" + rearRight.get());
-		
-		System.out.println(rearRight.getBusVoltage() * rearRight.getAppliedOutput());
-
 		//middleRight.set(rightJoy);
 		//frontLeft.set(leftJoy);
 		//rearLeft.set(leftJoy);
 		//middleLeft.set(leftJoy);*/
+
+		//Prints out voltage
+		//System.out.println(rearRight.getBusVoltage() * rearRight.getAppliedOutput());
+
 		if(currentLimit >= 19){
 			shiftToPower();
 		}
