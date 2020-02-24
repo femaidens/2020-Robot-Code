@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.OI;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveTeleop;
@@ -26,65 +27,67 @@ import frc.robot.commands.DriveTeleop;
  */
 public class Drivetrain extends Subsystem {
   	public static CANSparkMax frontLeft = new CANSparkMax(RobotMap.frontLeftPort, MotorType.kBrushless);
-	public static CANSparkMax frontRight = new CANSparkMax(RobotMap.frontRightPort, MotorType.kBrushless);
+	/*public static CANSparkMax frontRight = new CANSparkMax(RobotMap.frontRightPort, MotorType.kBrushless);
 	public static CANSparkMax rearLeft = new CANSparkMax(RobotMap.rearLeftPort, MotorType.kBrushless);
 	public static CANSparkMax rearRight = new CANSparkMax(RobotMap.rearRightPort, MotorType.kBrushless);
 	public static CANSparkMax middleLeft = new CANSparkMax(RobotMap.middleLeftPort, MotorType.kBrushless);
 	public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
-
+*/
 	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
-	public static DoubleSolenoid gearShift = new DoubleSolenoid(RobotMap.solChannel1, RobotMap.solChannel2);
+	//public static DoubleSolenoid gearShift = new DoubleSolenoid(RobotMap.solChannel1, RobotMap.solChannel2);
 
 	//public static CANEncoder rightEncoder = frontRight.getEncoder();
 	//public static CANEncoder leftEncoder = frontLeft.getEncoder();
 
-	public static int currentLimit = 17;
+	public static int currentLimit = 20;
 
   	public Drivetrain(){
-	  frontLeft.setSmartCurrentLimit(currentLimit);
+	  /*frontLeft.setSmartCurrentLimit(currentLimit);
 	  frontRight.setSmartCurrentLimit(currentLimit);
 	  rearLeft.setSmartCurrentLimit(currentLimit);
 	  rearRight.setSmartCurrentLimit(currentLimit);
 	  middleLeft.setSmartCurrentLimit(currentLimit);
 	  middleRight.setSmartCurrentLimit(currentLimit);
-	  
-  	}
+		*/
+	}
 	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
   @Override
   public void initDefaultCommand() {
-   		//setDefaultCommand(new DriveTeleop());
+   		setDefaultCommand(new DriveTeleop());
   }
   public static void driveTeleop() {
-		/*double leftJoy = -OI.driveStr.getRawAxis(1);
-		double rightJoy = OI.driveStr.getRawAxis(5);
-		frontRight.set(rightJoy);
-		rearRight.set(rightJoy);
+		double leftJoy = -OI.driveJoystick.getRawAxis(1);
+		//double rightJoy = OI.driveJoystick.getRawAxis(5);
+		//frontRight.set(rightJoy);
+		//rearRight.set(rightJoy);
 		//middleRight.set(rightJoy);
-		//frontLeft.set(leftJoy);
-		rearLeft.set(leftJoy);
-		//middleLeft.set(leftJoy);*/
-		if(currentLimit >= 19){
-			shifttoPower();
+		frontLeft.set(leftJoy);
+		//rearLeft.set(leftJoy);
+		//middleLeft.set(leftJoy);
+		/*if(currentLimit >= 19){
+			shiftToPower();
 		}
 		if(currentLimit <= 15){
-			shifttoSpeed();
-		}
-		frontLeft.setClosedLoopRampRate(5.0);
-		frontRight.setClosedLoopRampRate(5.0);
-		middleLeft.setClosedLoopRampRate(5.0);
-		middleRight.setClosedLoopRampRate(5.0);
-		frontRight.setClosedLoopRampRate(5.0);
-		rearRight.setClosedLoopRampRate(5.0);
-		
+			shiftToSpeed();
+		}*/
+		double time = 100.0;
+		//frontLeft.setOpenLoopRampRate(time);
+		/*frontRight.setOpenLoopRampRate(time);
+		middleLeft.setOpenLoopRampRate(time);
+		middleRight.setOpenLoopRampRate(time);
+		frontRight.setOpenLoopRampRate(time);
+		rearRight.setOpenLoopRampRate(time);
+		*/		
+		System.out.println(frontLeft.getBusVoltage()*frontLeft.getAppliedOutput());
 	}
 
 	public static void driveAuton(final double rightSpeed, final double leftSpeed) {
-		frontRight.set(rightSpeed);
-		rearRight.set(rightSpeed);
+		//frontRight.set(rightSpeed);
+		//rearRight.set(rightSpeed);
 		//frontLeft.set(leftSpeed);
-		rearLeft.set(leftSpeed);
+		//rearLeft.set(leftSpeed);
 		//middleLeft.set(leftSpeed);
-		//middleRight.set(rightSpeed);
+		//middleRight.set(rightSpeed);	
 		//SmartDashboard.putNumber("Left motor speed", leftEncoder.getPosition());
 		//SmartDashboard.putNumber("Right motor speed", rightEncoder.getPosition());
 	}
@@ -158,11 +161,11 @@ public class Drivetrain extends Subsystem {
   }
 public static void shiftToSpeed(){
 	//High Gear
-	gearShift.set(DoubleSolenoid.Value.kForward);
+	//gearShift.set(DoubleSolenoid.Value.kForward);
 }
 public static void shiftToPower(){
 	//Low Gear
-	gearShift.set(DoubleSolenoid.Value.kReverse);
+	//gearShift.set(DoubleSolenoid.Value.kReverse);
 }
 public static void get() {
 	//return gearShift.get(); 
