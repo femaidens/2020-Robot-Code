@@ -88,7 +88,7 @@ public class Drivetrain extends Subsystem {
 		//middleLeft.set(leftJoy);*/
 
 		//Prints out voltage
-		System.out.println(rearRight.getBusVoltage() * rearRight.getAppliedOutput());
+		//System.out.println(rearRight.getBusVoltage() * rearRight.getAppliedOutput());
 
 		if(currentLimit >= 19){
 			shiftToPower();
