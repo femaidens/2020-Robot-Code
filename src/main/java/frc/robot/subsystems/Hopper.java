@@ -108,6 +108,8 @@ public class Hopper extends Subsystem {
 		System.out.println(third);
 		System.out.println(numCells);
 	}*/
+
+	// Not done check logic and fix
 	public static boolean ballPassedIn(){
 		if(ultra1.getRangeMM() < 5 && numCells < 5){
 			while(ultra1.getRangeMM() < 5){
