@@ -44,6 +44,7 @@ public class Robot extends TimedRobot {
     drivetrain = new Drivetrain();
     m_oi = new OI();
     m_oi.bindButtons();
+    System.out.println("init");
     //drivetrain.setDefaultCommand(new DriveTeleop());
   }
 
