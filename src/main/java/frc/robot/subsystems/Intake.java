@@ -51,6 +51,10 @@ public class Intake extends Subsystem {
   
   
   public static void spinIn() {
+    if(Hopper.stopHop()){
+      intake.set(0.0);
+      return;
+    }
     intake.set(1.0);
     double currentTicks = liftEncoder.getPosition();
     // change 5 with testing

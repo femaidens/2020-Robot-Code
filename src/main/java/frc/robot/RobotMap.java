@@ -30,7 +30,7 @@ public class RobotMap {
 
     public static int absoluteEncoder = 9;
     //public static int trig1 = 0;
-   // public static int ultraPort2a = 1;
+    public static int ultraPort2a = 1;
     //public static int echo1 = 1;
-  //  public static int ultraPort2b = 3;
+    public static int ultraPort2b = 3;
 }

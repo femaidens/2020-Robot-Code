@@ -32,7 +32,7 @@ public class Hopper extends Subsystem {
 	public static DigitalInput echo = new DigitalInput(RobotMap.ultraEcho1);
 	public static DigitalOutput trig = new DigitalOutput(RobotMap.ultraPing1);
 	public static Ultrasonic ultra1 = new Ultrasonic(trig, echo);
-	//public static Ultrasonic ultra2 = new Ultrasonic(RobotMap.ultraPort2a, RobotMap.ultraPort2b);
+	public static Ultrasonic ultra2 = new Ultrasonic(RobotMap.ultraPort2a, RobotMap.ultraPort2b);
 	
 	// time of flight sensors--DO LATER
 	
@@ -112,7 +112,7 @@ public class Hopper extends Subsystem {
 	}*/
 
 	// Not done check logic and fix
-	public static boolean ballPassedIn(){
+	public static void ballPassedIn(){
 		//System.out.println(ultra1.getRangeInches());
 		if(ultra1.getRangeInches() < 5 ){
 			System.out.println("See ball");
@@ -129,7 +129,13 @@ public class Hopper extends Subsystem {
 		}
 		System.out.println(numCells);
 		intakeTime.reset();
-		return true;
+	}
+
+	public static boolean stopHop(){
+		if(ultra2.getRangeInches() < 5){
+			return true;
+		}
+		return false;
 	}
 	
 	@Override
