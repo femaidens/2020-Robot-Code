@@ -38,13 +38,13 @@ import edu.wpi.first.wpilibj.DutyCycleEncoder;
 public class Shooter extends Subsystem {
   // motors
   //public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
-  public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
+  //public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
   //public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
   //public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
   //public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
-  public static CANEncoder hoodEncoder = hood.getEncoder();
-  public static CANPIDController hoodPIDController = hood.getPIDController();
-  public static Joystick joy = new Joystick(0);
+  //public static CANEncoder hoodEncoder = hood.getEncoder();
+// public static CANPIDController hoodPIDController = hood.getPIDController();
+ // public static Joystick joy = new Joystick(0);
   public int currentLimit = 28;
   //public static DutyCycleEncoder absoluteEncoder = new DutyCycleEncoder(9);
   

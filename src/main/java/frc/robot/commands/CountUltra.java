@@ -26,7 +26,7 @@ public class CountUltra extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Hopper.checkUltra();
+    Hopper.ballPassedIn();
    // System.out.println(Hopper.ultra1.isRangeValid());
     //System.out.println(Hopper.ultra1.getDistanceUnits());
    // System.out.println(Hopper.ultra1.getRangeMM());

@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DigitalOutput;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Ultrasonic;
 import frc.robot.subsystems.Intake;
 
@@ -27,8 +28,9 @@ public class Hopper extends Subsystem {
 	// belt talons
 	//public static CANSparkMax belt1 = new CANSparkMax(RobotMap.beltPort1, MotorType.kBrushless);
 	//public static CANSparkMax belt2 = new CANSparkMax(RobotMap.beltPort2, MotorType.kBrushless);
+	public static Timer intakeTime = new Timer();
 	public static DigitalInput echo = new DigitalInput(RobotMap.ultraEcho1);
-	public static DigitalOutput trig = new DigitalOutput(RobotMap.trig1);
+	public static DigitalOutput trig = new DigitalOutput(RobotMap.ultraPing1);
 	public static Ultrasonic ultra1 = new Ultrasonic(trig, echo);
 	//public static Ultrasonic ultra2 = new Ultrasonic(RobotMap.ultraPort2a, RobotMap.ultraPort2b);
 	
@@ -111,14 +113,22 @@ public class Hopper extends Subsystem {
 
 	// Not done check logic and fix
 	public static boolean ballPassedIn(){
-		if(ultra1.getRangeMM() < 5 && numCells < 5){
-			while(ultra1.getRangeMM() < 5){
-				System.out.println("Ball");
+		//System.out.println(ultra1.getRangeInches());
+		if(ultra1.getRangeInches() < 5 ){
+			System.out.println("See ball");
+			intakeTime.start();
+			while(ultra1.getRangeInches() < 5 && intakeTime.get() < 2.0){
+				//System.out.println("Ball");
 			}
-			increaseCellCount();
-			System.out.println(numCells);
+			intakeTime.stop();
+			System.out.println(intakeTime.get());
+			if(intakeTime.get() >= 2.0 && numCells < 5){
+				increaseCellCount();//and intake the ball
+				System.out.println("Increase");
+			}
 		}
-		
+		System.out.println(numCells);
+		intakeTime.reset();
 		return true;
 	}
 	
