@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.OI;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveTeleop;
@@ -38,33 +39,146 @@ public class Drivetrain extends Subsystem {
 	//public static CANEncoder rightEncoder = frontRight.getEncoder();
 	//public static CANEncoder leftEncoder = frontLeft.getEncoder();
 
+	public static double FRactualInput;
+	public static double RRactualInput;
+	public static double MRactualInput;
+	public static double FLactualInput;
+	public static double RLactualInput;
+	public static double MLactualInput;
+
 	public static int currentLimit = 17;
 
-  public Drivetrain(){
-	  frontLeft.setSmartCurrentLimit(currentLimit);
-	  frontRight.setSmartCurrentLimit(currentLimit);
-	  rearLeft.setCurrentLimit(currentLimit);
-	  rearRight.setCurrentLimit(currentLimit);
-	  middleLeft.setCurrentLimit(currentLimit);
-	  middleRight.setCurrentLimit(currentLimit);
+  	public Drivetrain(){
+	  //frontLeft.setSmartCurrentLimit(currentLimit);
+	  //frontRight.setSmartCurrentLimit(currentLimit);
+	  //rearLeft.setSmartCurrentLimit(currentLimit);
+	  rearRight.setSmartCurrentLimit(currentLimit);
+	  //middleLeft.setSmartCurrentLimit(currentLimit);
+	  //middleRight.setSmartCurrentLimit(currentLimit);
 	  
-  }
+  	}
 	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
   @Override
   public void initDefaultCommand() {
-   		//setDefaultCommand(new DriveTeleop());
+   		setDefaultCommand(new DriveTeleop());
   }
+  
   public static void driveTeleop() {
-		/*double leftJoy = -OI.driveStr.getRawAxis(1);
-		double rightJoy = OI.driveStr.getRawAxis(5);
-		frontRight.set(rightJoy);
-		rearRight.set(rightJoy);
-		//middleRight.set(rightJoy);
-		//frontLeft.set(leftJoy);
-		rearLeft.set(leftJoy);
-		//middleLeft.set(leftJoy);*/
+		//System.out.println("we out here driving");
+
+		double targetLeftJoy = -OI.driveJoystick.getRawAxis(1);
+		double targetRightJoy = OI.driveJoystick.getRawAxis(5);
+		double upRate = 0.01;
+		//Only use downRate if you need to ramp down at a different rate
+		//double downRate = 0.1;
+
+		
+		
+		if((targetRightJoy - rearRight.get()) > upRate){
+			RRactualInput += upRate;
+
+		}
+
+		//Only use this if you need to ramp down
+		/*else if(rearRight.get() - targetRightJoy > downRate){
+			actualInput -= downRate;
+		}*/
+
+		else{
+			RRactualInput = targetRightJoy;
+		}
+
+		if((targetRightJoy - middleRight.get()) > upRate){
+			MRactualInput += upRate;
+			
+
+		}
+
+		//Only use this if you need to ramp down
+		/*else if(rearRight.get() - targetRightJoy > downRate){
+			actualInput -= downRate;
+		}*/
+
+		else{
+			MRactualInput = targetRightJoy;
+		}
+
+		if((targetRightJoy - frontRight.get()) > upRate){
+			FRactualInput += upRate;
+		}
+
+		//Only use this if you need to ramp down
+		/*else if(rearRight.get() - targetRightJoy > downRate){
+			actualInput -= downRate;
+		}*/
+
+		else{
+			FRactualInput = targetRightJoy;
+		}
+
+		if((targetLeftJoy - rearLeft.get()) > upRate){
+			RLactualInput += upRate;
+		}
+
+		//Only use this if you need to ramp down
+		/*else if(rearRight.get() - targetRightJoy > downRate){
+			actualInput -= downRate;
+		}*/
+
+		else{
+			RLactualInput = targetLeftJoy;
+		}
+
+		if((targetLeftJoy - middleLeft.get()) > upRate){
+			MLactualInput += upRate;
+		}
+
+		//Only use this if you need to ramp down
+		/*else if(rearRight.get() - targetRightJoy > downRate){
+			actualInput -= downRate;
+		}*/
+
+		else{
+			MLactualInput = targetLeftJoy;
+		}
+
+		if((targetLeftJoy - frontLeft.get()) > upRate){
+			FLactualInput += upRate;
+		}
+
+		//Only use this if you need to ramp down
+		/*else if(rearRight.get() - targetRightJoy > downRate){
+			actualInput -= downRate;
+		}*/
+
+		else{
+			FLactualInput = targetLeftJoy;
+
+		}
+
+		//WITH voltage ramping
+		frontRight.set(FRactualInput);
+		rearRight.set(RRactualInput);
+		middleRight.set(MRactualInput);
+		frontLeft.set(FLactualInput);
+		rearLeft.set(RLactualInput);
+		middleLeft.set(MLactualInput);
+
+		//WITHOUT voltage ramping
+		/*frontRight.set(targetRightJoy);
+		rearRight.set(targetRightJoy);
+		middleRight.set(targetRightJoy);
+		frontLeft.set(targetLeftJoy);
+		rearLeft.set(targetLeftJoy);
+		middleLeft.set(targetLeftJoy);*/
+
+		//Voltage print statement
+		//System.out.println(rearLeft.getBusVoltage() * rearLeft.getAppliedOutput());
+		System.out.println("bus voltage" + rearLeft.getBusVoltage());
+		System.out.println("applied output" + rearLeft.getAppliedOutput());
+
 		if(currentLimit >= 19){
-			shifttoPower();
+			shiftToPower();
 		}
 		if(currentLimit <= 15){
 			shifttoSpeed();
@@ -79,10 +193,10 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public static void driveAuton(final double rightSpeed, final double leftSpeed) {
-		frontRight.set(rightSpeed);
-		rearRight.set(rightSpeed);
+		//frontRight.set(rightSpeed);
+		//rearRight.set(rightSpeed);
 		//frontLeft.set(leftSpeed);
-		rearLeft.set(leftSpeed);
+		//rearLeft.set(leftSpeed);
 		//middleLeft.set(leftSpeed);
 		//middleRight.set(rightSpeed);
 		//SmartDashboard.putNumber("Left motor speed", leftEncoder.getPosition());
@@ -158,11 +272,11 @@ public class Drivetrain extends Subsystem {
   }
 public static void shiftToSpeed(){
 	//High Gear
-	gearShift.set(DoubleSolenoid.Value.kForward);
+	//gearShift.set(DoubleSolenoid.Value.kForward);
 }
 public static void shiftToPower(){
 	//Low Gear
-	gearShift.set(DoubleSolenoid.Value.kReverse);
+	//gearShift.set(DoubleSolenoid.Value.kReverse);
 }
 public static void get() {
 	//return gearShift.get(); 
