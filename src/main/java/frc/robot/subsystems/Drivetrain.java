@@ -70,10 +70,10 @@ public class Drivetrain extends Subsystem {
 			shifttoSpeed();
 		}
 		frontLeft.setClosedLoopRampRate(5);
-		frontRIght.setCLosedLoopRampRate(5);
+		frontRight.setCLosedLoopRampRate(5);
 		middleLeft.setClosedLoopRampRate(5);
 		middleRight.setCLosedLoopRampRate(5);
-		frontRight.setCLosedLoopRampRate(5);
+		rearLeft.setCLosedLoopRampRate(5);
 		rearRight.setClosedLoopRampRate(5);
 		
 	}
