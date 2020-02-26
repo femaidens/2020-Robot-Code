@@ -19,7 +19,7 @@ public class CountUltra extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Hopper.ultra1.setAutomaticMode(true);
+    //Hopper.ultra1.setAutomaticMode(true);
 
   }
 

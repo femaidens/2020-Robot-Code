@@ -31,10 +31,10 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static Shooter shooter;
-  public static Limelight limelight;
+  //public static Limelight limelight;
   public static OI oi;
   //public static I2C i2c;
-  public static Hopper hopper;
+  //public static Hopper hopper;
   
 
   /**
@@ -47,12 +47,12 @@ public class Robot extends TimedRobot {
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
     SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
-    //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
-    SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
+    SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
+    //SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
     shooter = new Shooter();
-    limelight = new Limelight();
+    //limelight = new Limelight();
     //i2c = new I2C();
-    hopper = new Hopper(3);
+    //hopper = new Hopper(3);
     oi = new OI();
     OI.bindButtons();
     
@@ -69,7 +69,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     //SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
-    //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
+    SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
     //SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
   }
 
