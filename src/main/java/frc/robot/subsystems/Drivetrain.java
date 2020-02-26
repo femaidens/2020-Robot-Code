@@ -26,42 +26,19 @@ import frc.robot.commands.DriveTeleop;
  * Add your docs here.
  */
 public class Drivetrain extends Subsystem {
-<<<<<<< HEAD
   	public static CANSparkMax frontLeft = new CANSparkMax(RobotMap.frontLeftPort, MotorType.kBrushless);
-	/*public static CANSparkMax frontRight = new CANSparkMax(RobotMap.frontRightPort, MotorType.kBrushless);
+	public static CANSparkMax frontRight = new CANSparkMax(RobotMap.frontRightPort, MotorType.kBrushless);
 	public static CANSparkMax rearLeft = new CANSparkMax(RobotMap.rearLeftPort, MotorType.kBrushless);
 	public static CANSparkMax rearRight = new CANSparkMax(RobotMap.rearRightPort, MotorType.kBrushless);
 	public static CANSparkMax middleLeft = new CANSparkMax(RobotMap.middleLeftPort, MotorType.kBrushless);
 	public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
-*/
-=======
-  	//public static CANSparkMax frontLeft = new CANSparkMax(RobotMap.frontLeftPort, MotorType.kBrushless);
-	//public static CANSparkMax frontRight = new CANSparkMax(RobotMap.frontRightPort, MotorType.kBrushless);
-	//public static CANSparkMax rearLeft = new CANSparkMax(RobotMap.rearLeftPort, MotorType.kBrushless);
-	public static CANSparkMax rearRight = new CANSparkMax(RobotMap.rearRightPort, MotorType.kBrushless);
-	//public static CANSparkMax middleLeft = new CANSparkMax(RobotMap.middleLeftPort, MotorType.kBrushless);
-	//public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
 
->>>>>>> 04d153dd3710d271684ffcf34e7648a40055e388
-	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
+	public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
 	//public static DoubleSolenoid gearShift = new DoubleSolenoid(RobotMap.solChannel1, RobotMap.solChannel2);
 
 	//public static CANEncoder rightEncoder = frontRight.getEncoder();
 	//public static CANEncoder leftEncoder = frontLeft.getEncoder();
 
-<<<<<<< HEAD
-	public static int currentLimit = 20;
-
-  	public Drivetrain(){
-	  /*frontLeft.setSmartCurrentLimit(currentLimit);
-	  frontRight.setSmartCurrentLimit(currentLimit);
-	  rearLeft.setSmartCurrentLimit(currentLimit);
-	  rearRight.setSmartCurrentLimit(currentLimit);
-	  middleLeft.setSmartCurrentLimit(currentLimit);
-	  middleRight.setSmartCurrentLimit(currentLimit);
-		*/
-	}
-=======
 	public static double actualInput;
 
 	public static int currentLimit = 17;
@@ -75,7 +52,6 @@ public class Drivetrain extends Subsystem {
 	  //middleRight.setSmartCurrentLimit(currentLimit);
 	  
   	}
->>>>>>> 04d153dd3710d271684ffcf34e7648a40055e388
 	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
   @Override
   public void initDefaultCommand() {
@@ -83,17 +59,6 @@ public class Drivetrain extends Subsystem {
   }
   
   public static void driveTeleop() {
-<<<<<<< HEAD
-		double leftJoy = -OI.driveJoystick.getRawAxis(1);
-		//double rightJoy = OI.driveJoystick.getRawAxis(5);
-		//frontRight.set(rightJoy);
-		//rearRight.set(rightJoy);
-		//middleRight.set(rightJoy);
-		frontLeft.set(leftJoy);
-		//rearLeft.set(leftJoy);
-		//middleLeft.set(leftJoy);
-		/*if(currentLimit >= 19){
-=======
 		//System.out.println("we out here driving");
 
 		//double leftJoy = -OI.driveJoystick.getRawAxis(1);
@@ -126,13 +91,11 @@ public class Drivetrain extends Subsystem {
 		System.out.println(rearRight.getBusVoltage() * rearRight.getAppliedOutput());
 
 		if(currentLimit >= 19){
->>>>>>> 04d153dd3710d271684ffcf34e7648a40055e388
 			shiftToPower();
 		}
 		if(currentLimit <= 15){
 			shiftToSpeed();
-<<<<<<< HEAD
-		}*/
+		}
 		double time = 100.0;
 		//frontLeft.setOpenLoopRampRate(time);
 		/*frontRight.setOpenLoopRampRate(time);
@@ -142,12 +105,6 @@ public class Drivetrain extends Subsystem {
 		rearRight.setOpenLoopRampRate(time);
 		*/		
 		System.out.println(frontLeft.getBusVoltage()*frontLeft.getAppliedOutput());
-=======
-		}
-		
-		
-		
->>>>>>> 04d153dd3710d271684ffcf34e7648a40055e388
 	}
 
 	public static void driveAuton(final double rightSpeed, final double leftSpeed) {
