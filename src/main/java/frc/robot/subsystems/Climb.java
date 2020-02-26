@@ -40,12 +40,12 @@ public class Climb extends Subsystem {
   }
 	
 	public static void move(){
-		double value = OI.atkJoy2.getRawAxis(1);
-		/*if(value>0 && limitSwitchT.get()){
+		double value = OI.atkJoy2.getRawAxis(0);
+		/*if(value>0 && !limitSwitchT.get()){
       //servo.setPosition(UP_VALUE);
       climbSol.set(Value.kReverse);
 			climbMotor.set(value);
-		}else if(value<0 && limitSwitchB.get()){
+		}else if(value<0 && !limitSwitchB.get()){
       //servo.setPosition(DOWN_VALUE);
       climbSol.set(Value.KForward);
       climbMotor.set(value);
