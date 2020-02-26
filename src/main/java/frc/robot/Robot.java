@@ -49,8 +49,8 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
     //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
    // SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
-    shooter = new Shooter();
-    limelight = new Limelight();
+    //shooter = new Shooter();
+    //limelight = new Limelight();
     //i2c = new I2C();
     hopper = new Hopper(2);
     oi = new OI();

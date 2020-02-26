@@ -29,10 +29,11 @@ public class Hopper extends Subsystem {
 	//public static CANSparkMax belt1 = new CANSparkMax(RobotMap.beltPort1, MotorType.kBrushless);
 	//public static CANSparkMax belt2 = new CANSparkMax(RobotMap.beltPort2, MotorType.kBrushless);
 	public static Timer intakeTime = new Timer();
-	public static DigitalInput echo = new DigitalInput(RobotMap.ultraEcho1);
-	public static DigitalOutput trig = new DigitalOutput(RobotMap.ultraPing1);
-	public static Ultrasonic ultra1 = new Ultrasonic(trig, echo);
-	public static Ultrasonic ultra2 = new Ultrasonic(RobotMap.ultraPort2a, RobotMap.ultraPort2b);
+	//public static DigitalInput echo = new DigitalInput(RobotMap.ultraEcho1);
+	//public static DigitalOutput trig = new DigitalOutput(RobotMap.ultraPing1);
+	//public static Ultrasonic ultra1 = new Ultrasonic(trig, echo);
+	public static DigitalInput test = new DigitalInput(0);
+	//public static Ultrasonic ultra2 = new Ultrasonic(RobotMap.ultraPort2a, RobotMap.ultraPort2b);
 	
 	// time of flight sensors--DO LATER
 	
@@ -114,7 +115,7 @@ public class Hopper extends Subsystem {
 	// Not done check logic and fix
 	public static void ballPassedIn(){
 		//System.out.println(ultra1.getRangeInches());
-		if(ultra1.getRangeInches() < 5 ){
+		/*if(ultra1.getRangeInches() < 5 ){
 			System.out.println("See ball");
 			intakeTime.start();
 			while(ultra1.getRangeInches() < 5 && intakeTime.get() < 2.0){
@@ -123,18 +124,21 @@ public class Hopper extends Subsystem {
 			intakeTime.stop();
 			System.out.println(intakeTime.get());
 			if(intakeTime.get() >= 2.0 && numCells < 5){
-				increaseCellCount();//and intake the ball
+				increaseCellCount();
+				//Intake.spinIn();
 				System.out.println("Increase");
 			}
 		}
 		System.out.println(numCells);
-		intakeTime.reset();
+		intakeTime.reset();*/
+		System.out.println(test.get());
+		
 	}
 
 	public static boolean stopHop(){
-		if(ultra2.getRangeInches() < 5){
+		/*if(ultra2.getRangeInches() < 5){
 			return true;
-		}
+		}*/
 		return false;
 	}
 	

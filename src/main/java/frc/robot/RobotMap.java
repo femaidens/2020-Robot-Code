@@ -18,7 +18,7 @@ public class RobotMap {
     //public static int beltPort1 = 1;
     public static int beltPort2 = 4;
     public static int ultraPing1 = 0; //trig pin
-    public static int ultraEcho1 = 1; //echo pin
+    public static int ultraEcho1 = 0;//1 //echo pin
     public static int intake = 18;
 
 
