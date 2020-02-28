@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class TurnDegrees extends Command {
   double angle;
   public TurnDegrees(double degree) {
-    requires(Robot.drivetrain);
+    //requires(Robot.drivetrain);
     angle = degree;
   }
 
@@ -25,7 +25,7 @@ public class TurnDegrees extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.drivetrain.turnDegrees(angle);
+    //Robot.drivetrain.turnDegrees(angle);
   }
 
   // Make this return true when this Command no longer needs to run execute()
