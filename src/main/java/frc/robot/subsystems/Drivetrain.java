@@ -33,18 +33,18 @@ public class Drivetrain extends Subsystem {
 	//public static CANSparkMax middleLeft = new CANSparkMax(RobotMap.middleLeftPort, MotorType.kBrushless);
 	//public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
 
-	public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
+	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
 	//public static DoubleSolenoid gearShift = new DoubleSolenoid(RobotMap.solChannel1, RobotMap.solChannel2);
 
 	//public static CANEncoder rightEncoder = frontRight.getEncoder();
 	//public static CANEncoder leftEncoder = frontLeft.getEncoder();
 
-	public static double FRactualInput;
+	//public static double FRactualInput;
 	public static double RRactualInput;
-	public static double MRactualInput;
-	public static double FLactualInput;
-	public static double RLactualInput;
-	public static double MLactualInput;
+	//public static double MRactualInput;
+	//public static double FLactualInput;
+	//public static double RLactualInput;
+	//public static double MLactualInput;
 
 	public static int currentLimit = 17;
 
@@ -177,12 +177,12 @@ public class Drivetrain extends Subsystem {
 		//System.out.println("bus voltage" + rearLeft.getBusVoltage());
 		//System.out.println("applied output" + rearLeft.getAppliedOutput());
 
-		if(currentLimit >= 19){
+		/*if(currentLimit >= 19){
 			shiftToPower();
 		}
 		if(currentLimit <= 15){
 			shiftToSpeed();
-		}
+		}*/
 		/*frontLeft.setClosedLoopRampRate(5);
 		frontRight.setCLosedLoopRampRate(5);
 		middleLeft.setClosedLoopRampRate(5);
