@@ -42,6 +42,7 @@ public class AlignTurret_PID extends Command {
   // cCalled repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {     
+    System.out.println(Limelight.getDistance());
     /*if(!Robot.limelight.objectSighted()){
       System.out.println("No object");
       if(Robot.shooter.outLimit()){

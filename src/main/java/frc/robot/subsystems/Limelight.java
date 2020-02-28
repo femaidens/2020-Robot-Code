@@ -7,13 +7,14 @@ import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
 public class Limelight extends Subsystem {
-  
+  public static final double K = 21.452;
   public static NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
 
   public static NetworkTableEntry tv = table.getEntry("tv"); // any valid targets? (0 for no target, 1 for target) 
   public static NetworkTableEntry tx = table.getEntry("tx"); // horizontal offset from crosshair to target (-27 to 27 degrees)
   public static NetworkTableEntry ta = table.getEntry("ta"); // target area (0% to 100%)
   public static NetworkTableEntry ts = table.getEntry("ts"); // skew or rotation (-90 to 0 degrees)*/
+  public static NetworkTableEntry ty = table.getEntry("ty"); // y angle of the limelight to the target
 
   public Limelight(){
     setLiveStream(0);
@@ -48,8 +49,22 @@ public class Limelight extends Subsystem {
     //mode = 1	force off
     // mode = 2	force blink
     //mode = 3	force on
+  }
 
-}
+  public static double getArea(){
+    return ta.getDouble(0.0);
+  }
+
+  public static double getDistance(){
+    /*double h1 = 31.5;
+    double h2 = 97;
+    double a1 = 0;
+    double a2 = ty.getDouble(0.0)*(180/Math.PI);
+    return (h2-h1)/Math.tan(a1+a2);
+    */
+    return K/Math.sqrt(getArea());
+  }
+
 /*
   public double getTs(){
     if(objectSighted())
