@@ -46,13 +46,14 @@ public class Drivetrain extends Subsystem {
 	//public static double RLactualInput;
 	//public static double MLactualInput;
 
-	public static int currentLimit = 17;
+	public static int currentLimit = 15;
 
   	public Drivetrain(){
 	  //frontLeft.setSmartCurrentLimit(currentLimit);
 	  //frontRight.setSmartCurrentLimit(currentLimit);
 	  //rearLeft.setSmartCurrentLimit(currentLimit);
-	  rearRight.setSmartCurrentLimit(currentLimit);
+	  rearRight.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
+	  rearRight.setSecondaryCurrentLimit(17);
 	  //middleLeft.setSmartCurrentLimit(currentLimit);
 	  //middleRight.setSmartCurrentLimit(currentLimit);
 	  
@@ -165,15 +166,15 @@ public class Drivetrain extends Subsystem {
 		//middleLeft.set(MLactualInput);
 
 		//WITHOUT voltage ramping
-		/*frontRight.set(targetRightJoy);
-		rearRight.set(targetRightJoy);
-		middleRight.set(targetRightJoy);
+		//frontRight.set(targetRightJoy);
+		//rearRight.set(targetRightJoy);
+		/*middleRight.set(targetRightJoy);
 		frontLeft.set(targetLeftJoy);
 		rearLeft.set(targetLeftJoy);
 		middleLeft.set(targetLeftJoy);*/
 
 		//Voltage print statement
-		//System.out.println(rearLeft.getBusVoltage() * rearLeft.getAppliedOutput());
+		System.out.println(rearRight.getBusVoltage() * rearRight.getAppliedOutput());
 		//System.out.println("bus voltage" + rearLeft.getBusVoltage());
 		//System.out.println("applied output" + rearLeft.getAppliedOutput());
 
@@ -189,7 +190,7 @@ public class Drivetrain extends Subsystem {
 		middleRight.setCLosedLoopRampRate(5);
 		rearLeft.setCLosedLoopRampRate(5);
 		rearRight.setClosedLoopRampRate(5);*/
-		
+		//System.out.println(rearRight.getOutputCurrent());
 	}
 
 	public static void driveAuton(final double rightSpeed, final double leftSpeed) {
