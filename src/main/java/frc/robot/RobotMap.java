@@ -25,6 +25,6 @@ public class RobotMap{
 	public static int middleRightPort = 11;
 	public static int gyroPort = 15;
 
-	//public static int solChannel1 = 10;
-	//public static int solChannel2 = 11;
+	public static int solChannel1 = 10;
+	public static int solChannel2 = 11;
 }

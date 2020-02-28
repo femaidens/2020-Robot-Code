@@ -24,7 +24,7 @@ public class ShiftToSpeed extends Command {
   @Override
   protected void execute() {
     /*if(Robot.drivetrain.get().equals(Value.kReverse)|| Robot.drivetrain.get().equals(Value.kOff)){
-      Robot.drivetrain.shiftToPower();
+      Robot.drivetrain.shiftToSpeed();
     } */
   }
 

@@ -34,7 +34,7 @@ public class Drivetrain extends Subsystem {
 	//public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
 
 	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
-	//public static DoubleSolenoid gearShift = new DoubleSolenoid(RobotMap.solChannel1, RobotMap.solChannel2);
+	public static DoubleSolenoid gearShift = new DoubleSolenoid(RobotMap.solChannel1, RobotMap.solChannel2);
 
 	//public static CANEncoder rightEncoder = frontRight.getEncoder();
 	//public static CANEncoder leftEncoder = frontLeft.getEncoder();
@@ -73,8 +73,12 @@ public class Drivetrain extends Subsystem {
 		//Only use downRate if you need to ramp down at a different rate
 		//double downRate = 0.1;
 
+		//Voltage ramping only in high gear
 		
+
 		
+		if(gearShift.get() == DoubleSolenoid.Value.kForward){
+	
 		if((targetRightJoy - rearRight.get()) > upRate){
 			RRactualInput += upRate;
 
@@ -191,6 +195,7 @@ public class Drivetrain extends Subsystem {
 		rearLeft.setCLosedLoopRampRate(5);
 		rearRight.setClosedLoopRampRate(5);*/
 		//System.out.println(rearRight.getOutputCurrent());
+	}
 	}
 
 	public static void driveAuton(final double rightSpeed, final double leftSpeed) {
