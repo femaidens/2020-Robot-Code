@@ -14,7 +14,7 @@ import frc.robot.subsystems.Drivetrain;
 public class DriveTeleop extends Command {
   public DriveTeleop() {
     // Use requires() here to declare subsystem dependencies
-    //requires(Robot.drivetrain);
+    requires(Robot.drivetrain);
   }
 
   // Called just before this Command runs the first time
@@ -26,8 +26,8 @@ public class DriveTeleop extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Robot.drivetrain.driveTeleop();
-    Drivetrain.frontLeft.set(1.0);
+    Drivetrain.driveTeleop();
+    //Drivetrain.frontLeft.set(1.0);
 
   }
 
@@ -41,7 +41,7 @@ public class DriveTeleop extends Command {
   @Override
   protected void end() {
     // Robot.drivetrain.driveAuton(0.0, 0.0);
-    Drivetrain.frontLeft.set(0.0);
+    //Drivetrain.frontLeft.set(0.0);
   }
 
   // Called when another command which requires one or more of the same
@@ -49,6 +49,6 @@ public class DriveTeleop extends Command {
   @Override
   protected void interrupted() {
    // Robot.drivetrain.driveAuton(0.0, 0.0);
-   Drivetrain.frontLeft.set(0.0);
+   //Drivetrain.frontLeft.set(0.0);
   }
 }

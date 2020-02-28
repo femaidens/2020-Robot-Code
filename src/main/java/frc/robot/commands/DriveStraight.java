@@ -34,7 +34,7 @@ public class DriveStraight extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.drivetrain.driveStraight(0.4);
+    //Robot.drivetrain.driveStraight(0.4);
    // System.out.println("Right: " + Math.abs(Drivetrain.rightEncoder.getPosition()));
     //System.out.println("Left: " + Math.abs(Drivetrain.leftEncoder.getPosition()));
 
@@ -52,7 +52,7 @@ public class DriveStraight extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Drivetrain.driveAuton(0, 0);
+    //Drivetrain.driveAuton(0, 0);
     /*initialRightTicks = Drivetrain.rightEncoder.getPosition();
 		initialLeftTicks = Drivetrain.leftEncoder.getPosition();*/
   }
@@ -61,7 +61,7 @@ public class DriveStraight extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Drivetrain.driveAuton(0, 0);
+    //Drivetrain.driveAuton(0, 0);
     /*initialRightTicks = Drivetrain.rightEncoder.getPosition();
 		initialLeftTicks = Drivetrain.leftEncoder.getPosition();*/
   }
