@@ -17,7 +17,7 @@ public class RobotMap{
 	//public static int gyroPort = 2;
 	/*talons*/
 	
-	public static int rearRightPort = 14;
+	public static int rearRightPort = 1;
 	public static int rearLeftPort = 2;
 	public static int frontRightPort = 12;
 	public static int frontLeftPort = 16;

@@ -30,8 +30,8 @@ public class Drivetrain extends Subsystem {
 	/*public static CANSparkMax frontRight = new CANSparkMax(RobotMap.frontRightPort, MotorType.kBrushless);
 	public static CANSparkMax rearLeft = new CANSparkMax(RobotMap.rearLeftPort, MotorType.kBrushless);
 	public static CANSparkMax rearRight = new CANSparkMax(RobotMap.rearRightPort, MotorType.kBrushless);
-	public static CANSparkMax middleLeft = new CANSparkMax(RobotMap.middleLeftPort, MotorType.kBrushless);
-	public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
+	//public static CANSparkMax middleLeft = new CANSparkMax(RobotMap.middleLeftPort, MotorType.kBrushless);
+	//public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
 
 	public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
 	*/
@@ -67,7 +67,7 @@ public class Drivetrain extends Subsystem {
   public static void driveTeleop() {
 		//System.out.println("we out here driving");
 
-		double targetLeftJoy = -OI.driveJoystick.getRawAxis(1);
+		//double targetLeftJoy = -OI.driveJoystick.getRawAxis(1);
 		double targetRightJoy = OI.driveJoystick.getRawAxis(5);
 		//double upRate = 0.01;
 		//Only use downRate if you need to ramp down at a different rate
@@ -89,7 +89,7 @@ public class Drivetrain extends Subsystem {
 			RRactualInput = targetRightJoy;
 		}
 
-		if((targetRightJoy - middleRight.get()) > upRate){
+		/*if((targetRightJoy - middleRight.get()) > upRate){
 			MRactualInput += upRate;
 			
 
@@ -125,7 +125,7 @@ public class Drivetrain extends Subsystem {
 		//Only use this if you need to ramp down
 		/*else if(rearRight.get() - targetRightJoy > downRate){
 			actualInput -= downRate;
-		}*/
+		}
 
 	/*	else{
 			RLactualInput = targetLeftJoy;
@@ -168,9 +168,9 @@ public class Drivetrain extends Subsystem {
 		middleLeft.set(MLactualInput);
 */
 		//WITHOUT voltage ramping
-		/*frontRight.set(targetRightJoy);
-		rearRight.set(targetRightJoy);
-		middleRight.set(targetRightJoy);
+		//frontRight.set(targetRightJoy);
+		//rearRight.set(targetRightJoy);
+		/*middleRight.set(targetRightJoy);
 		frontLeft.set(targetLeftJoy);
 		rearLeft.set(targetLeftJoy);
 		middleLeft.set(targetLeftJoy);*/
