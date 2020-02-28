@@ -163,13 +163,13 @@ public class Drivetrain extends Subsystem {
 		*/
 
 		//WITH voltage ramping
-	/*	frontRight.set(FRactualInput);
+		/*frontRight.set(FRactualInput);
 		rearRight.set(RRactualInput);
 		middleRight.set(MRactualInput);
 		frontLeft.set(FLactualInput);
 		rearLeft.set(RLactualInput);
-		middleLeft.set(MLactualInput);
-*/
+		middleLeft.set(MLactualInput);*/
+
 		//WITHOUT voltage ramping
 		frontRight.set(targetRightJoy);
 		rearRight.set(targetRightJoy);
