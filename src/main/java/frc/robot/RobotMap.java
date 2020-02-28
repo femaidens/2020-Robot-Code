@@ -20,7 +20,7 @@ public class RobotMap{
 	public static int rearRightPort = 14;
 	public static int rearLeftPort = 2;
 	public static int frontRightPort = 12;
-	public static int frontLeftPort = 10;
+	public static int frontLeftPort = 16;
 	public static int middleLeftPort = 4;
 	public static int middleRightPort = 11;
 	public static int gyroPort = 15;
