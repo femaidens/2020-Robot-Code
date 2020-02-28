@@ -38,7 +38,7 @@ import edu.wpi.first.wpilibj.DutyCycleEncoder;
 public class Shooter extends Subsystem {
   // motors
   //public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
-  //public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
+  public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
   //public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
   //public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
   //public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
@@ -46,7 +46,7 @@ public class Shooter extends Subsystem {
 // public static CANPIDController hoodPIDController = hood.getPIDController();
  // public static Joystick joy = new Joystick(0);
   public int currentLimit = 28;
-  //public static DutyCycleEncoder absoluteEncoder = new DutyCycleEncoder(9);
+  public static DutyCycleEncoder absoluteEncoder = new DutyCycleEncoder(9);
   
   //public static DigitalInput limitSwitchLeft = new DigitalInput(RobotMap.limitSwitchPort2);
  // public static DigitalInput limitSwitchRight = new DigitalInput(RobotMap.limitSwitchPort3);
@@ -98,7 +98,14 @@ public class Shooter extends Subsystem {
 
 
   public static void adjustHood(int desiredTicks) {
-		//hoodPIDController.setReference(desiredTicks, ControlType.kPosition);
+    //hoodPIDController.setReference(desiredTicks, ControlType.kPosition);
+    while (absoluteEncoder.getDistance() != desiredTicks){
+			if(absoluteEncoder.getDistance() < desiredTicks){
+				hood.set(0.1);
+			} else {
+        hood.set(-0.1);
+      }
+		}
   }
 
   public static void spinShooter(double s) {

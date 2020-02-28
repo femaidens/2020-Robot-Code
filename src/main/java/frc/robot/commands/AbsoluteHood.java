@@ -33,13 +33,13 @@ public class AbsoluteHood extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    //Shooter.hood.set(0.0);
+    Shooter.hood.set(0.0);
   }
   
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-   //Shooter.hood.set(0.0);
+   Shooter.hood.set(0.0);
   }
 }

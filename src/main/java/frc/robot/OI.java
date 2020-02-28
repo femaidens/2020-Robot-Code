@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.AbsoluteHood;
 import frc.robot.commands.AlignTurret_PID;
 import frc.robot.commands.CellIn;
 import frc.robot.commands.CellOut;
@@ -28,14 +29,15 @@ public class OI {
     //public static Button lowerLift = new JoystickButton(joy, 3);
     //public static Button shoot = new JoystickButton(joy, 2);
     //public static Button turret = new JoystickButton(joy, 1);
-    public static Button ultra = new JoystickButton(joy, 1);
+    //public static Button ultra = new JoystickButton(joy, 1);
+    public static Button adjustHood = new JoystickButton(joy, 1);
     public static void bindButtons() {
         //System.out.println("binding");
         //liftLift.toggleWhenPressed(new LiftIntake());s
-        ultra.whileHeld(new CountUltra());
+        //ultra.whileHeld(new CountUltra());
         System.out.println("Binded");
         //shoot.whileHeld(new SpinShooterNEO(-500));
         //turret.whenPressed(new AlignTurret_PID(0.02));
- 
+        adjustHood.whenPressed(new AbsoluteHood(10));
     }
 }
