@@ -10,7 +10,6 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.subsystems.Limelight;
-import frc.robot.subsystems.Shooter;
 
 public class AlignTurret_PID extends Command {
   private static final double KP = 0.1;
@@ -37,13 +36,13 @@ public class AlignTurret_PID extends Command {
   @Override
   protected void initialize() {
     //Robot.limelight.setLiveStream(0);
-    Robot.limelight.setLEDMode(3);
+    Robot.limelight.setLEDMode(0);
   }
 
   // cCalled repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {     
-    if(!Robot.limelight.objectSighted()){
+    /*if(!Robot.limelight.objectSighted()){
       System.out.println("No object");
       if(Robot.shooter.outLimit()){
         speed *= -1;
@@ -59,7 +58,7 @@ public class AlignTurret_PID extends Command {
       integral = (current_error+previous_error)/2*(time);
       derivative = (current_error-previous_error)/time;
       adjust = (KP*current_error + KI*integral + KD*derivative) * -0.1;
-        
+        */
       /*if (current_error > min_error){
         adjust += min_command;
       }
@@ -72,34 +71,7 @@ public class AlignTurret_PID extends Command {
       }
       catch(InterruptedException e){
       }
-        
-      System.out.println("Adjust: " + adjust);
-      /*double total = speed + adjust;
-      if((int)Shooter.turretHall.getPosition() == -45 && speed + adjust < 0){
-        total *= -1;
-      }else if((int)Shooter.turretHall.getPosition() == 45 && speed + adjust > 0){
-        total *= -1;
-      }*/
-      
-     // if(Shooter.limitTurret.get() == false) {
-     //   Shooter.spinTurret(-(speed));
-     // }
-      //if(Shooter.outLimit()){
-     //   Shooter.spinTurret(-(speed));
-     // }
-      Shooter.spinTurret(speed + adjust);
     }
-
-
-    //System.out.println("Adjust: " + adjust);
-    //Shooter.spinTurret(speed+adjust);
-    
-   //System.out.println(Robot.shooter.turretHall.getPosition());
-   /* if(Robot.shooter.outLimit()){
-      speed *= -1;
-    }
-    Shooter.spinTurret(speed+adjust);*/
-  }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
@@ -110,7 +82,7 @@ public class AlignTurret_PID extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Shooter.spinTurret(0.0);
+    //Shooter.spinTurret(0.0);
     //Limelight.setLEDMode(1);
   }
 
