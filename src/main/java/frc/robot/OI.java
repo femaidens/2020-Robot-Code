@@ -29,13 +29,14 @@ public class OI {
     public static Button shoot = new JoystickButton(joy, 2);
     //public static Button turret = new JoystickButton(joy, 1);
     //public static Button ultra = new JoystickButton(joy, 1);
+    public static Button hood = new JoystickButton(joy, 1);
     public static void bindButtons() {
         //System.out.println("binding");
         //liftLift.toggleWhenPressed(new LiftIntake());s
         //ultra.whileHeld(new CountUltra());
         System.out.println("Binded");
-        shoot.whileHeld(new SpinShooterNEO(-5300));
+        //shoot.whileHeld(new SpinShooterNEO(-5300));
         //turret.whenPressed(new AlignTurret_PID(0.02));
- 
+        hood.whenPressed(new AbsoluteHood(1000));
     }
 }
