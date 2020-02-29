@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.AbsoluteHood;
 import frc.robot.commands.AlignTurret_PID;
 import frc.robot.commands.CellIn;
 import frc.robot.commands.CellOut;
@@ -37,6 +38,6 @@ public class OI {
         System.out.println("Binded");
         //shoot.whileHeld(new SpinShooterNEO(-5300));
         //turret.whenPressed(new AlignTurret_PID(0.02));
-        hood.whenPressed(new AbsoluteHood(1000));
+        hood.whenPressed(new AbsoluteHood(10.0));
     }
 }

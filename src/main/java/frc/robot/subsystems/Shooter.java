@@ -44,7 +44,6 @@ public class Shooter extends Subsystem {
   //public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
  // public static CANEncoder hoodEncoder = hood.getEncoder();
   //public static CANPIDController hoodPIDController = hood.getPIDController();
-  public static Joystick joy = new Joystick(0);
   //public int currentLimit = 28;
   public static DutyCycleEncoder absoluteEncoder = new DutyCycleEncoder(0);
   
@@ -100,10 +99,11 @@ public class Shooter extends Subsystem {
     //hoodPIDController.setReference(desiredTicks, ControlType.kPosition);
     while (absoluteEncoder.getDistance() != desiredTicks){
 			if(absoluteEncoder.getDistance() < desiredTicks){
-        hood.set(0.1);
+        hood.set(0.5);
+        System.out.println(absoluteEncoder.getDistance());
       }
     }
-    System.out.println(absoluteEncoder.getDistance());
+    hood.set(0.0);
   }
 
   public static void spinShooter(double s) {
