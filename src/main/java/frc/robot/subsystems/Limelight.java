@@ -7,7 +7,7 @@ import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
 public class Limelight extends Subsystem {
-  public static final double K = 21.452;
+  public static final double K = 217.16376556;
   public static NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
 
   public static NetworkTableEntry tv = table.getEntry("tv"); // any valid targets? (0 for no target, 1 for target) 
@@ -56,13 +56,13 @@ public class Limelight extends Subsystem {
   }
 
   public static double getDistance(){
-    /*double h1 = 31.5;
-    double h2 = 97;
+   /* double h1 = 31.5;
+    double h2 = 57;
     double a1 = 0;
     double a2 = ty.getDouble(0.0)*(180/Math.PI);
     return (h2-h1)/Math.tan(a1+a2);
     */
-    return K/Math.sqrt(getArea());
+    return K/Math.sqrt(getArea()) + 4;
   }
 
 /*
@@ -73,12 +73,6 @@ public class Limelight extends Subsystem {
       return 0;
   }
   */
-  
-  /*public double getDistance(){
-    double area = ta.getDouble(0.0);
-    // some random calculations to get distance ratio
-    return distance;
-  }  */
 
   @Override
   public void initDefaultCommand() {

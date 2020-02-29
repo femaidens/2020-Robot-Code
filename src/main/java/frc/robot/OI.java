@@ -10,6 +10,14 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+/*import frc.robot.commands.AlignTurret_PID;
+import frc.robot.commands.CellIn;
+import frc.robot.commands.CellOut;
+import frc.robot.commands.CountUltra;
+import frc.robot.commands.LiftIntake;
+import frc.robot.commands.LowerIntake;
+import frc.robot.commands.SpinShooterNEO;
+import frc.robot.subsystems.Shooter;*/
 import frc.robot.commands.AlignTurret_PID;
 
 /**
@@ -17,11 +25,20 @@ import frc.robot.commands.AlignTurret_PID;
  */
 public class OI {
     public static Joystick joy = new Joystick(0);
-    public static Button align = new JoystickButton(joy, 1);
-    public static Button stopAlign = new JoystickButton(joy, 1);
-
+    //public static Button liftLift = new JoystickButton(joy, 1);
+    //public static Button lowerLift = new JoystickButton(joy, 3);
+    //public static Button shoot = new JoystickButton(joy, 2);
+    public static Button turret = new JoystickButton(joy, 1);
+    //public static Button ultra = new JoystickButton(joy, 1);
+    //public static Button adjustHood = new JoystickButton(joy, 1);
+    
     public static void bindButtons() {
-        System.out.println("bind");
-        align.whileHeld(new AlignTurret_PID(0.05));
+        //System.out.println("binding");
+        //liftLift.toggleWhenPressed(new LiftIntake());s
+
+        //System.out.println("Binded");
+        //shoot.whileHeld(new SpinShooterNEO(-5600));
+        turret.whileHeld(new AlignTurret_PID(0.02));
+       // adjustHood.whenPressed(new AbsoluteHood(10));
     }
 }

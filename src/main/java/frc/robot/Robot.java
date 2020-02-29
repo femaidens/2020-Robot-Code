@@ -7,11 +7,16 @@
 
 package frc.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import frc.robot.subsystems.Limelight;
+
+import edu.wpi.first.wpilibj.I2C;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,11 +30,9 @@ public class Robot extends TimedRobot {
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
-  public static OI oi;
+ 
   public static Limelight limelight;
-  //public static Shooter shooter;
-  //public static Limelight limelight;
-  
+  public static OI oi;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -37,16 +40,21 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    System.out.println("Robot Init");
+    System.out.println("starting");
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
-    //SmartDashboard.putData("Auto choices", m_chooser);
-    //SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
-    //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
-    oi = new OI();
-    limelight = new Limelight();    
-    oi.bindButtons();
+    SmartDashboard.putData("Auto choices", m_chooser);
 
+    
+    //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
+    //SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
+  
+    limelight = new Limelight();
+    //i2c = new I2C();
+    //hopper = new Hopper(2);
+    oi = new OI();
+    OI.bindButtons();
+    
   }
 
   /**
@@ -61,6 +69,7 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
     //SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
     //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
+    //SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
   }
 
   /**
@@ -97,12 +106,18 @@ public class Robot extends TimedRobot {
     }
   }
 
+@Override
+public void teleopInit() {
+  //shooter.shooterNEO.set(0);
+}
+
   /**
    * This function is called periodically during operator control.
    */
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    //Shooter.adjustHood(-10);
   }
 
   /**
