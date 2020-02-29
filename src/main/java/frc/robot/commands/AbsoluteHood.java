@@ -6,8 +6,8 @@ import frc.robot.subsystems.Shooter;
 
 public class AbsoluteHood extends Command {
 
-  public int ticks;
-  public AbsoluteHood(int desiredTicks) {
+  public double ticks;
+  public AbsoluteHood(double desiredTicks) {
     ticks = desiredTicks;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);

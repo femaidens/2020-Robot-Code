@@ -88,6 +88,38 @@ public class Hopper extends Subsystem {
 			}
 			catch(InterruptedException ex){
 				Thread.currentThread().interrupt();
+<<<<<<< HEAD
+=======
+			}
+			double third = ultra1.getRangeInches();
+			try{
+				Thread.sleep(10);
+			}
+			catch(InterruptedException ex){
+				Thread.currentThread().interrupt();
+			}
+			
+			if(first > second && second < third && second < 5){
+				increaseCellCount();
+			}
+		/*if(ultra2.getRangeMM() < 5){
+			decreaseCellCount();
+		}
+		System.out.println(first);
+		System.out.println(second);
+		System.out.println(third);
+		System.out.println(numCells);
+	}*/
+
+	// Not done check logic and fix
+	public static void ballPassedIn(){
+		//System.out.println(ultra1.getRangeInches());
+		/*if(ultra1.getRangeInches() < 5 ){
+			System.out.println("See ball");
+			intakeTime.start();
+			while(ultra1.getRangeInches() < 5 && intakeTime.get() < 2.0){
+				//System.out.println("Ball");
+>>>>>>> parent of ec42f97... Untested HoodAlign Code
 			}
 			double third = ultra1.getRangeInches();
 			try{
