@@ -200,7 +200,7 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public static void driveAuton(final double rightSpeed, final double leftSpeed) {
-		/*frontRight.set(rightSpeed);
+		frontRight.set(rightSpeed);
 		rearRight.set(rightSpeed);
 		frontLeft.set(leftSpeed);
 		rearLeft.set(leftSpeed);
@@ -208,7 +208,6 @@ public class Drivetrain extends Subsystem {
 		middleRight.set(rightSpeed);	
 		SmartDashboard.putNumber("Left motor speed", leftEncoder.getPosition());
 		SmartDashboard.putNumber("Right motor speed", rightEncoder.getPosition());
-		*/
 	}
 
 	public static void driveStraight(double speed) {
@@ -234,6 +233,7 @@ public class Drivetrain extends Subsystem {
 			Drivetrain.middleRight.set(speed+0.05);
 			Drivetrain.rearRight.set(speed+0.05);
 		}
+	while(Drivetrain.leftEncoder.getPosition() != Drivetrain.rightEncoder.getPosition()){
 		if (Math.abs(Drivetrain.leftEncoder.getPosition()) > Math.abs(Drivetrain.rightEncoder.getPosition())) {
 			Drivetrain.frontLeft.set(speed);
 			Drivetrain.middleLeft.set(speed);
@@ -256,6 +256,7 @@ public class Drivetrain extends Subsystem {
 			Drivetrain.frontRight.set(-(speed));
 			Drivetrain.middleRight.set(-(speed));
 			Drivetrain.rearRight.set(-(speed));
+		}
 		}*/
 	}
 
@@ -264,7 +265,7 @@ public class Drivetrain extends Subsystem {
 		angle = -(360 - angle);
 	  }
   
-	  if (Drivetrain.gyro.getAngle() != angle) {
+	  while (Drivetrain.gyro.getAngle() != angle) {
 		if (angle < 0) {
 		  Drivetrain.frontRight.set(1.0);
 		  Drivetrain.rearRight.set(1.0);
@@ -276,7 +277,12 @@ public class Drivetrain extends Subsystem {
 		  Drivetrain.frontLeft.set(1.0);
 		  Drivetrain.rearRight.set(1.0);
 		}
-	  }*/
+	  }
+	  	  Drivetrain.frontRight.set(0.0);
+		  Drivetrain.rearRight.set(0.0);
+		  Drivetrain.frontLeft.set(0.0);
+		  Drivetrain.rearRight.set(0.0);
+		  */
   }
 public static void shiftToSpeed(){
 	//High Gear

@@ -28,7 +28,7 @@ public class DriveAuton extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Robot.drivetrain.driveAuton(leftSpeed, rightSpeed);
+    Robot.drivetrain.driveAuton(leftSpeed, rightSpeed);
     
   }
 
@@ -41,7 +41,7 @@ public class DriveAuton extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    
+    Robot.drivetrain.driveAuton(0.0, 0.0);
   }
 
   // Called when another command which requires one or more of the same
