@@ -19,7 +19,7 @@ public class RobotMap {
     public static int beltPort2 = 4;
     public static int ultraPing1 = 0;
     public static int ultraEcho1 = 1;
-    public static int intake = 18;
+    public static int intake = 4;
 
 
     public static int lift = 7;

@@ -26,7 +26,7 @@ import frc.robot.RobotMap;
 */
 //Intake Subsystem -- DO LATER WHEN WE KNOW WHAT’S HAPPENING
 public class Intake extends Subsystem {
-  //public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
+  public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
   /*public static CANSparkMax lift = new CANSparkMax(RobotMap.lift, MotorType.kBrushless);
   public static CANEncoder liftEncoder = lift.getEncoder();
   public static CANPIDController liftPID = lift.getPIDController();*/
@@ -48,38 +48,39 @@ public class Intake extends Subsystem {
     }
     lift.set(0.0);
   }
-  
+  */
   
   public static void spinIn() {
     intake.set(1.0);
-    double currentTicks = liftEncoder.getPosition();
+  /*  double currentTicks = liftEncoder.getPosition();
     // change 5 with testing
     while (liftEncoder.getPosition() - currentTicks < 5) {
       lift.set(0.5);
     }
     while (liftEncoder.getPosition() - currentTicks > 0) {
       lift.set(-0.5);
-    }
+    }*/
   }
   
   public static void spinStop() {
     intake.set(0);
-    lift.set(0);
+    //lift.set(0);
   }
   
   
   public static void spinOut() {
     intake.set(-1.0);
-    double currentTicks = liftEncoder.getPosition();
+   // double currentTicks = liftEncoder.getPosition();
     // change 5 with testing
-    while (liftEncoder.getPosition() - currentTicks < 5) {
+  /*  while (liftEncoder.getPosition() - currentTicks < 5) {
       lift.set(0.5);
     }
     while (liftEncoder.getPosition() - currentTicks > 0) {
       lift.set(-0.5);
     }
+    */
   }
-  */
+  
   
   public static void liftIntake(){
     // change 81 to 20 after testing
