@@ -15,6 +15,6 @@ public class RobotMap {
 
     public static int servoPort = 6;
 
-    public static int limitPortB = 8;
+    public static int limitPortB = 0;
     public static int limitPortT = 3;
 }
