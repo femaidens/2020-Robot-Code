@@ -46,7 +46,7 @@ public class Shooter extends Subsystem {
   //public static CANPIDController hoodPIDController = hood.getPIDController();
   public static Joystick joy = new Joystick(0);
   //public int currentLimit = 28;
-  public static DutyCycleEncoder absoluteEncoder = new DutyCycleEncoder(9);
+  public static DutyCycleEncoder absoluteEncoder = new DutyCycleEncoder(0);
   
   //public static DigitalInput limitSwitchLeft = new DigitalInput(RobotMap.limitSwitchPort2);
  // public static DigitalInput limitSwitchRight = new DigitalInput(RobotMap.limitSwitchPort3);
@@ -55,12 +55,12 @@ public class Shooter extends Subsystem {
   public static double speed;
   
   public Shooter() {
-    shooterPIDController.setP(1e-4);
+    /*shooterPIDController.setP(1e-4);
     shooterPIDController.setI(1e-6);
     shooterPIDController.setD(1e-2);
     shooterPIDController.setIZone(0);
     shooterPIDController.setFF(0);
-    shooterPIDController.setOutputRange(-1, 0);
+    shooterPIDController.setOutputRange(-1, 0);*/
     /*hoodPIDController.setP(0.05);
     hoodPIDController.setI(1e-5);
     hoodPIDController.setD(1e-3);
@@ -103,12 +103,13 @@ public class Shooter extends Subsystem {
         hood.set(0.1);
       }
     }
+    System.out.println(absoluteEncoder.getDistance());
   }
 
   public static void spinShooter(double s) {
     // on the off chance speed is in RPM, this code mightttttt not work
-    shooterPIDController.setReference(s, ControlType.kVelocity);
-    System.out.println("speed set");
+    //shooterPIDController.setReference(s, ControlType.kVelocity);
+    //System.out.println("speed set");
   }
   
   public static double getSpeed() {
