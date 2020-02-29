@@ -14,6 +14,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -47,6 +48,18 @@ public class Drivetrain extends Subsystem {
 	public static double MLactualInput;
 	
 	public static int currentLimit = 17;
+
+	// drivestraight pid variables
+	public static double leftIntegral = 0;
+	public static double rightIntegral = 0;
+	public static double lastLeftError = 0;
+	public static double lastRightError = 0;
+	public static double lastTime = Timer.getFPGATimestamp();
+
+	// constants
+	public static double kp = 1;
+	public static double ki = 0;
+	public static double kd = 0;
 
   	public Drivetrain(){
 	  //frontLeft.setSmartCurrentLimit(currentLimit);
@@ -211,53 +224,29 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public static void driveStraight(double speed) {
-		/*if(gyro.getAngle() == 0){
-			Drivetrain.frontLeft.set(speed);
-			Drivetrain.middleLeft.set(speed);
-			Drivetrain.rearLeft.set(speed);
-			Drivetrain.frontRight.set(speed);
-			Drivetrain.middleRight.set(speed);
-			Drivetrain.rearRight.set(speed);
-		}else if(gyro.getAngle() > 180){
-			Drivetrain.frontRight.set(speed);
-			Drivetrain.middleRight.set(speed);
-			Drivetrain.rearRight.set(speed);
-			Drivetrain.frontLeft.set(speed+0.05);
-			Drivetrain.middleLeft.set(speed+0.05);
-			Drivetrain.rearLeft.set(speed+0.05);
-		}else {
-			Drivetrain.frontLeft.set(speed);
-			Drivetrain.middleLeft.set(speed);
-			Drivetrain.rearLeft.set(speed);
-			Drivetrain.frontRight.set(speed+0.05);
-			Drivetrain.middleRight.set(speed+0.05);
-			Drivetrain.rearRight.set(speed+0.05);
-		}
-	while(Drivetrain.leftEncoder.getPosition() != Drivetrain.rightEncoder.getPosition()){
-		if (Math.abs(Drivetrain.leftEncoder.getPosition()) > Math.abs(Drivetrain.rightEncoder.getPosition())) {
-			Drivetrain.frontLeft.set(speed);
-			Drivetrain.middleLeft.set(speed);
-			Drivetrain.rearLeft.set(speed);
-			Drivetrain.frontRight.set(-(speed+0.05));
-			Drivetrain.middleRight.set(-(speed+0.05));
-			Drivetrain.rearRight.set(-(speed+0.05));
-		} else if (Math.abs(Drivetrain.rightEncoder.getPosition()) > Math.abs(Drivetrain.leftEncoder.getPosition())) {
-			Drivetrain.frontRight.set(-speed);
-			Drivetrain.middleRight.set(-speed);
-			Drivetrain.rearRight.set(-speed);
-			Drivetrain.frontLeft.set(speed+0.05);
-			Drivetrain.middleLeft.set(speed+0.05);
-			Drivetrain.rearLeft.set(speed+0.05);
-		} 
-		else{
-			Drivetrain.frontLeft.set(speed + 0.01);
-			Drivetrain.middleLeft.set(speed + 0.01);
-			Drivetrain.rearLeft.set(speed + 0.01);
-			Drivetrain.frontRight.set(-(speed));
-			Drivetrain.middleRight.set(-(speed));
-			Drivetrain.rearRight.set(-(speed));
-		}
-		}*/
+		// convert speed to RPM
+		double rpm = speed * 5700;
+		double leftVel = leftEncoder.getVelocity();
+		double rightVel = rightEncoder.getVelocity();
+
+		double leftError = leftVel - rpm;
+		double rightError = rightVel - rpm;
+		double timeSpan = Timer.getFPGATimestamp() - lastTime;
+		lastTime = Timer.getFPGATimestamp();
+
+		leftIntegral += leftError * timeSpan;
+		rightIntegral += rightError * timeSpan;
+		double leftDerivative = (leftError - lastLeftError) / timeSpan;
+		double rightDerivative = (rightError - lastRightError) / timeSpan;
+
+		double leftSpeed = rpm + (kp * leftError) + (ki * leftIntegral) + (kd * leftDerivative);
+		double rightSpeed = rpm + (kp * rightError) + (ki * rightIntegral) + (kd * rightDerivative);
+
+		// convert back when calling drive auton
+		driveAuton(leftSpeed / 5700, rightSpeed / 5700);
+
+		lastLeftError = leftError;
+		lastRightError = rightError;
 	}
 
 	public static void turnDegrees(final double angle) {
