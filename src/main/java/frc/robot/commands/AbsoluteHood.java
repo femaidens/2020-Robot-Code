@@ -21,13 +21,13 @@ public class AbsoluteHood extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Shooter.adjustHood(ticks);
+   // Shooter.hood.set(0.1); 
   }
   
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return Shooter.absoluteEncoder.get() > ticks; //negative is positive velocity
   }
   
   // Called once after isFinished returns true
