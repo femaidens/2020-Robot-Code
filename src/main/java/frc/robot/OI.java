@@ -14,6 +14,6 @@ public class OI {
     public static Button test = new JoystickButton(atkJoy1, 1);
     
     public static void bindButtons(){    
-        test.whenPressed(new MoveClimb());
+        test.toggleWhenPressed(new MoveClimb());
     }
 }

@@ -12,6 +12,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.OI;
 //import frc.robot.OI;
 //import frc.robot.Robot;
 import frc.robot.RobotMap;
@@ -22,7 +23,7 @@ public class Test extends Subsystem {
   //public static CANSparkMax climbMotor = new CANSparkMax(RobotMap.climbMotorPort, MotorType.kBrushless);
 	
 	public static DigitalInput limitSwitchB = new DigitalInput(RobotMap.limitPortB); //bottom
-	//public static DigitalInput limitSwitchT = new DigitalInput(RobotMap.limitPortT); //top
+//	public static DigitalInput limitSwitchT = new DigitalInput(RobotMap.limitPortT); //top
 	
 
   public Test() {
@@ -36,22 +37,24 @@ public class Test extends Subsystem {
     if (!limitSwitchB.get()) {
       System.out.println("bottom false");
     }
-    /*if (limitSwitchT.get()){
+  /*  if (limitSwitchT.get()){
       System.out.println("bottom true");
     }
-    if (!limitSwitchB.get()){
+    if (!limitSwitchT.get()){
       System.out.println("bottom false");
-    }*/
-  
-    /*double value = OI.atkJoy2.getRawAxis(1);
-		if(value > 0 && !limitSwitchT.get()){
-      climbMotor.set(value);
-      System.out.println("yes");
-		} else if(value<0 && !limitSwitchB.get()){
-      climbMotor.set(value);
-      System.out.println("no");
+      
     }*/
     
+    double value = OI.atkJoy2.getRawAxis(1);
+	  //if(value > 0 && !limitSwitchT.get()){
+      //climbMotor.set(value);
+      //System.out.println("yes");
+  //  }
+     if(value<0 && !limitSwitchB.get()){
+      //climbMotor.set(value);
+      System.out.println("no");
+    }
+  
 	}
 
   @Override

@@ -7,16 +7,18 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
+import frc.robot.subsystems.Climb;
 //import frc.robot.subsystems.Climb;
 import frc.robot.subsystems.Test;
 
 public class MoveClimb extends Command{
 
   public MoveClimb(){
-    //requires(Robot.climb);
+    requires(Robot.climb);
     requires(Robot.test);
 	}
 
@@ -25,11 +27,14 @@ public class MoveClimb extends Command{
 	}
 
 	protected void execute() {
-		/*if(!Climb.limitSwitchB.get()){
-			SmartDashboard.putString("Ready?", Climb.ready());
+		if(!Test.limitSwitchB.get()){
+			//SmartDashboard.putString("Ready?", Climb.ready());
 		} 
-    Climb.move();*/
+    //Climb.move();
     Test.move();
+    System.out.println("Forward");
+   // Climb.climbSol.set(Value.kForward);
+
   }
 
   protected boolean isFinished(){
@@ -40,5 +45,7 @@ public class MoveClimb extends Command{
   }
 	
   protected void interrupted(){
+    System.out.println("reverse");
+   // Climb.climbSol.set(Value.kReverse);
   }
 }

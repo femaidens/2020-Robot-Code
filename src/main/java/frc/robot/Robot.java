@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import frc.robot.subsystems.Drivetrain;
-//import frc.robot.subsystems.Climb;
+import frc.robot.subsystems.Climb;
 import frc.robot.subsystems.Test;
 
 /**
@@ -33,7 +33,7 @@ public class Robot extends TimedRobot {
   public static int deviceAddress = 0; 
   public static I2C i2c = new I2C(Port.kOnboard, deviceAddress);
 
-  //public static Climb climb;
+  public static Climb climb;
   public static Test test;
   public OI oi;
 
@@ -47,8 +47,8 @@ public class Robot extends TimedRobot {
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
     //drivetrain = new Drivetrain();
-    //climb = new Climb();
-    test = new Test();
+    climb = new Climb();
+    //test = new Test();
     oi = new OI();
     OI.bindButtons();
     System.out.println("Robot init");
