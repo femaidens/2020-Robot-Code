@@ -21,8 +21,8 @@ public class Test extends Subsystem {
 
   //public static CANSparkMax climbMotor = new CANSparkMax(RobotMap.climbMotorPort, MotorType.kBrushless);
 	
-	//public static DigitalInput limitSwitchB = new DigitalInput(RobotMap.limitPortB); //bottom
-	//public static DigitalInput limitSwitchT = new DigitalInput(RobotMap.limitPortT); //top
+	public static DigitalInput limitSwitchB = new DigitalInput(RobotMap.limitPortB); //bottom
+//	public static DigitalInput limitSwitchT = new DigitalInput(RobotMap.limitPortT); //top
 	
 
   public Test() {
@@ -30,27 +30,29 @@ public class Test extends Subsystem {
   }
 	
 	public static void move() {
-    /*if (limitSwitchB.get()) {
+    if (limitSwitchB.get()) {
       System.out.println("bottom true");
     }
     if (!limitSwitchB.get()) {
       System.out.println("bottom false");
     }
-    if (limitSwitchT.get()){
+  /*  if (limitSwitchT.get()){
       System.out.println("bottom true");
     }
-    if (!limitSwitchB.get()){
+    if (!limitSwitchT.get()){
       System.out.println("bottom false");
-    }
-    */
-    /*double value = OI.atkJoy2.getRawAxis(1);
-		if(value > 0 && !limitSwitchT.get()){
-      climbMotor.set(value);
-      System.out.println("yes");
-		} else if(value<0 && !limitSwitchB.get()){
-      climbMotor.set(value);
-      System.out.println("no");
+      
     }*/
+    
+    double value = OI.atkJoy2.getRawAxis(1);
+	  //if(value > 0 && !limitSwitchT.get()){
+      //climbMotor.set(value);
+      //System.out.println("yes");
+  //  }
+     if(value<0 && !limitSwitchB.get()){
+      //climbMotor.set(value);
+      System.out.println("no");
+    }
   
 	}
 

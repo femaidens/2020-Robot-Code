@@ -18,8 +18,8 @@ import frc.robot.subsystems.Test;
 public class MoveClimb extends Command{
 
   public MoveClimb(){
-    //requires(Robot.climb);
-    //requires(Robot.test);
+    requires(Robot.climb);
+    requires(Robot.test);
 	}
 
 	protected void initialize(){
@@ -27,12 +27,13 @@ public class MoveClimb extends Command{
 	}
 
 	protected void execute() {
-		/*if(!Climb.limitSwitchB.get()){
+		if(!Test.limitSwitchB.get()){
 			SmartDashboard.putString("Ready?", Climb.ready());
 		} 
-    Climb.move();*/
+    //Climb.move();
+    Test.move();
     System.out.println("Forward");
-    Climb.climbSol.set(Value.kForward);
+   // Climb.climbSol.set(Value.kForward);
 
   }
 
@@ -45,6 +46,6 @@ public class MoveClimb extends Command{
 	
   protected void interrupted(){
     System.out.println("reverse");
-    Climb.climbSol.set(Value.kReverse);
+   // Climb.climbSol.set(Value.kReverse);
   }
 }

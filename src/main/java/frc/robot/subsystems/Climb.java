@@ -30,27 +30,27 @@ public class Climb extends Subsystem {
   //public static CANSparkMax climbMotor = new CANSparkMax(RobotMap.climbMotorPort, MotorType.kBrushless);
   
   //true means not hit and false means hit
-	//public static DigitalInput limitSwitchB = new DigitalInput(RobotMap.limitPortB); //bottom
+//	public static DigitalInput limitSwitchB = new DigitalInput(RobotMap.limitPortB); //bottom
 	//public static DigitalInput limitSwitchT = new DigitalInput(RobotMap.limitPortT); //top
 	
   //public static Servo servo = new Servo(RobotMap.servoPort);
-  public static DoubleSolenoid climbSol = new DoubleSolenoid(RobotMap.solPortF, RobotMap.solPortR);
+  //public static DoubleSolenoid climbSol = new DoubleSolenoid(RobotMap.solPortF, RobotMap.solPortR);
 
   public Climb() {
   }
 	
 	public static void move(){
-		double value = OI.atkJoy2.getRawAxis(0);
-		/*if(value>0 && !limitSwitchT.get()){
+	/*	double value = OI.atkJoy2.getRawAxis(0);
+		if(value>0 && !limitSwitchT.get()){
       //servo.setPosition(UP_VALUE);
-      climbSol.set(Value.kReverse);
-			climbMotor.set(value);
+      //climbSol.set(Value.kReverse);
+			//climbMotor.set(value);
 		}else if(value<0 && !limitSwitchB.get()){
       //servo.setPosition(DOWN_VALUE);
-      climbSol.set(Value.KForward);
-      climbMotor.set(value);
+      //climbSol.set(Value.KForward);
+      //climbMotor.set(value);
 		}else{
-      climbMotor.set(0.0);
+      //climbMotor.set(0.0);
     }*/
 	}
 
