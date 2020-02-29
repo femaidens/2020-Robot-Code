@@ -33,7 +33,7 @@ public class CellIn extends Command{
     /*Intake.spinIn();
     Hopper.spinIn();*/
 
-    //Intake.spinIn();
+    Intake.spinIn();
   }
   
   
@@ -60,7 +60,7 @@ public class CellIn extends Command{
     Intake.spinStop();
     timer.stop();*/
 
-    //Intake.spinStop();
+    Intake.spinStop();
   }
         
   @Override 
@@ -69,7 +69,7 @@ public class CellIn extends Command{
     Hopper.spinStop();
     timer.stop();*/
 
-    //Intake.spinStop();
+    Intake.spinStop();
   }
 }
       
