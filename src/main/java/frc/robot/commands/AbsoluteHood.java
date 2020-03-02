@@ -7,6 +7,7 @@ import frc.robot.subsystems.Shooter;
 public class AbsoluteHood extends Command {
 
   public double ticks;
+  public int rev = 0;
   public AbsoluteHood(double desiredTicks) {
     ticks = desiredTicks;
     // Use requires() here to declare subsystem dependencies
@@ -16,19 +17,25 @@ public class AbsoluteHood extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    System.out.println("Moving");
     Shooter.hood.set(0.1);
   }
   
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    double initial = Shooter.absoluteEncoder.get();
+    if(initial > Shooter.absoluteEncoder.get()){
+      rev++;
+    }
     System.out.println(Shooter.absoluteEncoder.get());
+    System.out.println(rev);
   }
   
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Shooter.absoluteEncoder.get() > 10.0;
+    return rev * 2048 + Math.abs(Shooter.absoluteEncoder.get()) > ticks;
   }
   
   // Called once after isFinished returns true

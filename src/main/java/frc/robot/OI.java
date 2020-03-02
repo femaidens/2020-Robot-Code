@@ -31,8 +31,8 @@ public class OI {
     //public static Button turret = new JoystickButton(joy, 1);
     //public static Button ultra = new JoystickButton(joy, 1);
     public static Button hood = new JoystickButton(joy, 1);
-    public static Button intake = new JoystickButton(joy, 1);
-    public static Button test = new JoystickButton(joy, 1);
+    //public static Button intake = new JoystickButton(joy, 1);
+    //public static Button test = new JoystickButton(joy, 1);
     public static void bindButtons() {
         //System.out.println("binding");
         //liftLift.toggleWhenPressed(new LiftIntake());s
@@ -40,7 +40,7 @@ public class OI {
         System.out.println("Binded");
         //shoot.whileHeld(new SpinShooterNEO(-5300));
         //turret.whenPressed(new AlignTurret_PID(0.02));
-        hood.whenPressed(new AbsoluteHood(10.0));
-        test.whenPressed(new SpinShooterNEO(0.2));
+        hood.whenPressed(new AbsoluteHood(4096));
+        //test.whenPressed(new SpinShooterNEO(0.2));
     }
 }
