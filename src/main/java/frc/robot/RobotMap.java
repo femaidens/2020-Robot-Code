@@ -21,6 +21,7 @@ public class RobotMap {
     public static int ultraEcho1 = 1;
     public static int intake = 4;
 
+<<<<<<< HEAD
 
     public static int lift = 7;
 
@@ -33,4 +34,24 @@ public class RobotMap {
    // public static int ultraPort2a = 1;
     //public static int echo1 = 1;
   //  public static int ultraPort2b = 3;
+=======
+public class RobotMap{
+	/* joysticks */
+	public static int driveJoyPort = 0;
+	//public static int joyPort2 = 1;
+	/*gyro*/
+	//public static int gyroPort = 2;
+	/*talons*/
+	
+	public static int rearRightPort = 4;
+	public static int rearLeftPort = 9;
+	public static int frontRightPort = 2;
+	public static int frontLeftPort = 8;
+	public static int middleLeftPort = 7;
+	public static int middleRightPort = 3;
+	public static int gyroPort = 15;
+
+	public static int solChannel1 = 10;
+	public static int solChannel2 = 11;
+>>>>>>> 07fa5d096517a23a344976a6e53209fefd4cc9dd
 }

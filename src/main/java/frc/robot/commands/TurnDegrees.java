@@ -6,14 +6,15 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands;
-
+import frc.robot.Robot;
+import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.subsystems.Intake;
 
-public class CellOut extends Command {
-  public CellOut() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
+public class TurnDegrees extends Command {
+  double angle;
+  public TurnDegrees(double degree) {
+    //requires(Robot.drivetrain);
+    angle = degree;
   }
 
   // Called just before this Command runs the first time
@@ -24,13 +25,7 @@ public class CellOut extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-<<<<<<< HEAD:src/main/java/frc/robot/commands/CellOut.java
-   // Intake.spinOut();
-=======
-    /*if(Robot.drivetrain.get().equals(Value.kReverse)|| Robot.drivetrain.get().equals(Value.kOff)){
-      Robot.drivetrain.shiftToSpeed();
-    } */
->>>>>>> 07fa5d096517a23a344976a6e53209fefd4cc9dd:src/main/java/frc/robot/commands/ShiftToSpeed.java
+    //Robot.drivetrain.turnDegrees(angle);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -42,13 +37,12 @@ public class CellOut extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-   // Intake.spinStop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-   // Intake.spinStop();
   }
 }
+

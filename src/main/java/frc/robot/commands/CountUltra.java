@@ -26,11 +26,16 @@ public class CountUltra extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+<<<<<<< HEAD:src/main/java/frc/robot/commands/CountUltra.java
     //Hopper.checkUltra();
    // System.out.println(Hopper.ultra1.isRangeValid());
     //System.out.println(Hopper.ultra1.getDistanceUnits());
    // System.out.println(Hopper.ultra1.getRangeMM());
    
+=======
+    Robot.drivetrain.driveAuton(leftSpeed, rightSpeed);
+    
+>>>>>>> 07fa5d096517a23a344976a6e53209fefd4cc9dd:src/main/java/frc/robot/commands/DriveAuton.java
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -42,6 +47,7 @@ public class CountUltra extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.drivetrain.driveAuton(0.0, 0.0);
   }
 
   // Called when another command which requires one or more of the same
