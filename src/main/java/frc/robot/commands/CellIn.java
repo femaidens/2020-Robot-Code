@@ -30,8 +30,15 @@ public class CellIn extends Command{
   
   @Override
   protected void execute(){
+<<<<<<< HEAD
     Intake.spinIn();
    // Hopper.spinIn();
+=======
+    /*Intake.spinIn();
+    Hopper.spinIn();*/
+
+    Intake.spinIn();
+>>>>>>> 6c7c817d132203654bee8f7f22819d2f2d00a869
   }
   
   
@@ -59,7 +66,7 @@ public class CellIn extends Command{
     Intake.spinStop();
    // timer.stop();
 
-    //Intake.spinStop();
+    Intake.spinStop();
   }
         
   @Override 

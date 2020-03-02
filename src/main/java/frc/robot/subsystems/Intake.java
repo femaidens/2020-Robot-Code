@@ -54,7 +54,7 @@ public class Intake extends Subsystem {
     intake.set(1.0);
   /*  double currentTicks = liftEncoder.getPosition();
     // change 5 with testing
-    while (liftEncoder.getPosition() - currentTicks < 5) {
+   /* while (liftEncoder.getPosition() - currentTicks < 5) {
       lift.set(0.5);
     }
     while (liftEncoder.getPosition() - currentTicks > 0) {

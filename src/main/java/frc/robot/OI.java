@@ -25,6 +25,7 @@ import frc.robot.subsystems.Shooter;
  */
 public class OI {
     public static Joystick joy = new Joystick(0);
+    public static Button intake = new JoystickButton(joy, 1);
     //public static Button liftLift = new JoystickButton(joy, 1);
     //public static Button lowerLift = new JoystickButton(joy, 3);
     //public static Button shoot = new JoystickButton(joy, 2);

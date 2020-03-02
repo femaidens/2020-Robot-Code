@@ -24,18 +24,26 @@ public class AbsoluteHood extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+<<<<<<< HEAD
     double initial = Shooter.absoluteEncoder.get();
     if(initial > Shooter.absoluteEncoder.get()){
       rev++;
     }
     System.out.println(Shooter.absoluteEncoder.get());
     System.out.println(rev);
+=======
+   // Shooter.hood.set(0.1); 
+>>>>>>> 6c7c817d132203654bee8f7f22819d2f2d00a869
   }
   
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
+<<<<<<< HEAD
     return rev * 2048 + Math.abs(Shooter.absoluteEncoder.get()) > ticks;
+=======
+    return Shooter.absoluteEncoder.get() > ticks; //negative is positive velocity
+>>>>>>> 6c7c817d132203654bee8f7f22819d2f2d00a869
   }
   
   // Called once after isFinished returns true
