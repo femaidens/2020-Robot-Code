@@ -66,8 +66,8 @@ public class Drivetrain extends Subsystem {
   public static void driveTeleop() {
 		System.out.println("we out here driving");
 
-		double targetLeftJoy = -OI.driveJoystick.getRawAxis(1);
-		double targetRightJoy = OI.driveJoystick.getRawAxis(5);
+		double targetLeftJoy = -OI.driveJoystick.getRawAxis(1); // postive originally, negated
+		double targetRightJoy = OI.driveJoystick.getRawAxis(5); // negative originally
 		double upRate = 0.01;
 		//Only use downRate if you need to ramp down at a different rate
 		//double downRate = 0.1;
@@ -76,40 +76,41 @@ public class Drivetrain extends Subsystem {
 		
 
 		
-		/*if(gearShift.get() == DoubleSolenoid.Value.kForward){
+		
 	
-		if((targetRightJoy - rearRight.get()) > upRate){
-			RRactualInput += upRate;
+		if((targetRightJoy - rearRight.get()) < -upRate){
+			RRactualInput -= upRate;
 
-		}*/
+		}
 
 		//Only use this if you need to ramp down
 		/*else if(rearRight.get() - targetRightJoy > downRate){
 			actualInput -= downRate;
 		}
-
+*/
 		else{
 			RRactualInput = targetRightJoy;
 		}
+		
 
-		/*if((targetRightJoy - middleRight.get()) > upRate){
-			MRactualInput += upRate;
+		if((targetRightJoy - middleRight.get()) < -upRate){
+			MRactualInput -= upRate;
 			
 
 		}
 	
-*/
+
 		//Only use this if you need to ramp down
 		/*else if(rearRight.get() - targetRightJoy > downRate){
 			actualInput -= downRate;
 		}*/
 
-	/*	else{
+		else{
 			MRactualInput = targetRightJoy;
 		}
 
-		if((targetRightJoy - frontRight.get()) > upRate){
-			FRactualInput += upRate;
+		if((targetRightJoy - frontRight.get()) < -upRate){
+			FRactualInput -= upRate;
 		}
 
 		//Only use this if you need to ramp down
@@ -117,66 +118,75 @@ public class Drivetrain extends Subsystem {
 			actualInput -= downRate;
 		}*/
 
-		/*else{
+		else{
 			FRactualInput = targetRightJoy;
 		}
 
+
 		if((targetLeftJoy - rearLeft.get()) > upRate){
 			RLactualInput += upRate;
-		}*/
+		}
 
 		//Only use this if you need to ramp down
 		/*else if(rearRight.get() - targetRightJoy > downRate){
 			actualInput -= downRate;
 		}
-
-	/*	else{
+*/
+		else{
 			RLactualInput = targetLeftJoy;
 		}
 
 		if((targetLeftJoy - middleLeft.get()) > upRate){
 			MLactualInput += upRate;
 		}
-*/
+
 		//Only use this if you need to ramp down
 		/*else if(rearRight.get() - targetRightJoy > downRate){
 			actualInput -= downRate;
 		}*/
 
-		/*else{
+		else{
 			MLactualInput = targetLeftJoy;
 		}
 
 		if((targetLeftJoy - frontLeft.get()) > upRate){
 			FLactualInput += upRate;
-		}*/
+		}
 
 		//Only use this if you need to ramp down
 		/*else if(rearRight.get() - targetRightJoy > downRate){
 			actualInput -= downRate;
 		}*/
 
-		/*else{
+		else{
 			FLactualInput = targetLeftJoy;
 
 		}
-		*/
-
-		//WITH voltage ramping
+		
+		//WITH Voltage Ramping
+		//if(gearShift.get() == DoubleSolenoid.Value.kForward){
 		/*frontRight.set(FRactualInput);
-		rearRight.set(RRactualInput);
-		middleRight.set(MRactualInput);
-		frontLeft.set(FLactualInput);
-		rearLeft.set(RLactualInput);
-		middleLeft.set(MLactualInput);*/
+		rearRight.set(-RRactualInput);
+		middleRight.set(MRactualInput);*/
+		//frontLeft.set(FLactualInput);
+		//rearLeft.set(-RLactualInput);
+		//middleLeft.set(MLactualInput);
+		//}
+
 
 		//WITHOUT voltage ramping
-		frontRight.set(targetRightJoy);
-		rearRight.set(targetRightJoy);
+		//if(gearShift.get() == DoubleSolenoid.Value.kReverse){}
+		
+		//frontRight.set(targetRightJoy);
+		rearRight.set(-targetRightJoy);
 		middleRight.set(targetRightJoy);
-		frontLeft.set(targetLeftJoy);
-		rearLeft.set(targetLeftJoy);
-		middleLeft.set(targetLeftJoy);
+		
+		
+		//frontLeft.set(targetLeftJoy);
+		//rearLeft.set(-targetLeftJoy);
+		//middleLeft.set(targetLeftJoy);
+		
+	
 
 		//Voltage print statement
 		//System.out.println(rearLeft.getBusVoltage() * rearLeft.getAppliedOutput());
