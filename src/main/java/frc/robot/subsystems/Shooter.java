@@ -20,6 +20,7 @@ import frc.robot.RobotMap;
 import frc.robot.commands.MoveHood;
 
 import java.lang.module.ModuleDescriptor.Requires;
+import java.util.Timer;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -29,6 +30,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
+import edu.wpi.first.wpilibj.Encoder;
 
 /**
 * Add your docs here.
@@ -44,9 +46,8 @@ public class Shooter extends Subsystem {
   //public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
  // public static CANEncoder hoodEncoder = hood.getEncoder();
   //public static CANPIDController hoodPIDController = hood.getPIDController();
-  public static Joystick joy = new Joystick(0);
   //public int currentLimit = 28;
-  public static DutyCycleEncoder absoluteEncoder = new DutyCycleEncoder(0);
+  public static Encoder absoluteEncoder = new Encoder(0, 1, 2);
   
   //public static DigitalInput limitSwitchLeft = new DigitalInput(RobotMap.limitSwitchPort2);
  // public static DigitalInput limitSwitchRight = new DigitalInput(RobotMap.limitSwitchPort3);
@@ -100,10 +101,9 @@ public class Shooter extends Subsystem {
     //hoodPIDController.setReference(desiredTicks, ControlType.kPosition);
     while (absoluteEncoder.getDistance() != desiredTicks){
 			if(absoluteEncoder.getDistance() < desiredTicks){
-        hood.set(0.1);
+        hood.set(0.5);
       }
     }
-    System.out.println(absoluteEncoder.getDistance());
   }
 
   public static void spinShooter(double s) {
