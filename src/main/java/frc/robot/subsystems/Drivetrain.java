@@ -78,16 +78,33 @@ public class Drivetrain extends Subsystem {
   
   public static void driveTeleop() {
 		System.out.println("we out here driving");
+		
+		//current limiting 
+		int currentLimit = 15;
+			
+		rearRight.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
+		rearLeft.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
+		frontRight.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
+		frontLeft.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
+		middleRight.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
+		middleLeft.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
+
+		rearRight.setSecondaryCurrentLimit(17);
+		rearLeft.setSecondaryCurrentLimit(17);
+		frontRight.setSecondaryCurrentLimit(17);
+		frontLeft.setSecondaryCurrentLimit(17);
+		middleRight.setSecondaryCurrentLimit(17);
+		middleLeft.setSecondaryCurrentLimit(17);
 
 		double targetLeftJoy = -OI.driveJoystick.getRawAxis(1); // postive originally, negated
 		double targetRightJoy = OI.driveJoystick.getRawAxis(5); // negative originally
 		double upRate = 0.01;
+		
 		//Only use downRate if you need to ramp down at a different rate
 		//double downRate = 0.1;
 
 		//Voltage ramping only in high gear
 		
-
 		
 		
 	
