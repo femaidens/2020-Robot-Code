@@ -31,17 +31,25 @@ public class OI {
     //public static Button shoot = new JoystickButton(joy, 2);
     //public static Button turret = new JoystickButton(joy, 1);
     //public static Button ultra = new JoystickButton(joy, 1);
-    public static Button hood = new JoystickButton(joy, 1);
+    //public static Button hood = new JoystickButton(joy, 1);
     //public static Button intake = new JoystickButton(joy, 1);
-    //public static Button test = new JoystickButton(joy, 1);
-    public static void bindButtons() {
-        //System.out.println("binding");
-        //liftLift.toggleWhenPressed(new LiftIntake());s
-        //ultra.whileHeld(new CountUltra());
-        System.out.println("Binded");
-        //shoot.whileHeld(new SpinShooterNEO(-5300));
-        //turret.whenPressed(new AlignTurret_PID(0.02));
-        hood.whenPressed(new AbsoluteHood(4096));
-        //test.whenPressed(new SpinShooterNEO(0.2));
-    }
+    public static Button test = new JoystickButton(joy, 1);
+
+	//public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
+	//public static Button driveStr = new JoystickButton(driveJoystick, 2);
+	//public static Button motorTest = new JoystickButton(driveJoystick, 1);
+	//public static Button currentLimit = new JoystickButton(driveJoystick, 1);
+	//public static Button driveStraight = new JoystickButton(driveJoystick, 1);
+
+	public void bindButtons(){
+		//driveStr.whenPressed(new DriveStraight());
+		//motorTest.whenPressed(new DriveAuton(0.25, 0.25));
+		//currentLimit.whileHeld(new DriveTeleop());
+      //  driveStraight.whenPressed(new DriveDistance(0.3, 200.0));
+       // intake.whileHeld(new CellIn());
+        test.whenPressed(new CellIn());
+
+
+		
+	}
 }

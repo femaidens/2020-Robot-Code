@@ -24,9 +24,7 @@ public class CellOut extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    /*if(Robot.drivetrain.get().equals(Value.kReverse)|| Robot.drivetrain.get().equals(Value.kOff)){
-      Robot.drivetrain.shiftToSpeed();
-    } */
+   // Intake.spinOut();
   }
 
   // Make this return true when this Command no longer needs to run execute()

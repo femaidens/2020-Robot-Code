@@ -13,32 +13,32 @@ import frc.robot.subsystems.Hopper;
 import frc.robot.subsystems.Intake;
  
 public class CellIn extends Command{
-  Timer timer;
-  double time;
-  static int numTimesCalled = 0;
-  public CellIn(double t){
-    timer = new Timer();
-    time = t;
-    numTimesCalled++;
+  //Timer timer;
+//double time;
+ // static int numTimesCalled = 0;
+  public CellIn(){
+   // timer = new Timer();
+  //  time = t;
+   // numTimesCalled++;
   }
   
   @Override
   protected void initialize(){
-    timer.reset();
-    timer.start();
+    System.out.println("initilaize");
+   // timer.reset();
+   // timer.start();
   }
   
   @Override
   protected void execute(){
-<<<<<<< HEAD
-    Intake.spinIn();
-   // Hopper.spinIn();
-=======
-    /*Intake.spinIn();
-    Hopper.spinIn();*/
 
     Intake.spinIn();
->>>>>>> 6c7c817d132203654bee8f7f22819d2f2d00a869
+   // Hopper.spinIn();
+
+    /*Intake.spinIn();
+    Hopper.spinIn();*/
+    //Intake.spinIn();
+    System.out.println("execute");
   }
   
   
@@ -63,10 +63,10 @@ public class CellIn extends Command{
       Intake.spinOut();
     }
     */
-    Intake.spinStop();
+    //Intake.spinStop();
    // timer.stop();
 
-    Intake.spinStop();
+    //Intake.spinStop();
   }
         
   @Override 
