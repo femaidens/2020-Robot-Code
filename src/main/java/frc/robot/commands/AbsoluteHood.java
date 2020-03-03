@@ -48,6 +48,6 @@ public class AbsoluteHood extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-   Shooter.hood.set(0.0);
+   //Shooter.hood.set(0.0);
   }
 }

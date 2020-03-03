@@ -40,18 +40,14 @@ import edu.wpi.first.wpilibj.Encoder;
 public class Shooter extends Subsystem {
   // motors
   //public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
-  //public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
+  public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
   //public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
   //public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
   //public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
  // public static CANEncoder hoodEncoder = hood.getEncoder();
   //public static CANPIDController hoodPIDController = hood.getPIDController();
   //public int currentLimit = 28;
-<<<<<<< HEAD
   public static Encoder absoluteEncoder = new Encoder(0, 1, 2);
-=======
- // public static DutyCycleEncoder absoluteEncoder = new DutyCycleEncoder(0);
->>>>>>> 6c7c817d132203654bee8f7f22819d2f2d00a869
   
   //public static DigitalInput limitSwitchLeft = new DigitalInput(RobotMap.limitSwitchPort2);
  // public static DigitalInput limitSwitchRight = new DigitalInput(RobotMap.limitSwitchPort3);
@@ -107,11 +103,7 @@ public class Shooter extends Subsystem {
 			if(absoluteEncoder.getDistance() < desiredTicks){
         hood.set(0.5);
       }
-    }
-<<<<<<< HEAD
-=======
-    hood.set(0.0);*/
->>>>>>> 6c7c817d132203654bee8f7f22819d2f2d00a869
+    }*/
   }
 
   public static void spinShooter(double s) {

@@ -10,7 +10,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-<<<<<<< HEAD
 import frc.robot.commands.AbsoluteHood;
 import frc.robot.commands.AlignTurret_PID;
 import frc.robot.commands.CellIn;
@@ -20,18 +19,11 @@ import frc.robot.commands.LiftIntake;
 import frc.robot.commands.LowerIntake;
 import frc.robot.commands.SpinShooterNEO;
 import frc.robot.subsystems.Shooter;
-=======
-import frc.robot.commands.DriveAuton;
-import frc.robot.commands.DriveStraight;
-import frc.robot.commands.DriveTeleop;
-import frc.robot.commands.DriveDistance;
->>>>>>> 07fa5d096517a23a344976a6e53209fefd4cc9dd
 
 /**
  * Add your docs here.
  */
 public class OI {
-<<<<<<< HEAD
     public static Joystick joy = new Joystick(0);
     public static Button intake = new JoystickButton(joy, 1);
     //public static Button liftLift = new JoystickButton(joy, 1);
@@ -52,20 +44,4 @@ public class OI {
         hood.whenPressed(new AbsoluteHood(4096));
         //test.whenPressed(new SpinShooterNEO(0.2));
     }
-=======
-	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
-	//public static Button driveStr = new JoystickButton(driveJoystick, 2);
-	//public static Button motorTest = new JoystickButton(driveJoystick, 1);
-	//public static Button currentLimit = new JoystickButton(driveJoystick, 1);
-	public static Button driveStraight = new JoystickButton(driveJoystick, 1);
-
-	public void bindButtons(){
-		//driveStr.whenPressed(new DriveStraight());
-		//motorTest.whenPressed(new DriveAuton(0.25, 0.25));
-		//currentLimit.whileHeld(new DriveTeleop());
-		driveStraight.whenPressed(new DriveDistance(0.3, 200.0));
-
-		
-	}
->>>>>>> 07fa5d096517a23a344976a6e53209fefd4cc9dd
 }

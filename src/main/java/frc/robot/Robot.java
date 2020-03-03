@@ -47,7 +47,6 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
-<<<<<<< HEAD
     SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
     //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
     //SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
@@ -58,13 +57,6 @@ public class Robot extends TimedRobot {
     oi = new OI();
     OI.bindButtons();
     
-=======
-    drivetrain = new Drivetrain();
-    m_oi = new OI();
-    m_oi.bindButtons();
-    System.out.println("init");
-    drivetrain.setDefaultCommand(new DriveTeleop());
->>>>>>> 07fa5d096517a23a344976a6e53209fefd4cc9dd
   }
 
   /**
