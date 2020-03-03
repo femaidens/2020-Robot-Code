@@ -113,7 +113,8 @@ public class Shooter extends Subsystem {
   }
   
   public static double getSpeed() {
-    return speed;
+    //return shooterEncoder.getVelocity();
+    return 0;
   }
   
   @Override
