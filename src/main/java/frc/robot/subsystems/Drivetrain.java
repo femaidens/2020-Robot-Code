@@ -47,7 +47,8 @@ public class Drivetrain extends Subsystem {
 	public static double RLactualInput;
 	public static double MLactualInput;
 	
-	public static int currentLimit = 17;
+	public static int currentLimit = 15;
+	public static int secondaryCurrentLimit = 17;
 
 	// drivestraight pid variables
 	public static double leftIntegral = 0;
@@ -62,13 +63,20 @@ public class Drivetrain extends Subsystem {
 	public static double kd = 0;
 
   	public Drivetrain(){
-	  //frontLeft.setSmartCurrentLimit(currentLimit);
-	  //frontRight.setSmartCurrentLimit(currentLimit);
-	  //rearLeft.setSmartCurrentLimit(currentLimit);
-	  //rearRight.setSmartCurrentLimit(currentLimit);
-	  //middleLeft.setSmartCurrentLimit(currentLimit);
-	  //middleRight.setSmartCurrentLimit(currentLimit);
-	  
+	  /*frontLeft.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
+	  frontRight.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
+	  rearLeft.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
+	  rearRight.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
+	  middleLeft.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
+	  middleRight.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
+
+	  frontLeft.setSecondaryCurrentLimit(secondaryCurrentLimit);
+	  frontRight.setSecondaryCurrentLimit(secondaryCurrentLimit);
+	  rearLeft.setSecondaryCurrentLimit(secondaryCurrentLimit);
+	  rearRight.setSecondaryCurrentLimit(secondaryCurrentLimit);
+	  middleLeft.setSecondaryCurrentLimit(secondaryCurrentLimit);
+	  middleRight.setSecondaryCurrentLimit(secondaryCurrentLimit);*/
+
   	}
 	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
   @Override
@@ -222,6 +230,8 @@ public class Drivetrain extends Subsystem {
 		//System.out.println(rearLeft.getBusVoltage() * rearLeft.getAppliedOutput());
 		//System.out.println("bus voltage" + rearLeft.getBusVoltage());
 		//System.out.println("applied output" + rearLeft.getAppliedOutput());
+
+		//System.out.println()
 
 		//if(currentLimit >= 19){
 			//shiftToPower();
