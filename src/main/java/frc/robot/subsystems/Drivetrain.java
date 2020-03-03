@@ -80,8 +80,9 @@ public class Drivetrain extends Subsystem {
 		System.out.println("we out here driving");
 		
 		//current limiting 
-		int currentLimit = 15;
-			
+		int currentLimit = 17;
+		int secondaryCurrentLimit = 19;
+		/*	
 		rearRight.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
 		rearLeft.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
 		frontRight.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
@@ -89,15 +90,15 @@ public class Drivetrain extends Subsystem {
 		middleRight.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
 		middleLeft.setSmartCurrentLimit(currentLimit, currentLimit, 5700);
 
-		rearRight.setSecondaryCurrentLimit(17);
-		rearLeft.setSecondaryCurrentLimit(17);
-		frontRight.setSecondaryCurrentLimit(17);
-		frontLeft.setSecondaryCurrentLimit(17);
-		middleRight.setSecondaryCurrentLimit(17);
-		middleLeft.setSecondaryCurrentLimit(17);
+		rearRight.setSecondaryCurrentLimit(secondaryCurrentLimit);
+		rearLeft.setSecondaryCurrentLimit(secondaryCurrentLimit);
+		frontRight.setSecondaryCurrentLimit(secondaryCurrentLimit);
+		frontLeft.setSecondaryCurrentLimit(secondaryCurrentLimit);
+		middleRight.setSecondaryCurrentLimit(secondaryCurrentLimit);
+		middleLeft.setSecondaryCurrentLimit(secondaryCurrentLimit);*/
 
 		double targetLeftJoy = -OI.driveJoystick.getRawAxis(1); // postive originally, negated
-		double targetRightJoy = OI.driveJoystick.getRawAxis(5); // negative originally
+		double targetRightJoy = -OI.driveJoystick.getRawAxis(5); // negative originally
 		double upRate = 0.01;
 		
 		//Only use downRate if you need to ramp down at a different rate
@@ -207,16 +208,24 @@ public class Drivetrain extends Subsystem {
 		//WITHOUT voltage ramping
 		//if(gearShift.get() == DoubleSolenoid.Value.kReverse){}
 		
-		//frontRight.set(targetRightJoy);
+		frontRight.set(targetRightJoy);
 		rearRight.set(-targetRightJoy);
 		middleRight.set(targetRightJoy);
+		frontLeft.set(targetLeftJoy);
+		rearLeft.set(-targetLeftJoy);
+		middleLeft.set(targetLeftJoy);
 		
-		
-		//frontLeft.set(targetLeftJoy);
-		//rearLeft.set(-targetLeftJoy);
-		//middleLeft.set(targetLeftJoy);
-		
-	
+		System.out.println(frontRight.get());
+		System.out.println(rearRight.get());
+		System.out.println(middleRight.get());
+		System.out.println(frontLeft.get());
+		System.out.println(rearLeft.get());
+		System.out.println(middleLeft.get());
+
+
+
+
+
 
 		//Voltage print statement
 		//System.out.println(rearLeft.getBusVoltage() * rearLeft.getAppliedOutput());

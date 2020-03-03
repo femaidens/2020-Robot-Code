@@ -26,8 +26,7 @@ public class OI {
 		//driveStr.whenPressed(new DriveStraight());
 		//motorTest.whenPressed(new DriveAuton(0.25, 0.25));
 		//currentLimit.whileHeld(new DriveTeleop());
-		driveStraight.whenPressed(new DriveDistance(0.3, 200.0));
-
+		driveStraight.whenPressed(new DriveDistance(0.3, 200.0));;
 		
 	}
 }

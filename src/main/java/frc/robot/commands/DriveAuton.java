@@ -13,7 +13,8 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveAuton extends Command {
   public double leftSpeed;
   public double rightSpeed;
-
+ 
+ 
   public DriveAuton(double l, double r) {
     requires(Robot.drivetrain);
     leftSpeed = l;
@@ -28,8 +29,7 @@ public class DriveAuton extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.drivetrain.driveAuton(leftSpeed, rightSpeed);
-    
+    Robot.drivetrain.driveAuton(leftSpeed, rightSpeed);   
   }
 
   // Make this return true when this Command no longer needs to run execute()
