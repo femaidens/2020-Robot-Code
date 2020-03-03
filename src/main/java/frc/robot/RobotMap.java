@@ -22,7 +22,6 @@ public class RobotMap {
 	public static int intake = 16;
 	//public static int intake2 = 3;
 
-
     public static int lift = 7;
 
     //public static int limitSwitchPort1 = 10;
@@ -34,4 +33,6 @@ public class RobotMap {
     public static int ultraPort2a = 1;
     //public static int echo1 = 1;
     public static int ultraPort2b = 98;
+    public static int driveJoyPort = 0;
+
 }

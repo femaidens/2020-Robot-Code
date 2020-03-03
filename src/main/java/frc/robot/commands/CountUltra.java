@@ -9,9 +9,14 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.Hopper;
+import frc.robot.Robot;
 
 public class CountUltra extends Command {
-  public CountUltra() {
+  public double leftSpeed, rightSpeed;
+
+  public CountUltra(double l, double r) {
+    leftSpeed = l;
+    rightSpeed = r;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -26,11 +31,18 @@ public class CountUltra extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+
     Hopper.ballPassedIn();
+    //Hopper.checkUltra();
+
    // System.out.println(Hopper.ultra1.isRangeValid());
     //System.out.println(Hopper.ultra1.getDistanceUnits());
    // System.out.println(Hopper.ultra1.getRangeMM());
    
+
+    
+    
+
   }
 
   // Make this return true when this Command no longer needs to run execute()

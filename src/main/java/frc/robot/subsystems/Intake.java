@@ -48,8 +48,8 @@ public class Intake extends Subsystem {
       lift.set(0.5);
     }
     lift.set(0.0);
-  }*/
-  
+  }
+  */
   
   public static void spinIn() {
     System.out.println("spin in");
@@ -75,12 +75,13 @@ public class Intake extends Subsystem {
     intake.set(-.2);
     //double currentTicks = liftEncoder.getPosition();
     // change 5 with testing
-    /*while (liftEncoder.getPosition() - currentTicks < 5) {
+  /*  while (liftEncoder.getPosition() - currentTicks < 5) {
       lift.set(0.5);
     }
     while (liftEncoder.getPosition() - currentTicks > 0) {
       lift.set(-0.5);
-    }*/
+    }
+    */
   }
   
   

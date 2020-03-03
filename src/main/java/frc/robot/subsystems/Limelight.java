@@ -60,7 +60,7 @@ public class Limelight extends Subsystem {
   }
   public static double getDistance(){
     return K/Math.sqrt(getArea());
-  }  
+  }
 
   @Override
   public void initDefaultCommand() {

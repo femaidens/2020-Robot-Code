@@ -16,12 +16,11 @@ public class MoveHood extends Command {
 	public final double SPEED;
 	public final double CONVERSION = 10.0;
 	public double dx; //Total horizontal distance of the robot to the inner goal
-	public double dy; //Max height of the parabola
+	public double dy = 2.0; //Max height of the parabola, just a placeholder 
 
-	public MoveHood (double s, double height) {
+	public MoveHood (double s) {
 		//requires(Robot.shooter);
 		SPEED = s;
-		dy = height;
 	}
 	@Override
 	protected void initialize() {
