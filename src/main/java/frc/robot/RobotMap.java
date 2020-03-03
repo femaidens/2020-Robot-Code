@@ -7,9 +7,27 @@
 
 package frc.robot;
 
-/**
-* Add your docs here.
-*/
-public class RobotMap {
-    public static int colorPanelPort = 1;
+/* docs */
+
+public class RobotMap{
+	/* joysticks */
+	public static int driveJoyPort = 0;
+	//public static int joyPort2 = 1;
+	/*gyro*/
+	//public static int gyroPort = 2;
+	/*talons*/
+	
+	public static int rearRightPort = 7;
+	public static int rearLeftPort = 4;
+	public static int frontRightPort = 3;
+	public static int frontLeftPort = 8;
+	public static int middleLeftPort = 9;
+	public static int middleRightPort = 2;
+	public static int gyroPort = 15;
+
+	public static int solChannel1 = 10;
+    public static int solChannel2 = 11;
+    
+    public static int hoodPort = 100;
+    public static int intake = 101;
 }
