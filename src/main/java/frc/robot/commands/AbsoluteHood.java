@@ -6,8 +6,8 @@ import frc.robot.subsystems.Shooter;
 
 public class AbsoluteHood extends Command {
 
-  public int ticks;
-  public AbsoluteHood(int desiredTicks) {
+  public double ticks;
+  public AbsoluteHood(double desiredTicks) {
     ticks = desiredTicks;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -21,25 +21,26 @@ public class AbsoluteHood extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Shooter.adjustHood(ticks);
+   // Shooter.hood.set(0.1); 
   }
   
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
+    //return Shooter.absoluteEncoder.get() > ticks; //negative is positive velocity
     return false;
   }
   
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Shooter.hood.set(0.0);
+    //Shooter.hood.set(0.0);
   }
   
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-   Shooter.hood.set(0.0);
+   //Shooter.hood.set(0.0);
   }
 }

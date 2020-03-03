@@ -9,42 +9,52 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.Shooter;
 
 public class MoveHood extends Command {
-	double speed;
-public MoveHood (double s) {
-	//requires(Robot.shooter);
-	speed = s;
-}
-@Override
-protected void initialize() {
-}
+	public final double SPEED;
+	public final double CONVERSION = 10.0;
+	public double dx; //Total horizontal distance of the robot to the inner goal
+	public double dy; //Max height of the parabola
 
-// Called repeatedly when this Command is scheduled to run
-@Override
-protected void execute() {
-	//Shooter.spinHood(speed);
-}
+	public MoveHood (double s, double height) {
+		//requires(Robot.shooter);
+		SPEED = s;
+		dy = height;
+	}
+	@Override
+	protected void initialize() {
+		dx = Limelight.getDistance() + 24.5;
+	}
 
-// Make this return true when this Command no longer needs to run execute()
-@Override
-protected boolean isFinished() {
-return false;
-}
+	// Called repeatedly when this Command is scheduled to run
+	@Override
+	protected void execute() {
+		double angle = Math.acos((SPEED*dx-4.9*dx)/(dy*SPEED));
+		double ticks = angle*CONVERSION;
+		Shooter.adjustHood(ticks);
+		//Shooter.spinHood(speed);
+	}
 
-// Called once after isFinished returns true
-@Override
-protected void end() {
-	//Shooter.spinHood(0);
-}
+	// Make this return true when this Command no longer needs to run execute()
+	@Override
+	protected boolean isFinished() {
+	return false;
+	}
 
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-@Override
-protected void interrupted() {
-	//Shooter.spinHood(0);
-}
+	// Called once after isFinished returns true
+	@Override
+	protected void end() {
+		//Shooter.spinHood(0);
+	}
+
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	@Override
+	protected void interrupted() {
+		//Shooter.spinHood(0);
+	}
 }
 
 

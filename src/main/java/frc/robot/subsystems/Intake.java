@@ -26,7 +26,8 @@ import frc.robot.RobotMap;
 */
 //Intake Subsystem -- DO LATER WHEN WE KNOW WHAT’S HAPPENING
 public class Intake extends Subsystem {
-  //public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
+  public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
+ // public static CANSparkMax intake2 = new CANSparkMax(RobotMap.intake2, MotorType.kBrushless); //test (easier for me)
   /*public static CANSparkMax lift = new CANSparkMax(RobotMap.lift, MotorType.kBrushless);
   public static CANEncoder liftEncoder = lift.getEncoder();
   public static CANPIDController liftPID = lift.getPIDController();*/
@@ -47,48 +48,46 @@ public class Intake extends Subsystem {
       lift.set(0.5);
     }
     lift.set(0.0);
-  }
+  }*/
   
   
   public static void spinIn() {
-    if(Hopper.stopHop()){
-      intake.set(0.0);
-      return;
-    }
-    intake.set(1.0);
-    double currentTicks = liftEncoder.getPosition();
+    System.out.println("spin in");
+    intake.set(-0.3);
+    //intake2.set(-0.5);//test for shooter (easier for me)
+    //double currentTicks = liftEncoder.getPosition();
     // change 5 with testing
-    while (liftEncoder.getPosition() - currentTicks < 5) {
+   /* while (liftEncoder.getPosition() - currentTicks < 5) {
       lift.set(0.5);
     }
     while (liftEncoder.getPosition() - currentTicks > 0) {
       lift.set(-0.5);
-    }
+    }*/
   }
   
   public static void spinStop() {
     intake.set(0);
-    lift.set(0);
+    //lift.set(0);
   }
   
   
   public static void spinOut() {
-    intake.set(-1.0);
-    double currentTicks = liftEncoder.getPosition();
+    intake.set(-.2);
+    //double currentTicks = liftEncoder.getPosition();
     // change 5 with testing
-    while (liftEncoder.getPosition() - currentTicks < 5) {
+    /*while (liftEncoder.getPosition() - currentTicks < 5) {
       lift.set(0.5);
     }
     while (liftEncoder.getPosition() - currentTicks > 0) {
       lift.set(-0.5);
-    }
+    }*/
   }
-  */
+  
   
   public static void liftIntake(){
     // change 81 to 20 after testing
     /*while (liftEncoder.getPosition() > -81/4) {
-      lift.set(-.15);
+      lift.set(-.1);
     }
     lift.set(0);
     liftPID.setReference(-81/4, ControlType.kPosition);*/

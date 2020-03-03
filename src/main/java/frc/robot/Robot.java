@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.Hopper;
+import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj.I2C;
@@ -30,11 +31,12 @@ public class Robot extends TimedRobot {
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
-  public static Shooter shooter;
-  public static Limelight limelight;
+  //public static Shooter shooter;
+  public static Intake intake;
+  //public static Limelight limelight;
   public static OI oi;
   //public static I2C i2c;
-  public static Hopper hopper;
+  //public static Hopper hopper;
   
 
   /**
@@ -48,11 +50,12 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Auto choices", m_chooser);
     SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
     //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
-    SmartDashboard.putNumber("Hood Position", Shooter.absoluteEncoder.getDistance());
-    shooter = new Shooter();
+    //SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
+    //shooter = new Shooter();
+    intake = new Intake();
     //limelight = new Limelight();
     //i2c = new I2C();
-    //hopper = new Hopper(2);
+    //hopper = new Hopper(3);
     oi = new OI();
     OI.bindButtons();
     
@@ -70,7 +73,7 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
     //SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
     //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
-    SmartDashboard.putNumber("Hood Position", Shooter.absoluteEncoder.getDistance());
+    //SmartDashboard.putNumber("Hood Position", Shooter.absoluteEncoder.getDistance());
   }
 
   /**

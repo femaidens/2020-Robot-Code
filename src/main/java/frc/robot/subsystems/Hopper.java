@@ -113,33 +113,14 @@ public class Hopper extends Subsystem {
 	}*/
 
 	// Not done check logic and fix
-	public static void ballPassedIn(){
-		//System.out.println(ultra1.getRangeInches());
-		/*if(ultra1.getRangeInches() < 5 ){
-			System.out.println("See ball");
-			intakeTime.start();
-			while(ultra1.getRangeInches() < 5 && intakeTime.get() < 2.0){
-				//System.out.println("Ball");
-			}
-			intakeTime.stop();
-			System.out.println(intakeTime.get());
-			if(intakeTime.get() >= 2.0 && numCells < 5){
-				increaseCellCount();
-				//Intake.spinIn();
-				System.out.println("Increase");
+	public static boolean ballPassedIn(){
+		/*if(ultra1.getRangeMM() < 5 && numCells < 5){
+			while(ultra1.getRangeMM() < 5){
+				System.out.println("Ball");
 			}
 		}
-		System.out.println(numCells);
-		intakeTime.reset();*/
-		System.out.println(test.get());
-		
-	}
-
-	public static boolean stopHop(){
-		/*if(ultra2.getRangeInches() < 5){
-			return true;
-		}*/
-		return false;
+		*/
+		return true;
 	}
 	
 	@Override
