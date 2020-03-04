@@ -24,12 +24,12 @@ public class AbsoluteHood extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double initial = Shooter.absoluteEncoder.get();
+    /*double initial = Shooter.absoluteEncoder.get();
     if(initial > Shooter.absoluteEncoder.get()){
       rev++;
     }
     System.out.println(Shooter.absoluteEncoder.get());
-    System.out.println(rev);
+    System.out.println(rev);*/
   }
   
   // Make this return true when this Command no longer needs to run execute()

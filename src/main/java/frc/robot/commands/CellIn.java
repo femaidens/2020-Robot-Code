@@ -63,10 +63,11 @@ public class CellIn extends Command{
       Intake.spinOut();
     }
     */
-    //Intake.spinStop();
+    System.out.println("executing");
+    Intake.spinStop();
    // timer.stop();
 
-    //Intake.spinStop();
+  Intake.spinStop();
   }
         
   @Override 

@@ -25,15 +25,14 @@ import frc.robot.subsystems.Shooter;
  */
 public class OI {
     public static Joystick joy = new Joystick(0);
-    public static Button intake = new JoystickButton(joy, 1);
     //public static Button liftLift = new JoystickButton(joy, 1);
     //public static Button lowerLift = new JoystickButton(joy, 3);
     //public static Button shoot = new JoystickButton(joy, 2);
     //public static Button turret = new JoystickButton(joy, 1);
     //public static Button ultra = new JoystickButton(joy, 1);
     //public static Button hood = new JoystickButton(joy, 1);
-    //public static Button intake = new JoystickButton(joy, 1);
-    public static Button test = new JoystickButton(joy, 1);
+    public static Button intake = new JoystickButton(joy, 1);
+    //public static Button test = new JoystickButton(joy, 1);
 
 	//public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 	//public static Button driveStr = new JoystickButton(driveJoystick, 2);
@@ -46,10 +45,7 @@ public class OI {
 		//motorTest.whenPressed(new DriveAuton(0.25, 0.25));
 		//currentLimit.whileHeld(new DriveTeleop());
       //  driveStraight.whenPressed(new DriveDistance(0.3, 200.0));
-       // intake.whileHeld(new CellIn());
-        test.whenPressed(new CellIn());
-
-
-		
+        intake.whileHeld(new CellIn());
+		//shoot.whileHeld(new SpinShooterNEO(100));
 	}
 }
