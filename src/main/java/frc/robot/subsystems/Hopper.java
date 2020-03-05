@@ -129,7 +129,6 @@ public class Hopper extends Subsystem {
 		
 		public static boolean ballPassedOut(){
 			/*
-			spinIn();
 			if(ultra2.getRangeMM() < 5 && numCells > 0){
 				while(ultra2.getRangeMM() < 5){
 					System.out.println("Ball");
