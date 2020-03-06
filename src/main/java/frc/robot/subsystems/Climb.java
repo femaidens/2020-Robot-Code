@@ -33,7 +33,6 @@ public class Climb extends Subsystem {
 //	public static DigitalInput limitSwitchB = new DigitalInput(RobotMap.limitPortB); //bottom
 	//public static DigitalInput limitSwitchT = new DigitalInput(RobotMap.limitPortT); //top
 	
-  //public static Servo servo = new Servo(RobotMap.servoPort);
   //public static DoubleSolenoid climbSol = new DoubleSolenoid(RobotMap.solPortF, RobotMap.solPortR);
 
   public Climb() {
@@ -42,11 +41,9 @@ public class Climb extends Subsystem {
 	public static void move(){
 	/*	double value = OI.atkJoy2.getRawAxis(0);
 		if(value>0 && !limitSwitchT.get()){
-      //servo.setPosition(UP_VALUE);
       //climbSol.set(Value.kReverse);
 			//climbMotor.set(value);
 		}else if(value<0 && !limitSwitchB.get()){
-      //servo.setPosition(DOWN_VALUE);
       //climbSol.set(Value.KForward);
       //climbMotor.set(value);
 		}else{
