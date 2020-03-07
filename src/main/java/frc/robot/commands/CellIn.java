@@ -13,11 +13,11 @@ import frc.robot.subsystems.Hopper;
 import frc.robot.subsystems.Intake;
  
 public class CellIn extends Command{
-  //Timer timer;
+  Timer timer;
 //double time;
  // static int numTimesCalled = 0;
   public CellIn(){
-   // timer = new Timer();
+    timer = new Timer();
   //  time = t;
    // numTimesCalled++;
   }
@@ -25,32 +25,27 @@ public class CellIn extends Command{
   @Override
   protected void initialize(){
     System.out.println("initilaize");
-   // timer.reset();
-   // timer.start();
+    timer.reset();
+    timer.start();
   }
   
   @Override
   protected void execute(){
+    Hopper.ballPassedIn();
 
     Intake.spinIn();
    // Hopper.spinIn();
 
     /*Intake.spinIn();
     Hopper.spinIn();*/
-    Intake.spinIn();
+    //Intake.spinIn();
     System.out.println("execute");
   }
   
   
   @Override 
   protected boolean isFinished(){
-   /* if (numTimesCalled > 1) {
-      // teleop
-      return false;
-    } else {
-      // auton
-      return (time >= timer.get());
-    } */
+    //return Hopper.ballPassedIn();
     return false;
   }
       
@@ -58,23 +53,20 @@ public class CellIn extends Command{
   @Override 
   protected void end(){
     /*double currentTime = timer.get();
-    Hopper.spinStop();
+    Hopper.spinIn();
     while (timer.get() - currentTime < 0.5) {
-      Intake.spinOut();
+      Intake.spinStop();
     }
-    */
-    Intake.spinStop();
-   // timer.stop();
-
+    Hopper.spinStop();
+    if (Hopper.numCells >= 5) {
+      Intake.liftIntake();
+    }*/
     Intake.spinStop();
   }
         
   @Override 
   protected void interrupted(){
-    /*Intake.spinStop();
-    Hopper.spinStop();
-    timer.stop();*/
-
+    //Hopper.spinStop();
     Intake.spinStop();
   }
 }

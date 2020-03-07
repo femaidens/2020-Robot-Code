@@ -32,8 +32,8 @@ public class Robot extends TimedRobot {
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
-  //public static Shooter shooter;
-  public static Intake intake;
+  public static Shooter shooter;
+  //public static Intake intake;
   //public static Limelight limelight;
   public static OI oi;
   //public static I2C i2c;
@@ -53,8 +53,8 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
     //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
     //SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
-    //shooter = new Shooter();
-    intake = new Intake();
+    shooter = new Shooter();
+    //intake = new Intake();
     //limelight = new Limelight();
     //i2c = new I2C();
     //hopper = new Hopper(3);

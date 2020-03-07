@@ -41,9 +41,16 @@ public class Shooter extends Subsystem {
   // motors
   //public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
   //public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
+<<<<<<< HEAD
   //public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
   //public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
   //public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
+=======
+  //public static CANSparkMax shooterNEO1 = new CANSparkMax(RobotMap.shooterPort1, MotorType.kBrushless);
+  //public static CANSparkMax shooterNEO2 = new CANSparkMax(RobotMap.shooterPort2, MotorType.kBrushless);
+  //public static CANEncoder shooterEncoder = shooterNEO1.getEncoder();
+  //public static CANPIDController shooterPIDController = shooterNEO1.getPIDController();
+>>>>>>> 328d784f0060ba51dbf0902c92ff6e83ada4fbcf
  // public static CANEncoder hoodEncoder = hood.getEncoder();
   //public static CANPIDController hoodPIDController = hood.getPIDController();
   //public int currentLimit = 28;
@@ -108,12 +115,14 @@ public class Shooter extends Subsystem {
 
   public static void spinShooter(double s) {
     // on the off chance speed is in RPM, this code mightttttt not work
-    //shooterPIDController.setReference(s, ControlType.kVelocity);
-    //System.out.println("speed set");
+    /*shooterPIDController.setReference(s, ControlType.kVelocity);
+    System.out.println(shooterEncoder.getVelocity());
+    shooterNEO2.follow(shooterNEO1, true);*/
   }
   
   public static double getSpeed() {
-    return speed;
+    //return shooterEncoder.getVelocity();
+    return 0;
   }
   
   @Override

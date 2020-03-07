@@ -6,46 +6,42 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands;
-
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Hopper;
 
-public class LiftIntake extends Command {
-  public LiftIntake() {
+public class HopperCellOut extends Command {
+  public HopperCellOut() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
-  
+
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    //Drivetrain.frontLeft.setSmartCurrentLimit(17);
   }
-  
+
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Intake.liftIntake();
-    //Intake.intakeLimitSwitch();
+    spinIn();
   }
-  
+
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return Hopper.ballPassedOut();
   }
-  
+
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Intake.lowerIntake();
+    Hopper.spinStop();
   }
-  
+
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    //Intake.lowerIntake();
-    Intake.lowerIntake();
+    Hopper.spinStop();
   }
 }
