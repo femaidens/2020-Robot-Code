@@ -32,7 +32,7 @@ public class OI {
     //public static Button shoot = new JoystickButton(joy, 2);
     //public static Button turret = new JoystickButton(joy, 1);
     //public static Button ultra = new JoystickButton(joy, 1);
-    public static Button hood = new JoystickButton(joy, 1);
+    //public static Button hood = new JoystickButton(joy, 1);
     //public static Button intake = new JoystickButton(joy, 1);
     //public static Button test = new JoystickButton(joy, 1);
 
@@ -40,15 +40,15 @@ public class OI {
 	//public static Button driveStr = new JoystickButton(driveJoystick, 2);
 	//public static Button motorTest = new JoystickButton(driveJoystick, 1);
 	//public static Button currentLimit = new JoystickButton(driveJoystick, 1);
-	public static Button driveStraight = new JoystickButton(driveJoystick, 1);
+ // public static Button driveStraight = new JoystickButton(driveJoystick, 1);
+  //public static Button testMotors = new JoystickButton(driveJoystick, 1);
 
 	public void bindButtons(){
 		//driveStr.whenPressed(new DriveStraight());
 		//motorTest.whenPressed(new DriveAuton(0.25, 0.25));
 		//currentLimit.whileHeld(new DriveTeleop());
-      //  driveStraight.whenPressed(new DriveDistance(0.3, 200.0));
-        intake.whileHeld(new CellIn());
-
+    //  driveStraight.whenPressed(new DriveDistance(0.3, 200.0));
+    intake.whileHeld(new CellIn());
 		
 	}
 }

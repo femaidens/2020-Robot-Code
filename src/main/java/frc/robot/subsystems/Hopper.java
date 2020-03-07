@@ -32,7 +32,7 @@ public class Hopper extends Subsystem {
 	//public static DigitalInput echo = new DigitalInput(RobotMap.ultraEcho1);
 	//public static DigitalOutput trig = new DigitalOutput(RobotMap.ultraPing1);
 	//public static Ultrasonic ultra1 = new Ultrasonic(trig, echo);
-	public static DigitalInput test = new DigitalInput(0);
+	//public static DigitalInput test = new DigitalInput(0);
 	//public static Ultrasonic ultra2 = new Ultrasonic(RobotMap.ultraPort2a, RobotMap.ultraPort2b);
 	
 	// time of flight sensors--DO LATER

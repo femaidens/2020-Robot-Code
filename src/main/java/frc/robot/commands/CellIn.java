@@ -32,19 +32,20 @@ public class CellIn extends Command{
   @Override
   protected void execute(){
     Intake.spinIn();
-    System.out.println("execute");
+    //System.out.println("execute");
   }
   
   
   @Override 
   protected boolean isFinished(){
-    return Hopper.ballPassedIn();
+    //return Hopper.ballPassedIn();
+    return false;
   }
       
       
   @Override 
   protected void end(){
-    double currentTime = timer.get();
+    /*double currentTime = timer.get();
     Hopper.spinIn();
     while (timer.get() - currentTime < 0.5) {
       Intake.spinStop();
@@ -52,17 +53,13 @@ public class CellIn extends Command{
     Hopper.spinStop();
     if (Hopper.numCells >= 5) {
       Intake.liftIntake();
-    }
+    }*/
+    Intake.spinStop();
   }
         
   @Override 
   protected void interrupted(){
-    double currentTime = timer.get();
-    Hopper.spinIn();
-    while (timer.get() - currentTime < 0.5) {
-      Intake.spinOut();
-    }
-    Hopper.spinStop();
+    //Hopper.spinStop();
     Intake.spinStop();
   }
 }

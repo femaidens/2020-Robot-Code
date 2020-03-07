@@ -40,11 +40,13 @@ import edu.wpi.first.wpilibj.Encoder;
 public class Shooter extends Subsystem {
   // motors
   //public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
-  public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
-  //public static CANSparkMax shooterNEO = new CANSparkMax(RobotMap.shooterPort, MotorType.kBrushless);
+  //public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
+ // public static CANSparkMax shooterNEO1 = new CANSparkMax(RobotMap.shooterPort1, MotorType.kBrushless);
+ // public static CANSparkMax shooterNEO2 = new CANSparkMax(RobotMap.shooterPort2, MotorType.kBrushless);
+
   //public static CANEncoder shooterEncoder = shooterNEO.getEncoder();
   //public static CANPIDController shooterPIDController = shooterNEO.getPIDController();
- // public static CANEncoder hoodEncoder = hood.getEncoder();
+  //public static CANEncoder hoodEncoder = hood.getEncoder();
   //public static CANPIDController hoodPIDController = hood.getPIDController();
   //public int currentLimit = 28;
   public static Encoder absoluteEncoder = new Encoder(0, 1, 2);
@@ -110,6 +112,8 @@ public class Shooter extends Subsystem {
     // on the off chance speed is in RPM, this code mightttttt not work
     //shooterPIDController.setReference(s, ControlType.kVelocity);
     //System.out.println("speed set");
+    //shooterNEO1.set(s);
+    //shooterNEO2.set(-s);
   }
   
   public static double getSpeed() {
