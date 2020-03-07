@@ -28,14 +28,14 @@ public class DriveDistance extends Command{
 	}
  
 	protected void initialize(){
-    currentZeroRight = Drivetrain.rightEncoder.getPosition();
-    currentZeroLeft = Drivetrain.leftEncoder.getPosition();
+    //currentZeroRight = Drivetrain.rightEncoder.getPosition();
+    //currentZeroLeft = Drivetrain.leftEncoder.getPosition();
 		Drivetrain.driveAuton(0,0);
 }	
     
 	protected void execute(){
     Drivetrain.driveAuton(speed,speed);
-		if((Drivetrain.rightEncoder.getPosition() - currentZeroRight) > (Drivetrain.leftEncoder.getPosition() - currentZeroLeft)){
+		/*if((Drivetrain.rightEncoder.getPosition() - currentZeroRight) > (Drivetrain.leftEncoder.getPosition() - currentZeroLeft)){
 			  Drivetrain.driveAuton(speed+0.1,speed);
 		}
 
@@ -45,17 +45,18 @@ public class DriveDistance extends Command{
 		
 		else{
 			Drivetrain.driveAuton(speed,speed);
-		}
+		}*/
 }
 
 	protected boolean isFinished(){
-    		if((Drivetrain.rightEncoder.getPosition() - currentZeroLeft) < distance && (Drivetrain.leftEncoder.getPosition() - currentZeroRight) < distance == true){
+		return false;
+    		/*if((Drivetrain.rightEncoder.getPosition() - currentZeroLeft) < distance && (Drivetrain.leftEncoder.getPosition() - currentZeroRight) < distance == true){
 			return false;
 		}
 
 		else{
 			return true;
-		}
+		}*/
 	}
 
 	protected void end(){

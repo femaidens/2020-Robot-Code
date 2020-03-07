@@ -8,6 +8,8 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 public class ShiftToSpeed extends Command {
   public ShiftToSpeed() {
@@ -23,9 +25,11 @@ public class ShiftToSpeed extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    /*if(Robot.drivetrain.get().equals(Value.kReverse)|| Robot.drivetrain.get().equals(Value.kOff)){
-      Robot.drivetrain.shiftToSpeed();
-    } */
+    
+    //if(Robot.drivetrain.get().equals(DoubleSolenoid.Value.kReverse)|| Robot.drivetrain.get().equals(DoubleSolenoid.Value.kOff)){
+     // Robot.drivetrain.shiftToSpeed();
+   // } 
+   Robot.gearShift.set(DoubleSolenoid.Value.kReverse);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -37,6 +41,7 @@ public class ShiftToSpeed extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    //Robot.drivetrain.shiftToPower();
   }
 
   // Called when another command which requires one or more of the same

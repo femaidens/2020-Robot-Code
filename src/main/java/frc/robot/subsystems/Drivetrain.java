@@ -27,18 +27,18 @@ import frc.robot.commands.DriveTeleop;
  * Add your docs here.
  */
 public class Drivetrain extends Subsystem {
-  	public static CANSparkMax frontLeft = new CANSparkMax(RobotMap.frontLeftPort, MotorType.kBrushless);
+  	/*public static CANSparkMax frontLeft = new CANSparkMax(RobotMap.frontLeftPort, MotorType.kBrushless);
 	public static CANSparkMax frontRight = new CANSparkMax(RobotMap.frontRightPort, MotorType.kBrushless);
 	public static CANSparkMax rearLeft = new CANSparkMax(RobotMap.rearLeftPort, MotorType.kBrushless);
 	public static CANSparkMax rearRight = new CANSparkMax(RobotMap.rearRightPort, MotorType.kBrushless);
 	public static CANSparkMax middleLeft = new CANSparkMax(RobotMap.middleLeftPort, MotorType.kBrushless);
 	public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
-	
+	*/
 	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
 	//public static DoubleSolenoid gearShift = new DoubleSolenoid(RobotMap.solChannel1, RobotMap.solChannel2);
 
-	public static CANEncoder rightEncoder = frontRight.getEncoder();
-	public static CANEncoder leftEncoder = frontLeft.getEncoder();
+	//public static CANEncoder rightEncoder = frontRight.getEncoder();
+	//public static CANEncoder leftEncoder = frontLeft.getEncoder();
 
 	public static double FRactualInput;
 	public static double RRactualInput;
@@ -77,7 +77,7 @@ public class Drivetrain extends Subsystem {
   }
   
   public static void driveTeleop() {
-		System.out.println("we out here driving");
+	//	System.out.println("we out here driving");
 		
 		//current limiting 
 		int currentLimit = 17;
@@ -98,7 +98,7 @@ public class Drivetrain extends Subsystem {
 		middleLeft.setSecondaryCurrentLimit(secondaryCurrentLimit);*/
 
 		double targetLeftJoy = -OI.driveJoystick.getRawAxis(1); // postive originally, negated
-		double targetRightJoy = -OI.driveJoystick.getRawAxis(5); // negative originally
+		double targetRightJoy = OI.driveJoystick.getRawAxis(5); // negative originally
 		double upRate = 0.01;
 		
 		//Only use downRate if you need to ramp down at a different rate
@@ -109,26 +109,26 @@ public class Drivetrain extends Subsystem {
 		
 		
 	
-		if((targetRightJoy - rearRight.get()) < -upRate){
+		/*if((targetRightJoy - rearRight.get()) < -upRate){
 			RRactualInput -= upRate;
 
-		}
+		}*/
 
 		//Only use this if you need to ramp down
 		/*else if(rearRight.get() - targetRightJoy > downRate){
 			actualInput -= downRate;
 		}
 */
-		else{
+		/*else{
 			RRactualInput = targetRightJoy;
 		}
 		
 
-		if((targetRightJoy - middleRight.get()) < -upRate){
+		/*if((targetRightJoy - middleRight.get()) < -upRate){
 			MRactualInput -= upRate;
 			
 
-		}
+		}*/
 	
 
 		//Only use this if you need to ramp down
@@ -136,47 +136,47 @@ public class Drivetrain extends Subsystem {
 			actualInput -= downRate;
 		}*/
 
-		else{
+		/*else{
 			MRactualInput = targetRightJoy;
 		}
 
 		if((targetRightJoy - frontRight.get()) < -upRate){
 			FRactualInput -= upRate;
-		}
+		}*/
 
 		//Only use this if you need to ramp down
 		/*else if(rearRight.get() - targetRightJoy > downRate){
 			actualInput -= downRate;
 		}*/
 
-		else{
+		/*else{
 			FRactualInput = targetRightJoy;
 		}
 
 
 		if((targetLeftJoy - rearLeft.get()) > upRate){
 			RLactualInput += upRate;
-		}
+		}*/
 
 		//Only use this if you need to ramp down
 		/*else if(rearRight.get() - targetRightJoy > downRate){
 			actualInput -= downRate;
 		}
 */
-		else{
+		/*else{
 			RLactualInput = targetLeftJoy;
 		}
 
 		if((targetLeftJoy - middleLeft.get()) > upRate){
 			MLactualInput += upRate;
-		}
+		}*/
 
 		//Only use this if you need to ramp down
 		/*else if(rearRight.get() - targetRightJoy > downRate){
 			actualInput -= downRate;
 		}*/
 
-		else{
+		/*else{
 			MLactualInput = targetLeftJoy;
 		}
 
@@ -189,10 +189,10 @@ public class Drivetrain extends Subsystem {
 			actualInput -= downRate;
 		}*/
 
-		else{
+		/*else{
 			FLactualInput = targetLeftJoy;
 
-		}
+		}*/
 		
 		//WITH Voltage Ramping
 		//if(gearShift.get() == DoubleSolenoid.Value.kForward){
@@ -208,19 +208,19 @@ public class Drivetrain extends Subsystem {
 		//WITHOUT voltage ramping
 		//if(gearShift.get() == DoubleSolenoid.Value.kReverse){}
 		
-		frontRight.set(targetRightJoy);
+		/*frontRight.set(targetRightJoy);
 		rearRight.set(-targetRightJoy);
 		middleRight.set(targetRightJoy);
 		frontLeft.set(targetLeftJoy);
 		rearLeft.set(-targetLeftJoy);
 		middleLeft.set(targetLeftJoy);
-		
-		System.out.println(frontRight.get());
-		System.out.println(rearRight.get());
-		System.out.println(middleRight.get());
-		System.out.println(frontLeft.get());
-		System.out.println(rearLeft.get());
-		System.out.println(middleLeft.get());
+		*/
+		//System.out.println(frontRight.get());
+		//System.out.println(rearRight.get());
+		//System.out.println(middleRight.get());
+		//System.out.println(frontLeft.get());
+		//System.out.println(rearLeft.get());
+		//System.out.println(middleLeft.get());
 
 
 
@@ -249,23 +249,23 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public static void driveAuton(final double rightSpeed, final double leftSpeed) {
-		frontRight.set(rightSpeed);
+		/*frontRight.set(rightSpeed);
 		rearRight.set(rightSpeed);
 		frontLeft.set(leftSpeed);
 		rearLeft.set(leftSpeed);
 		middleLeft.set(leftSpeed);
 		middleRight.set(rightSpeed);	
 		SmartDashboard.putNumber("Left motor speed", leftEncoder.getPosition());
-		SmartDashboard.putNumber("Right motor speed", rightEncoder.getPosition());
+		SmartDashboard.putNumber("Right motor speed", rightEncoder.getPosition());*/
 	}
 
 	public static void driveStraight(double speed) {
 		// convert speed to RPM
 		double rpm = speed * 5700;
-		double leftVel = leftEncoder.getVelocity();
-		double rightVel = rightEncoder.getVelocity();
+		/*double leftVel = leftEncoder.getVelocity();
+		double rightVel = rightEncoder.getVelocity();*/
 
-		double leftError = leftVel - rpm;
+		/*double leftError = leftVel - rpm;
 		double rightError = rightVel - rpm;
 		double timeSpan = Timer.getFPGATimestamp() - lastTime;
 		lastTime = Timer.getFPGATimestamp();
@@ -282,7 +282,7 @@ public class Drivetrain extends Subsystem {
 		driveAuton(leftSpeed / 5700, rightSpeed / 5700);
 
 		lastLeftError = leftError;
-		lastRightError = rightError;
+		lastRightError = rightError;*/
 	}
 
 	public static void turnDegrees(final double angle) {
@@ -317,7 +317,7 @@ public static void shiftToPower(){
 	//Low Gear
 	//gearShift.set(DoubleSolenoid.Value.kReverse);
 }
-public static void get() {
+/*public static DoubleSolenoid.Value get() {
 	//return gearShift.get(); 
-}
+}*/
 }

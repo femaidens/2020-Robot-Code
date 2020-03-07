@@ -30,6 +30,7 @@ public class DriveAuton extends Command {
   @Override
   protected void execute() {
     Robot.drivetrain.driveAuton(leftSpeed, rightSpeed);   
+    System.out.println("drive auton running");
   }
 
   // Make this return true when this Command no longer needs to run execute()

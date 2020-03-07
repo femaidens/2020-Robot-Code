@@ -16,6 +16,9 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.ScheduleCommand;
 import frc.robot.commands.DriveTeleop;
 import frc.robot.subsystems.Drivetrain;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -31,6 +34,10 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static Drivetrain drivetrain;
   public static OI m_oi;
+  public static Compressor comp;
+  public static PowerDistributionPanel pdp;
+  public static DoubleSolenoid gearShift;
+
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
@@ -46,6 +53,12 @@ public class Robot extends TimedRobot {
     m_oi.bindButtons();
     System.out.println("init");
     drivetrain.setDefaultCommand(new DriveTeleop());
+    gearShift = new DoubleSolenoid(0, RobotMap.solChannel1, RobotMap.solChannel2);
+    comp = new Compressor(0);
+    //System.out.println(comp.getClosedLoopControl());
+    //comp.start();
+    System.out.println("pressure switch" + comp.getPressureSwitchValue());
+   // System.out.println(comp.enabled());
   }
 
   /**

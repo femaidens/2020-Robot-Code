@@ -15,6 +15,7 @@ public class AutonCommand extends CommandGroup {
    */
   public AutonCommand() {
     addSequential(new DriveAuton(0.3,0.3));
+    System.out.println("AUTON COMMAND RUNNING");
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
