@@ -66,7 +66,7 @@ public class Hopper extends Subsystem {
 	public static int currentCellCount() {
 		return numCells;
 	}
-
+	
 	/*public static void checkUltra() {
 		ultra1.setAutomaticMode(true);
 		if(numCells == 5){
@@ -103,55 +103,50 @@ public class Hopper extends Subsystem {
 			if(first > second && second < third && second < 5){
 				increaseCellCount();
 			}
-		/*if(ultra2.getRangeMM() < 5){
-			decreaseCellCount();
+			/*if(ultra2.getRangeMM() < 5){
+				decreaseCellCount();
+			}
+			System.out.println(first);
+			System.out.println(second);
+			System.out.println(third);
+			System.out.println(numCells);
+		}*/
+		
+		// Not done check logic and fix
+		public static void ballPassedIn(){
+			if(ultra1.getRangeMM() < 5 && numCells < 5){
+				spinIn();
+				while(ultra1.getRangeMM() < 5){
+					System.out.println("Ball");
+				}
+				spinStop();
+				numCells++;
+				if (numCells == 5) {
+					Intake.liftIntake();
+				}
+			}
 		}
-		System.out.println(first);
-		System.out.println(second);
-		System.out.println(third);
-		System.out.println(numCells);
-	}*/
-
-	// Not done check logic and fix
-	public static boolean ballPassedIn(){
-		/*if(ultra1.getRangeMM() < 5 && numCells < 5){
-			spinIn();
-			while(ultra1.getRangeMM() < 5){
-				System.out.println("Ball");
+		
+		public static boolean ballPassedOut(){
+			/*
+			if(ultra2.getRangeMM() < 5 && numCells > 0){
+				while(ultra2.getRangeMM() < 5){
+					System.out.println("Ball");
+				}
+				spinStop();
+				numCells--;
+				return true;
 			}
-			spinStop();
-			numCells++;
-			if (numCells == 5) {
-				Intake.liftIntake();
-			}
+			else {
+				return false;
+			}*/
 			return true;
 		}
-		else {
-			return false;
-		}*/
-		return true;
-	}
-
-	public static boolean ballPassedOut(){
-		/*
-		spinIn();
-		if(ultra2.getRangeMM() < 5 && numCells > 0){
-			while(ultra2.getRangeMM() < 5){
-				System.out.println("Ball");
-			}
-			spinStop();
-			numCells--;
-			return true;
+		
+		@Override
+		public void initDefaultCommand() {
+			// Set the default command for a subsystem here.
+			// setDefaultCommand(new MySpecialCommand());
 		}
-		else {
-			return false;
-		}*/
-		return true;
 	}
 	
-	@Override
-	public void initDefaultCommand() {
-		// Set the default command for a subsystem here.
-		// setDefaultCommand(new MySpecialCommand());
-	}
-}

@@ -10,7 +10,6 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.Intake;
 
-
 public class LiftIntake extends Command {
   public LiftIntake() {
     // Use requires() here to declare subsystem dependencies

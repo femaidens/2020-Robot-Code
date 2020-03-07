@@ -24,9 +24,7 @@ import frc.robot.subsystems.Shooter;
  * Add your docs here.
  */
 public class OI {
-
     public static Joystick joy = new Joystick(0);
-    public static Button intake = new JoystickButton(joy, 1);
     //public static Button liftLift = new JoystickButton(joy, 1);
     //public static Button lowerLift = new JoystickButton(joy, 3);
     //public static Button shoot = new JoystickButton(joy, 2);
@@ -36,19 +34,17 @@ public class OI {
     //public static Button intake = new JoystickButton(joy, 1);
     //public static Button test = new JoystickButton(joy, 1);
 
-	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
+	//public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 	//public static Button driveStr = new JoystickButton(driveJoystick, 2);
 	//public static Button motorTest = new JoystickButton(driveJoystick, 1);
 	//public static Button currentLimit = new JoystickButton(driveJoystick, 1);
- // public static Button driveStraight = new JoystickButton(driveJoystick, 1);
-  //public static Button testMotors = new JoystickButton(driveJoystick, 1);
 
 	public void bindButtons(){
 		//driveStr.whenPressed(new DriveStraight());
 		//motorTest.whenPressed(new DriveAuton(0.25, 0.25));
 		//currentLimit.whileHeld(new DriveTeleop());
-    //  driveStraight.whenPressed(new DriveDistance(0.3, 200.0));
-    intake.whileHeld(new CellIn());
-		
+      //  driveStraight.whenPressed(new DriveDistance(0.3, 200.0));
+        intake.whileHeld(new CellIn());
+		//shoot.whileHeld(new SpinShooterNEO(100));
 	}
 }
