@@ -23,7 +23,7 @@ public class HopperCellOut extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    spinIn();
+    Hopper.spinIn();
   }
 
   // Make this return true when this Command no longer needs to run execute()

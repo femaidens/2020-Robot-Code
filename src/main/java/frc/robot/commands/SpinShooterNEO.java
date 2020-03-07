@@ -23,14 +23,9 @@ public class SpinShooterNEO extends Command{
   
   @Override
   protected void execute(){
-<<<<<<< HEAD
-    //Shooter.spinShooter(speed);
-   // Shooter.hood.set(speed);
-=======
     System.out.println("spinning");
     Shooter.spinShooter(speed);
     //Shooter.hood.set(speed);
->>>>>>> 328d784f0060ba51dbf0902c92ff6e83ada4fbcf
   }
   
   @Override

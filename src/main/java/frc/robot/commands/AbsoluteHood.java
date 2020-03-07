@@ -18,11 +18,7 @@ public class AbsoluteHood extends Command {
   @Override
   protected void initialize() {
     System.out.println("Moving");
-<<<<<<< HEAD
-   // Shooter.hood.set(0.1);
-=======
     //Shooter.hood.set(0.1);
->>>>>>> 328d784f0060ba51dbf0902c92ff6e83ada4fbcf
   }
   
   // Called repeatedly when this Command is scheduled to run

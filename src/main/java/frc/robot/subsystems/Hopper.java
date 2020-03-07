@@ -114,7 +114,7 @@ public class Hopper extends Subsystem {
 		
 		// Not done check logic and fix
 		public static void ballPassedIn(){
-			if(ultra1.getRangeMM() < 5 && numCells < 5){
+			/*if(ultra1.getRangeMM() < 5 && numCells < 5){
 				spinIn();
 				while(ultra1.getRangeMM() < 5){
 					System.out.println("Ball");
@@ -124,7 +124,7 @@ public class Hopper extends Subsystem {
 				if (numCells == 5) {
 					Intake.liftIntake();
 				}
-			}
+			}*/
 		}
 		
 		public static boolean ballPassedOut(){

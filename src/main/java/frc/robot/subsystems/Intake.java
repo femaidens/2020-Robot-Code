@@ -26,15 +26,10 @@ import frc.robot.RobotMap;
 */
 //Intake Subsystem -- DO LATER WHEN WE KNOW WHAT’S HAPPENING
 public class Intake extends Subsystem {
-<<<<<<< HEAD
-  //public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
- // public static CANSparkMax intake2 = new CANSparkMax(RobotMap.intake2, MotorType.kBrushless); //test (easier for me)
-=======
   public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
   public static CANEncoder intakeEncoder = intake.getEncoder();
   public static CANPIDController intakePIDController = intake.getPIDController();
   // public static CANSparkMax intake2 = new CANSparkMax(RobotMap.intake2, MotorType.kBrushless); //test (easier for me)
->>>>>>> 328d784f0060ba51dbf0902c92ff6e83ada4fbcf
   /*public static CANSparkMax lift = new CANSparkMax(RobotMap.lift, MotorType.kBrushless);
   public static CANEncoder liftEncoder = lift.getEncoder();
   public static CANPIDController liftPID = lift.getPIDController();*/
@@ -65,15 +60,10 @@ public class Intake extends Subsystem {
   */
   
   public static void spinIn() {
-<<<<<<< HEAD
-    System.out.println("spin in");
-    //intake.set(-0.3);
-=======
     //System.out.println("spin in");
     intakePIDController.setReference(-800, ControlType.kVelocity);
     System.out.println(intakeEncoder.getVelocity());
     
->>>>>>> 328d784f0060ba51dbf0902c92ff6e83ada4fbcf
     //intake2.set(-0.5);//test for shooter (easier for me)
     //double currentTicks = liftEncoder.getPosition();
     // change 5 with testing
