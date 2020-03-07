@@ -8,7 +8,7 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 
 public class Limelight extends Subsystem {
 
-  public static final double K = 217.16376556;
+  public static final double K = 241.2092673272137;
   public static NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
 
   public static NetworkTableEntry tv = table.getEntry("tv"); // any valid targets? (0 for no target, 1 for target) 
@@ -17,7 +17,7 @@ public class Limelight extends Subsystem {
   public static NetworkTableEntry ts = table.getEntry("ts"); // skew or rotation (-90 to 0 degrees)
 
   public Limelight(){
-    setLiveStream(1);
+    setLiveStream(0);
   }
   
   public static boolean objectSighted(){
@@ -59,6 +59,7 @@ public class Limelight extends Subsystem {
     return ta.getDouble(0.0);
   }
   public static double getDistance(){
+    //return Math.sqrt(getArea())*96;
     return K/Math.sqrt(getArea());
   }
 

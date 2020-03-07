@@ -18,18 +18,18 @@ public class AbsoluteHood extends Command {
   @Override
   protected void initialize() {
     System.out.println("Moving");
-    Shooter.hood.set(0.1);
+   // Shooter.hood.set(0.1);
   }
   
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double initial = Shooter.absoluteEncoder.get();
+    /*double initial = Shooter.absoluteEncoder.get();
     if(initial > Shooter.absoluteEncoder.get()){
       rev++;
     }
     System.out.println(Shooter.absoluteEncoder.get());
-    System.out.println(rev);
+    System.out.println(rev);*/
   }
   
   // Make this return true when this Command no longer needs to run execute()
@@ -43,13 +43,13 @@ public class AbsoluteHood extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Shooter.hood.set(0.0);
+    //Shooter.hood.set(0.0);
   }
   
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-   Shooter.hood.set(0.0);
+   //Shooter.hood.set(0.0);
   }
 }

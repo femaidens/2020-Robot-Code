@@ -17,6 +17,7 @@ import frc.robot.commands.CellOut;
 import frc.robot.commands.CountUltra;
 import frc.robot.commands.LiftIntake;
 import frc.robot.commands.LowerIntake;
+import frc.robot.commands.MoveHood;
 import frc.robot.commands.SpinShooterNEO;
 import frc.robot.subsystems.Shooter;
 
@@ -26,7 +27,7 @@ import frc.robot.subsystems.Shooter;
 public class OI {
 
     public static Joystick joy = new Joystick(0);
-    public static Button intake = new JoystickButton(joy, 1);
+    //public static Button intake = new JoystickButton(joy, 1);
     //public static Button liftLift = new JoystickButton(joy, 1);
     //public static Button lowerLift = new JoystickButton(joy, 3);
     //public static Button shoot = new JoystickButton(joy, 2);
@@ -40,14 +41,15 @@ public class OI {
 	//public static Button driveStr = new JoystickButton(driveJoystick, 2);
 	//public static Button motorTest = new JoystickButton(driveJoystick, 1);
 	//public static Button currentLimit = new JoystickButton(driveJoystick, 1);
-	public static Button driveStraight = new JoystickButton(driveJoystick, 1);
+	//public static Button driveStraight = new JoystickButton(driveJoystick, 1);
 
 	public void bindButtons(){
 		//driveStr.whenPressed(new DriveStraight());
 		//motorTest.whenPressed(new DriveAuton(0.25, 0.25));
 		//currentLimit.whileHeld(new DriveTeleop());
       //  driveStraight.whenPressed(new DriveDistance(0.3, 200.0));
-        intake.whileHeld(new CellIn());
+		//intake.whileHeld(new CellIn());
+		hood.whenPressed(new MoveHood());
 
 		
 	}
