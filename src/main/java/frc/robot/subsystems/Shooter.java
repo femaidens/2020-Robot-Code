@@ -57,6 +57,7 @@ public class Shooter extends Subsystem {
   public static double speed;
   
   public Shooter() {
+<<<<<<< HEAD
     shooterPIDController.setP(4e-4);
     shooterPIDController.setI(0);
     shooterPIDController.setD(1e-4);
@@ -64,6 +65,14 @@ public class Shooter extends Subsystem {
     shooterPIDController.setFF(0);
     shooterPIDController.setOutputRange(0, 1);
     
+=======
+    shooterPIDController.setP(5e-4);
+    shooterPIDController.setI(1e-7); //1e-6
+    shooterPIDController.setD(0); //1e-2
+    shooterPIDController.setIZone(0);
+    shooterPIDController.setFF(0);
+    shooterPIDController.setOutputRange(0, 1);
+>>>>>>> 95f1ebd6b67b5d3e87121ef13b88d5a3d11d401d
     /*hoodPIDController.setP(0.05);
     hoodPIDController.setI(1e-5);
     hoodPIDController.setD(1e-3);
@@ -122,9 +131,13 @@ public class Shooter extends Subsystem {
     // on the off chance speed is in RPM, this code mightttttt not work
     shooterPIDController.setReference(s, ControlType.kVelocity);
     System.out.println(shooterEncoder.getVelocity());
+<<<<<<< HEAD
     //shooterNEO1.set(-s/6000);
     shooterNEO2.follow(shooterNEO1, true);
   
+=======
+    shooterNEO2.follow(shooterNEO1, true);
+>>>>>>> 95f1ebd6b67b5d3e87121ef13b88d5a3d11d401d
   }
   
   public static double getSpeed() {

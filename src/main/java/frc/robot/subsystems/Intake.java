@@ -76,7 +76,7 @@ public class Intake extends Subsystem {
   }
   
   public static void spinStop() {
-    intake.set(0);
+    //intake.set(0);
     //lift.set(0);
   }
   

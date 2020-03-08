@@ -13,8 +13,13 @@ package frc.robot;
 public class RobotMap {
     //public static int turretPort = 3;
    // public static int hoodPort = 16;
+<<<<<<< HEAD
     public static int shooterPort1 = 12; //6
     public static int shooterPort2 = 16;
+=======
+    public static int shooterPort1 = 16; //6
+    public static int shooterPort2 = 12;
+>>>>>>> 95f1ebd6b67b5d3e87121ef13b88d5a3d11d401d
     
     //public static int beltPort1 = 1;
     public static int beltPort2 = 2;
