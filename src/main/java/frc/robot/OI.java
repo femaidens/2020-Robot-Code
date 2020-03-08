@@ -46,12 +46,7 @@ public class OI {
 		//currentLimit.whileHeld(new DriveTeleop());
       //  driveStraight.whenPressed(new DriveDistance(0.3, 200.0));
         //intake.whileHeld(new CellIn());
-<<<<<<< HEAD
         shoot.whileHeld(new SpinShooterNEO(600));
        // turret.whileHeld(new AlignTurret_PID(0.2));
   }
-=======
-		shoot.whileHeld(new SpinShooterNEO(500));
-	}
->>>>>>> 95f1ebd6b67b5d3e87121ef13b88d5a3d11d401d
 }
