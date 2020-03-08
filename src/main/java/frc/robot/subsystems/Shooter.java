@@ -41,10 +41,10 @@ public class Shooter extends Subsystem {
   // motors
   //public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
   //public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
-  //public static CANSparkMax shooterNEO1 = new CANSparkMax(RobotMap.shooterPort1, MotorType.kBrushless);
-  //public static CANSparkMax shooterNEO2 = new CANSparkMax(RobotMap.shooterPort2, MotorType.kBrushless);
-  //public static CANEncoder shooterEncoder = shooterNEO1.getEncoder();
-  //public static CANPIDController shooterPIDController = shooterNEO1.getPIDController();
+  public static CANSparkMax shooterNEO1 = new CANSparkMax(RobotMap.shooterPort1, MotorType.kBrushless);
+  public static CANSparkMax shooterNEO2 = new CANSparkMax(RobotMap.shooterPort2, MotorType.kBrushless);
+  public static CANEncoder shooterEncoder = shooterNEO1.getEncoder();
+  public static CANPIDController shooterPIDController = shooterNEO1.getPIDController();
  // public static CANEncoder hoodEncoder = hood.getEncoder();
   //public static CANPIDController hoodPIDController = hood.getPIDController();
   //public int currentLimit = 28;
@@ -57,12 +57,13 @@ public class Shooter extends Subsystem {
   public static double speed;
   
   public Shooter() {
-    /*shooterPIDController.setP(1e-4);
-    shooterPIDController.setI(1e-6);
-    shooterPIDController.setD(1e-2);
+    shooterPIDController.setP(4e-4);
+    shooterPIDController.setI(0);
+    shooterPIDController.setD(1e-4);
     shooterPIDController.setIZone(0);
     shooterPIDController.setFF(0);
-    shooterPIDController.setOutputRange(-1, 0);*/
+    shooterPIDController.setOutputRange(0, 1);
+    
     /*hoodPIDController.setP(0.05);
     hoodPIDController.setI(1e-5);
     hoodPIDController.setD(1e-3);
@@ -86,11 +87,10 @@ public class Shooter extends Subsystem {
   }
   
   
-  /*public static void spinTurret(double speed) {
-    // double s = joy.getRawAxis(1);
-    turret.set(speed);
+  public static void spinTurret(double speed) {
+    //turret.set(speed);
   }
-  */
+  
 
   /*public static void spinHood(double speed){
     double s = joy.getRawAxis(1);
@@ -98,20 +98,33 @@ public class Shooter extends Subsystem {
   }*/
 
 
-  public static void adjustHood(double desiredTicks) {
+  public static void adjustHood(double desiredRevs) {
+   // double current = 0.0;
+    //hood.set(0.2);
     //hoodPIDController.setReference(desiredTicks, ControlType.kPosition);
    /* while (absoluteEncoder.getDistance() != desiredTicks){
 			if(absoluteEncoder.getDistance() < desiredTicks){
         hood.set(0.5);
       }
     } */
+    /*double initial = Shooter.absoluteEncoder.get();
+    while((int)desiredRevs!=current){
+      if(initial > Shooter.absoluteEncoder.get()){
+        current++;
+      }
+    }
+    while(desiredRevs-current > Shooter.absoluteEncoder.get()){
+    }
+    hood.set(0.0);*/
   }
 
   public static void spinShooter(double s) {
     // on the off chance speed is in RPM, this code mightttttt not work
-    /*shooterPIDController.setReference(s, ControlType.kVelocity);
+    shooterPIDController.setReference(s, ControlType.kVelocity);
     System.out.println(shooterEncoder.getVelocity());
-    shooterNEO2.follow(shooterNEO1, true);*/
+    //shooterNEO1.set(-s/6000);
+    shooterNEO2.follow(shooterNEO1, true);
+  
   }
   
   public static double getSpeed() {

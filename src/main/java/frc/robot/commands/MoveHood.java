@@ -14,7 +14,7 @@ import frc.robot.subsystems.Shooter;
 
 public class MoveHood extends Command {
 	public final double SPEED;
-	public final double CONVERSION = 10.0;
+	public final double CONVERSION = ((34/22.0)*(81))/360.0;
 	public double dx; //Total horizontal distance of the robot to the inner goal
 	public double dy = 2.0; //Max height of the parabola, just a placeholder 
 

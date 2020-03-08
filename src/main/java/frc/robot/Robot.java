@@ -34,7 +34,7 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static Shooter shooter;
   //public static Intake intake;
-  //public static Limelight limelight;
+  public static Limelight limelight;
   public static OI oi;
   //public static I2C i2c;
   //public static Hopper hopper;
@@ -55,7 +55,7 @@ public class Robot extends TimedRobot {
     //SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
     shooter = new Shooter();
     //intake = new Intake();
-    //limelight = new Limelight();
+    limelight = new Limelight();
     //i2c = new I2C();
     //hopper = new Hopper(3);
     oi = new OI();

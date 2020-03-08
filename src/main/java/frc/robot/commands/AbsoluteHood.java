@@ -5,11 +5,10 @@ import frc.robot.subsystems.Shooter;
 
 
 public class AbsoluteHood extends Command {
-
-  public double ticks;
-  public int rev = 0;
-  public AbsoluteHood(double desiredTicks) {
-    ticks = desiredTicks;
+  public double current = 0;
+  public double desiredrevs;
+  public AbsoluteHood(double revs) {
+    desiredrevs = revs;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -25,11 +24,17 @@ public class AbsoluteHood extends Command {
   @Override
   protected void execute() {
     /*double initial = Shooter.absoluteEncoder.get();
-    if(initial > Shooter.absoluteEncoder.get()){
-      rev++;
+    while((int)desiredrevs!=current){
+      if(initial > Shooter.absoluteEncoder.get()){
+        current++;
+      }
     }
+    while(desiredrevs-current > Shoot.absoluteEncoder.get()){
+
+    }
+
     System.out.println(Shooter.absoluteEncoder.get());
-    System.out.println(rev);*/
+    System.out.println(current);*/
   }
   
   // Make this return true when this Command no longer needs to run execute()
