@@ -14,7 +14,6 @@ import frc.robot.subsystems.Shooter;
 
 public class MoveHood extends Command {
 	public final double SPEED;
-	public final double CONVERSION = ((34/22.0)*(81))/360.0;
 	public double dx; //Total horizontal distance of the robot to the inner goal
 	public double dy = 31.0; //Vertical Distance
 
@@ -44,7 +43,6 @@ public class MoveHood extends Command {
 		System.out.println("Num: " + (dx*19.6));
 		System.out.println("Denom: " + SPEED*SPEED);
 		System.out.println("Angle: " + angle);*/
-		//double ticks = angle*CONVERSION;
 		//Shooter.adjustHood(ticks);
 		//Shooter.spinHood(speed);
 	}

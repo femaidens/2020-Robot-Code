@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -51,6 +52,7 @@ public class Robot extends TimedRobot {
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
     SmartDashboard.putNumber("Shooter Speed", Shooter.getSpeed());
+
     //SmartDashboard.putNumber("Shooter Speed (RPM, don't change)", Shooter.shooterEncoder.getVelocity());
     //SmartDashboard.putNumber("Hood Position", Shooter.hoodEncoder.getPosition());
     shooter = new Shooter();
@@ -60,7 +62,6 @@ public class Robot extends TimedRobot {
     //hopper = new Hopper(3);
     oi = new OI();
     oi.bindButtons();
-    
   }
 
   /**
