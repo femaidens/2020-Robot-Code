@@ -40,16 +40,16 @@ import edu.wpi.first.wpilibj.Encoder;
 public class Shooter extends Subsystem {
   // motors
   //public static CANSparkMax turret = new CANSparkMax(RobotMap.turretPort, MotorType.kBrushless);
-  //public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
-  public static CANSparkMax shooterNEO1 = new CANSparkMax(RobotMap.shooterPort1, MotorType.kBrushless);
-  public static CANSparkMax shooterNEO2 = new CANSparkMax(RobotMap.shooterPort2, MotorType.kBrushless);
-  public static CANEncoder shooterEncoder = shooterNEO1.getEncoder();
-  public static CANPIDController shooterPIDController = shooterNEO1.getPIDController();
+  public static CANSparkMax hood = new CANSparkMax(RobotMap.hoodPort, MotorType.kBrushless);
+  //public static CANSparkMax shooterNEO1 = new CANSparkMax(RobotMap.shooterPort1, MotorType.kBrushless);
+  //public static CANSparkMax shooterNEO2 = new CANSparkMax(RobotMap.shooterPort2, MotorType.kBrushless);
+  //public static CANEncoder shooterEncoder = shooterNEO1.getEncoder();
+  //public static CANPIDController shooterPIDController = shooterNEO1.getPIDController();
  // public static CANEncoder hoodEncoder = hood.getEncoder();
   //public static CANPIDController hoodPIDController = hood.getPIDController();
   //public int currentLimit = 28;
   //public static Encoder absoluteEncoder = new Encoder(0, 1, 2);
-  
+    public static DutyCycleEncoder absoluteEncoder = new DutyCycleEncoder(0);
   //public static DigitalInput limitSwitchLeft = new DigitalInput(RobotMap.limitSwitchPort2);
  // public static DigitalInput limitSwitchRight = new DigitalInput(RobotMap.limitSwitchPort3);
 
@@ -57,13 +57,13 @@ public class Shooter extends Subsystem {
   public static double speed;
   
   public Shooter() {
-    shooterPIDController.setP(4e-4);
+    /*shooterPIDController.setP(4e-4);
     shooterPIDController.setI(0);
     shooterPIDController.setD(1e-4);
     shooterPIDController.setIZone(0);
     shooterPIDController.setFF(0);
     shooterPIDController.setOutputRange(0, 1);
-    
+    */
     /*hoodPIDController.setP(0.05);
     hoodPIDController.setI(1e-5);
     hoodPIDController.setD(1e-3);
@@ -120,10 +120,10 @@ public class Shooter extends Subsystem {
 
   public static void spinShooter(double s) {
     // on the off chance speed is in RPM, this code mightttttt not work
-    shooterPIDController.setReference(s, ControlType.kVelocity);
-    System.out.println(shooterEncoder.getVelocity());
+    //shooterPIDController.setReference(s, ControlType.kVelocity);
+    //System.out.println(shooterEncoder.getVelocity());
     //shooterNEO1.set(-s/6000);
-    shooterNEO2.follow(shooterNEO1, true);
+    //shooterNEO2.follow(shooterNEO1, true);
   
   }
   

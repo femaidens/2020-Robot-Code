@@ -5,10 +5,10 @@ import frc.robot.subsystems.Shooter;
 
 
 public class AbsoluteHood extends Command {
-  public double current = 0;
-  public double desiredrevs;
-  public AbsoluteHood(double revs) {
-    desiredrevs = revs;
+  public double current;
+  public double position;
+  public AbsoluteHood(double position) {
+    this.position = position;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -23,18 +23,13 @@ public class AbsoluteHood extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    /*double initial = Shooter.absoluteEncoder.get();
-    while((int)desiredrevs!=current){
-      if(initial > Shooter.absoluteEncoder.get()){
-        current++;
-      }
+    current = Shooter.absoluteEncoder.get();
+    if(current > position){
+      Shooter.hood.set(-0.1);
+    }else if(current < position){
+      Shooter.hood.set(0.1);
     }
-    while(desiredrevs-current > Shoot.absoluteEncoder.get()){
-
-    }
-
     System.out.println(Shooter.absoluteEncoder.get());
-    System.out.println(current);*/
   }
   
   // Make this return true when this Command no longer needs to run execute()
@@ -42,13 +37,13 @@ public class AbsoluteHood extends Command {
   protected boolean isFinished() {
     //return Shooter.absoluteEncoder.get() > ticks; 
     //negative is positive velocity
-    return false;
+    return  Math.abs(position-current) < 0.001;
   }
   
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    //Shooter.hood.set(0.0);
+    Shooter.hood.set(0.0);
   }
   
   // Called when another command which requires one or more of the same
