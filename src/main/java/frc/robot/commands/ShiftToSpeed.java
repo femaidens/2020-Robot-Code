@@ -26,10 +26,10 @@ public class ShiftToSpeed extends Command {
   @Override
   protected void execute() {
     
-    //if(Robot.drivetrain.get().equals(DoubleSolenoid.Value.kReverse)|| Robot.drivetrain.get().equals(DoubleSolenoid.Value.kOff)){
-     // Robot.drivetrain.shiftToSpeed();
-   // } 
-   Robot.gearShift.set(DoubleSolenoid.Value.kReverse);
+    if(Robot.drivetrain.gearShift.get().equals(DoubleSolenoid.Value.kReverse)|| Robot.drivetrain.gearShift.get().equals(DoubleSolenoid.Value.kOff)){
+      Robot.drivetrain.shiftToSpeed();
+    } 
+  //Robot.gearShift.set(DoubleSolenoid.Value.kReverse);
   }
 
   // Make this return true when this Command no longer needs to run execute()

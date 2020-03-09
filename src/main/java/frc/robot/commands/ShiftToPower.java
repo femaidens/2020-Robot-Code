@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.subsystems.Drivetrain;
 
+
 public class ShiftToPower extends Command {
   public ShiftToPower() {
     // Use requires() here to declare subsystem dependencies
@@ -26,11 +27,12 @@ public class ShiftToPower extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-   //  if(Robot.drivetrain.get().equals(DoubleSolenoid.Value.kForward)|| Robot.drivetrain.get().equals(DoubleSolenoid.Value.kOff)){
-      //Robot.drivetrain.shiftToPower();
-   // }
+    if(Robot.drivetrain.gearShift.get().equals(DoubleSolenoid.Value.kForward)|| Robot.drivetrain.gearShift.get().equals(DoubleSolenoid.Value.kOff)){
+      Robot.drivetrain.shiftToPower();
+    }
    System.out.println("shift to power running");
    Robot.gearShift.set(DoubleSolenoid.Value.kForward);
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()

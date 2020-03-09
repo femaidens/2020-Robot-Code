@@ -27,15 +27,15 @@ import frc.robot.commands.DriveTeleop;
  * Add your docs here.
  */
 public class Drivetrain extends Subsystem {
-  	/*public static CANSparkMax frontLeft = new CANSparkMax(RobotMap.frontLeftPort, MotorType.kBrushless);
+  	public static CANSparkMax frontLeft = new CANSparkMax(RobotMap.frontLeftPort, MotorType.kBrushless);
 	public static CANSparkMax frontRight = new CANSparkMax(RobotMap.frontRightPort, MotorType.kBrushless);
 	public static CANSparkMax rearLeft = new CANSparkMax(RobotMap.rearLeftPort, MotorType.kBrushless);
 	public static CANSparkMax rearRight = new CANSparkMax(RobotMap.rearRightPort, MotorType.kBrushless);
 	public static CANSparkMax middleLeft = new CANSparkMax(RobotMap.middleLeftPort, MotorType.kBrushless);
 	public static CANSparkMax middleRight = new CANSparkMax(RobotMap.middleRightPort, MotorType.kBrushless);
-	*/
+	
 	//public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
-	//public static DoubleSolenoid gearShift = new DoubleSolenoid(RobotMap.solChannel1, RobotMap.solChannel2);
+	public static DoubleSolenoid gearShift = new DoubleSolenoid(RobotMap.solChannel1, RobotMap.solChannel2);
 
 	//public static CANEncoder rightEncoder = frontRight.getEncoder();
 	//public static CANEncoder leftEncoder = frontLeft.getEncoder();
@@ -208,13 +208,13 @@ public class Drivetrain extends Subsystem {
 		//WITHOUT voltage ramping
 		//if(gearShift.get() == DoubleSolenoid.Value.kReverse){}
 		
-		/*frontRight.set(targetRightJoy);
+		frontRight.set(targetRightJoy);
 		rearRight.set(-targetRightJoy);
 		middleRight.set(targetRightJoy);
 		frontLeft.set(targetLeftJoy);
 		rearLeft.set(-targetLeftJoy);
 		middleLeft.set(targetLeftJoy);
-		*/
+		
 		//System.out.println(frontRight.get());
 		//System.out.println(rearRight.get());
 		//System.out.println(middleRight.get());
@@ -317,7 +317,7 @@ public static void shiftToPower(){
 	//Low Gear
 	//gearShift.set(DoubleSolenoid.Value.kReverse);
 }
-/*public static DoubleSolenoid.Value get() {
-	//return gearShift.get(); 
-}*/
+public static DoubleSolenoid.Value get() {
+	return gearShift.get(); 
+}
 }
