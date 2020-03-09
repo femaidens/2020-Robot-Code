@@ -26,7 +26,7 @@ public class Hopper extends Subsystem {
 	// belt talons
 	//public static CANSparkMax belt1 = new CANSparkMax(RobotMap.beltPort1, MotorType.kBrushless);
 	//public static CANSparkMax belt2 = new CANSparkMax(RobotMap.beltPort2, MotorType.kBrushless);
-	public static Timer intakeTime = new Timer();
+	//public static Timer intakeTime = new Timer();
 	//public static DigitalInput echo = new DigitalInput(RobotMap.ultraEcho1);
 	//public static DigitalOutput trig = new DigitalOutput(RobotMap.ultraPing1);
 	//public static Ultrasonic ultra1 = new Ultrasonic(trig, echo);
@@ -38,7 +38,7 @@ public class Hopper extends Subsystem {
 	public static int numCells;
 	
 	public Hopper(int initialCellCount) {
-		numCells = initialCellCount;
+		//numCells = initialCellCount;
 	}
 	
 	// methods
@@ -54,11 +54,11 @@ public class Hopper extends Subsystem {
 	}
 	
 	public static void increaseCellCount() {
-		numCells++;
+		//numCells++;
 	}
 	
 	public static void decreaseCellCount() {
-		numCells--;
+		//numCells--;
 	}
 	
 	public static int currentCellCount() {

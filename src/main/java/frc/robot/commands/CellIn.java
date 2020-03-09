@@ -31,7 +31,7 @@ public class CellIn extends Command{
   
   @Override
   protected void execute(){
-    Hopper.ballPassedIn();
+    //Hopper.ballPassedIn();
 
     Intake.spinIn();
    // Hopper.spinIn();

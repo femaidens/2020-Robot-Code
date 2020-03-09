@@ -5,10 +5,10 @@ import frc.robot.subsystems.Shooter;
 
 
 public class AbsoluteHood extends Command {
-  public double current = 0;
-  public double desiredrevs;
+  //public double current = 0;
+  //public double desiredrevs;
   public AbsoluteHood(double revs) {
-    desiredrevs = revs;
+    //desiredrevs = revs;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -16,7 +16,7 @@ public class AbsoluteHood extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    System.out.println("Moving");
+    //System.out.println("Moving");
     //Shooter.hood.set(0.1);
   }
   

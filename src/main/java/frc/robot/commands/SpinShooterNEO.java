@@ -11,20 +11,20 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.Shooter;
 
 public class SpinShooterNEO extends Command{
-  public double speed;
+  //public double speed;
   public SpinShooterNEO(double s){
-    speed = s;
+    //speed = s;
   }
   
   @Override
   protected void initialize(){
-    System.out.println("initialized");
+    //System.out.println("initialized");
   }
   
   @Override
   protected void execute(){
-    System.out.println("spinning");
-    Shooter.spinShooter(speed);
+    //System.out.println("spinning");
+    //Shooter.spinShooter(speed);
     //Shooter.hood.set(speed);
   }
   
@@ -35,13 +35,13 @@ public class SpinShooterNEO extends Command{
   
   @Override
   protected void end(){
-    System.out.println("stop");
-    Shooter.spinShooter(0);
+    //System.out.println("stop");
+    //Shooter.spinShooter(0);
   }
   @Override
   protected void interrupted(){
-    System.out.println("stop");
-    Shooter.spinShooter(0);
+    //System.out.println("stop");
+    //Shooter.spinShooter(0);
   }
 }
   

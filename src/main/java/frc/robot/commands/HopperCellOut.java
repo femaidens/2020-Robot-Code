@@ -23,25 +23,26 @@ public class HopperCellOut extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Hopper.spinIn();
+    //Hopper.spinIn();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Hopper.ballPassedOut();
+    //return Hopper.ballPassedOut();
+    return true;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Hopper.spinStop();
+    //Hopper.spinStop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Hopper.spinStop();
+    //Hopper.spinStop();
   }
 }
