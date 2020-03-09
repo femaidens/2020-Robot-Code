@@ -61,9 +61,9 @@ public class Intake extends Subsystem {
   
   public static void spinIn() {
     //System.out.println("spin in");
-   // intakePIDController.setReference(-800, ControlType.kVelocity);
+   //intakePIDController.setReference(-800, ControlType.kVelocity);
    // System.out.println(intakeEncoder.getVelocity());
-    //intake.set(-0.1);
+    //intake.set(-0.25);
     //intake2.set(-0.5);//test for shooter (easier for me)
     //double currentTicks = liftEncoder.getPosition();
     // change 5 with testing
@@ -132,23 +132,6 @@ public class Intake extends Subsystem {
     //lift.set(ControlMode.PercentOutput, 0.0);
   }
   */
-/*public static TalonSRX intake = new TalonSRX(RobotMap.intake);
-
-public static void spinIn() {
-  intake.set(ControlMode.PercentOutput, 1.0);
-  
-}
-
-public static void spinStop() {
-  intake.set(ControlMode.PercentOutput, 0.0);
-}
-
-
-public static void spinOut() {
-  intake.set(ControlMode.PercentOutput, -1.0);
-  
-}
-*/
 
   @Override
   public void initDefaultCommand() {

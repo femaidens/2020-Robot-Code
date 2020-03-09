@@ -31,9 +31,9 @@ public class Shoot extends CommandGroup {
     // e.g. if Command1 requires chassis, and Command2 requires arm,
     // a CommandGroup containing them would require both the chassis and the
     // arm.
-    addParallel(new SpinShooterNEO(-5300));
+    /*addParallel(new SpinShooterNEO(-5300));
     if (Shooter.getSpeed() == -5300) {
       addSequential(new HopperCellOut());
-    }
+    }*/
   }
 }

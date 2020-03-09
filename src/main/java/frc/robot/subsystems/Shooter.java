@@ -63,8 +63,8 @@ public class Shooter extends Subsystem {
     shooterPIDController.setIZone(0);
     shooterPIDController.setFF(0);
     shooterPIDController.setOutputRange(0, 1);
-    */
-    /*hoodPIDController.setP(0.05);
+    
+    hoodPIDController.setP(0.05);
     hoodPIDController.setI(1e-5);
     hoodPIDController.setD(1e-3);
     hoodPIDController.setIZone(0);
