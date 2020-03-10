@@ -14,13 +14,13 @@ public class RobotMap {
     //public static int turretPort = 3;
     //public static int hoodPort = 16;
     public static int shooterPort1 = 16; //6
-    public static int shooterPort2 = 16;
+    //public static int shooterPort2 = 16;
     
     //public static int beltPort1 = 1;
     //public static int beltPort2 = 2;
     //public static int ultraPing1 = 0;
-    public static int ultraEcho1 = 1;
-	//public static int intake = 3;
+   // public static int ultraEcho1 = 1;
+	public static int intake = 12;
 
     //public static int lift = 7;
 

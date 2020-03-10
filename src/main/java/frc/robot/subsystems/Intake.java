@@ -26,8 +26,8 @@ import frc.robot.RobotMap;
 */
 //Intake Subsystem -- DO LATER WHEN WE KNOW WHAT’S HAPPENING
 public class Intake extends Subsystem {
-  //public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
- // public static CANEncoder intakeEncoder = intake.getEncoder();
+  public static CANSparkMax intake = new CANSparkMax(RobotMap.intake, MotorType.kBrushless);
+// public static CANEncoder intakeEncoder = intake.getEncoder();
   //public static CANPIDController intakePIDController = intake.getPIDController();
   // public static CANSparkMax intake2 = new CANSparkMax(RobotMap.intake2, MotorType.kBrushless); //test (easier for me)
   /*public static CANSparkMax lift = new CANSparkMax(RobotMap.lift, MotorType.kBrushless);
@@ -43,11 +43,11 @@ public class Intake extends Subsystem {
     liftPID.setIZone(0);
     liftPID.setFF(0);
     liftPID.setOutputRange(-0.2, 0.2);*/
-    /*intakePIDController.setP(1e-2);
-    intakePIDController.setI(1e-7);
-    intakePIDController.setD(1e-4);
+    /*intakePIDController.setP(1e-4);
+    intakePIDController.setI(0);
+    intakePIDController.setD(0);
     intakePIDController.setIZone(0);
-    intakePIDController.setFF(5e-4);
+    intakePIDController.setFF(0);
     intakePIDController.setOutputRange(-0.5, 0.5);*/
   }
   /*
@@ -61,9 +61,9 @@ public class Intake extends Subsystem {
   
   public static void spinIn() {
     //System.out.println("spin in");
-   //intakePIDController.setReference(-800, ControlType.kVelocity);
-   // System.out.println(intakeEncoder.getVelocity());
-    //intake.set(-0.25);
+    //intakePIDController.setReference(600, ControlType.kVelocity);
+    //System.out.println(intakeEncoder.getVelocity());
+    intake.set(-1.0);
     //intake2.set(-0.5);//test for shooter (easier for me)
     //double currentTicks = liftEncoder.getPosition();
     // change 5 with testing
@@ -76,7 +76,7 @@ public class Intake extends Subsystem {
   }
   
   public static void spinStop() {
-    //intake.set(0);
+    intake.set(0);
     //lift.set(0);
   }
   
