@@ -20,6 +20,7 @@ import frc.robot.commands.LowerIntake;
 import frc.robot.commands.MoveHood;
 import frc.robot.commands.SpinShooterNEO;
 import frc.robot.subsystems.Shooter;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Add your docs here.
@@ -39,7 +40,6 @@ public class OI {
 	//public static Button driveStr = new JoystickButton(driveJoystick, 2);
 	//public static Button motorTest = new JoystickButton(driveJoystick, 1);
 	//public static Button currentLimit = new JoystickButton(driveJoystick, 1);
-
 	public void bindButtons(){
 		//driveStr.whenPressed(new DriveStraight());
 		//motorTest.whenPressed(new DriveAuton(0.25, 0.25));
@@ -48,5 +48,6 @@ public class OI {
         intake.whileHeld(new CellIn());
         //shoot.whileHeld(new SpinShooterNEO(600));
        // turret.whileHeld(new AlignTurret_PID(0.2));
+    //hood.whenPressed(new AbsoluteHood());
   }
 }
