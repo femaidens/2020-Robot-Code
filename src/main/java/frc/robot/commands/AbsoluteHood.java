@@ -19,8 +19,7 @@ public class AbsoluteHood extends Command {
   public double time = 0.1;
 
   public AbsoluteHood(){
-    SmartDashboard.putNumber("Position", 0.0);
-    position = SmartDashboard.getNumber("Position", 0.0);
+    SmartDashboard.putNumber("Position", 0.0);    
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -35,20 +34,24 @@ public class AbsoluteHood extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    position = SmartDashboard.getNumber("Position", 0.0)*(0.75/180);
+    if(position > 180.0*(0.75/180) || position < 0.0){
+      return;
+    }
     previous_error = current_error;
-    current_error = Shooter.absoluteEncoder.get() - position;
+    //current_error = Shooter.absoluteEncoder.get() - position;
     integral = (current_error + previous_error) / 2 * time;
     derivative = (current_error - previous_error) / time;
     adjust = (KP * current_error + KI * integral + KD * derivative) * -0.1;
     System.out.println("Adjust: " + adjust);
-    Shooter.hood.set(adjust*100);
+    //Shooter.hood.set(adjust*100);
     /*current = Shooter.absoluteEncoder.get();
     if(current > position){
       Shooter.hood.set(-0.1);
     }else if(current < position){
       Shooter.hood.set(0.1);
     }*/
-    System.out.println(Shooter.absoluteEncoder.get());
+    //System.out.println(Shooter.absoluteEncoder.get());
 
 
   }
@@ -64,7 +67,7 @@ public class AbsoluteHood extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Shooter.hood.set(0.0);
+    //Shooter.hood.set(0.0);
   }
   
   // Called when another command which requires one or more of the same
